@@ -27,7 +27,7 @@ public class Main {
         pointE.setX(4);
         pointE.setY(7);
 
-        System.out.println("Point A: " + pointA.getX() + "; " + pointA.getY());
+        System.out.println("Pointa A: " + pointA.getX() + "; " + pointA.getY());
         System.out.println("Point B: " + pointB.getX() + "; " + pointB.getY());
         System.out.println("Distance between points: " + calculator.distance(pointA, pointB));
         System.out.println("Distance between x values of points: " + calculator.distanceX(pointA, pointB));
