@@ -9,7 +9,7 @@ public class Main {
 
         System.out.println("Podaj piewsza liczbe: ");
         number1 = scanner.nextInt();
-        System.out.println("Podaj druga liczbe: ");
+        System.out.println("Podaj druga liczbee: ");
         number2 = scanner.nextInt();
 
         System.out.println("Dodawanie: " + (number1+number2));
