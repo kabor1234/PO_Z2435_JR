@@ -14,4 +14,13 @@ public class Calculator {
         return sqrt(pow((b.getY()-a.getY()),2));
     }
 
+    double calculateAreaSum(){
+        return 0;
+    }
+
+    double calculatePerimeter(Shape shape1, Shape shape2) {
+        return shape1.area()+shape2.area();
+
+    }
+
 }
