@@ -11,7 +11,7 @@ public class Main {
         Point pointC = new Point();
         Point pointD = new Point();
 
-        pointA.setX(1);
+        pointA.setX(1); //asdasdas
         pointA.setY(1);
 
         pointB.setX(5);
