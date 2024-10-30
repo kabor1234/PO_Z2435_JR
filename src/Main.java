@@ -12,10 +12,10 @@ public class Main {
         Point pointD = new Point();
 
         pointA.setX(1);
-        pointA.setY(5);
+        pointA.setY(1);
 
         pointB.setX(5);
-        pointB.setY(5);
+        pointB.setY(1);
 
         pointC.setX(5);
         pointC.setY(5);
