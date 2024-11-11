@@ -12,6 +12,10 @@ public class Triangle extends Shape {
         this.a = pkt1;
         this.b = pkt2;
         this.c = pkt3;
+
+        if((pkt1 == pkt2) || (pkt1 == pkt3) || (pkt2 == pkt3)) {
+            throw new IllegalArgumentException("To nie jest trójkąt");
+        }
     }
 
     @Override
