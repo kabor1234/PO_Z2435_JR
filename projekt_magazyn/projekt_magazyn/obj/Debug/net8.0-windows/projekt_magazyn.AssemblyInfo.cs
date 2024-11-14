@@ -14,10 +14,12 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("projekt_magazyn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ab9098f72d5066c59716066519ce0ed1e35f67a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c42d7c95279576fc66cb824691456d35cba8a1d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("projekt_magazyn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("projekt_magazyn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
 // Wygenerowane przez klasę WriteCodeFragment programu MSBuild.
 
