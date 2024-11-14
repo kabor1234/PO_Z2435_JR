@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:projekt_magazyn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="WSiM" Height="450" Width="800">
     <Grid>
+        <Grid HorizontalAlignment="Left" Margin="445,0,0,0" VerticalAlignment="Center">
+            <Rectangle HorizontalAlignment="Left" Height="300" VerticalAlignment="Center" Width="300" RadiusX="0" RadiusY="0" StrokeThickness="0" Fill="#CCD3D3D3" Stroke="#7F000000" Panel.ZIndex="2"/>
+        </Grid>
+        <TextBlock Margin="90,0,0,146" TextWrapping="Wrap" Width="240" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="White" FontFamily="Segoe UI Semilight" FontSize="48"><Run Language="pl-pl" Text="Wynajem"/><LineBreak/><Run Language="pl-pl" Text="Sprzedaż"/><LineBreak/><Run Language="pl-pl" Text="i Magazyn"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="465,164,0,0" VerticalAlignment="Top" Width="260" TextChanged="TextBox_TextChanged_1" FontFamily="Segoe UI Semilight" FontSize="24" TextWrapping="Wrap"/>
+        <PasswordBox HorizontalAlignment="Left" Height="40" Margin="465,239,0,0" VerticalAlignment="Top" Width="260" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Height="47" Margin="504,80,0,0" VerticalAlignment="Top" Width="182" TextAlignment="Center" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="36"><Run Language="pl-pl" Text="Logowanie"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="465,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16" FontFamily="Segoe UI Semilight"><Run Language="pl-pl" Text="Login"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="465,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="140" FontFamily="Segoe UI Semilight" FontSize="16"><Run Language="pl-pl" Text="Hasło"/></TextBlock>
+        <Button Content="Zaloguj" HorizontalAlignment="Left" Height="20" Margin="556,302,0,0" VerticalAlignment="Top" Width="80" Background="White" FontFamily="Segoe UI Semilight"/>
 
     </Grid>
 </Window>
