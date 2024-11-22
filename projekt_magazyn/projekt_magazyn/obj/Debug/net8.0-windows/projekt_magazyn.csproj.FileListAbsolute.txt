@@ -3,11 +3,9 @@ C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\bin\Debu
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\bin\Debug\net8.0-windows\projekt_magazyn.runtimeconfig.json
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\bin\Debug\net8.0-windows\projekt_magazyn.dll
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\bin\Debug\net8.0-windows\projekt_magazyn.pdb
-C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn_MarkupCompile.cache
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn_MarkupCompile.lref
-C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn.g.resources
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn.AssemblyInfoInputs.cache
@@ -19,3 +17,5 @@ C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debu
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn.pdb
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\projekt_magazyn.genruntimeconfig.cache
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\ref\projekt_magazyn.dll
+C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\MainWindow.baml
