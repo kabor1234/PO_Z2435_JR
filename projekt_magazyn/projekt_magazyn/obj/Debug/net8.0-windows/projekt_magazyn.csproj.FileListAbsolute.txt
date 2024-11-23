@@ -20,3 +20,4 @@ C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debu
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\view\LoginView.g.cs
+C:\Users\Admin\source\repos\PO_Z2435_JR\projekt_magazyn\projekt_magazyn\obj\Debug\net8.0-windows\View\LoginView.baml

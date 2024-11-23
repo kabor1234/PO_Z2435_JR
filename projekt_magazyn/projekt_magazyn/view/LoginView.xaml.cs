@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace projekt_magazyn.view
+namespace projekt_magazyn.View
 {
     /// <summary>
     /// Interaction logic for LoginView.xaml
@@ -22,6 +22,17 @@ namespace projekt_magazyn.view
         public LoginView()
         {
             InitializeComponent();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void LoginTextBox(object sender, TextChangedEventArgs e)
+        {
+            // Implementacja zdarzenia (lub pozostaw puste, jeśli niepotrzebne)
         }
     }
 }
