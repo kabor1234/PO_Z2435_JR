@@ -9,18 +9,184 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown">
-    <Grid>
-        <Grid HorizontalAlignment="Left" Margin="445,0,0,0" VerticalAlignment="Center">
-        <Rectangle HorizontalAlignment="Left" Height="300" VerticalAlignment="Center" Width="300" RadiusX="0" RadiusY="0" StrokeThickness="0" Fill="#CCD3D3D3" Stroke="#7F000000" Panel.ZIndex="2"/>
-        </Grid>
-        <TextBlock Margin="90,0,0,146" TextWrapping="Wrap" Width="240" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="White" FontFamily="Segoe UI Semilight" FontSize="48"><Run Language="pl-pl" Text="Wynajem"/><LineBreak/><Run Language="pl-pl" Text="Sprzedaż"/><LineBreak/><Run Language="pl-pl" Text="i Magazyn"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="465,164,0,0" VerticalAlignment="Top" Width="260" TextChanged="LoginTextBox" FontFamily="Segoe UI Semilight" FontSize="24" TextWrapping="Wrap"/>
-        <PasswordBox HorizontalAlignment="Left" Height="40" Margin="465,239,0,0" VerticalAlignment="Top" Width="260" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="47" Margin="504,80,0,0" VerticalAlignment="Top" Width="182" TextAlignment="Center" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="36"><Run Language="pl-pl" Text="Logowanie"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="25" Margin="465,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="16" FontFamily="Segoe UI Semilight"><Run Language="pl-pl" Text="Login"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="465,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="140" FontFamily="Segoe UI Semilight" FontSize="16"><Run Language="pl-pl" Text="Hasło"/></TextBlock>
-        <Button Content="Zaloguj" HorizontalAlignment="Left" Height="20" Margin="556,302,0,0" VerticalAlignment="Top" Width="80" Background="White" FontFamily="Segoe UI Semilight"/>
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="True">
 
-    </Grid>
+    <Border CornerRadius="20"
+            Background="White"
+            BorderThickness="4">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#D3D3D3" Offset="0"/>
+                <GradientStop Color="#9E9E9E" Offset="0.75"/>
+                <GradientStop Color="#696969" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="logowanie"
+                           Foreground="DarkGray"
+                           FontSize="10"
+                           FontFamily="Montserrat"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+
+                <Button x:Name="buttonMinimize"
+                        Foreground="White"
+                        Background="LightGray"
+                        BorderThickness="0"
+                        Content="-"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Click="buttonMinimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="blue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                    CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="buttonClose"
+                        Foreground="White"
+                        Background="Red"
+                        BorderThickness="0"
+                        Content="X"
+                        FontSize="12"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Click="buttonClose_Click">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="blue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                    CornerRadius="9"
+                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <StackPanel Width="250"
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        Margin="370,30,0,30"
+                        Background="#80D3D3D3">
+                <TextBlock Text="Witamy w WSiM"
+                           Foreground="Black"
+                           FontSize="25"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           Margin="0,10,0,0"/>
+                
+                <TextBlock Text="Login"
+                           Foreground="Black"
+                           FontSize="20"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           TextWrapping="Wrap"
+                           Margin="15,45,0,0"/>
+
+                <TextBox x:Name="txtUser"
+                         FontSize="18"
+                         FontFamily="Montserrat"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="Black"
+                         BorderThickness="0,0,0,1"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="15,5,15,0"
+                         Padding="30,0,0,0">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user-icon.png" 
+                                    Stretch="Uniform"
+                                    AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+
+                <TextBlock Text="Hasło"
+           Foreground="Black"
+           FontSize="20"
+           FontWeight="Medium"
+           FontFamily="Montserrat"
+           TextWrapping="Wrap"
+           Margin="15,45,0,0"/>
+
+                <PasswordBox x:Name="passwordUser"
+                         FontSize="18"
+                         FontFamily="Montserrat"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="Black"
+                         BorderThickness="0,0,0,1"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="15,5,15,0"
+                         Padding="30,0,0,0">
+                    <PasswordBox.Background>
+                        <ImageBrush ImageSource="/Images/key-icon.png"
+                                    Stretch="Uniform"
+                                    AlignmentX="Left"/>
+
+                    </PasswordBox.Background>
+                    
+                </PasswordBox>
+
+            </StackPanel>
+        </Grid>
+
+
+
+
+
+    </Border>
+
 </Window>

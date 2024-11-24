@@ -34,5 +34,15 @@ namespace projekt_magazyn.View
         {
             // Implementacja zdarzenia (lub pozostaw puste, jeśli niepotrzebne)
         }
+
+        private void buttonMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
