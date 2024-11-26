@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:projekt_magazyn.View"
+        xmlns:ViewModel="clr-namespace:projekt_magazyn.ViewModel"
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="800"
         WindowStyle="None"
@@ -12,6 +13,18 @@
         MouseDown="Window_MouseDown"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.DataContext>
+        <ViewModel:LoginViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+
+        <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
 
     <Border CornerRadius="20"
             Background="White"
@@ -135,6 +148,7 @@
                            Margin="15,45,0,0"/>
 
                 <TextBox x:Name="txtUser"
+                         Text="{Binding Username}"
                          FontSize="18"
                          FontFamily="Montserrat"
                          FontWeight="Medium"
@@ -153,24 +167,24 @@
                 </TextBox>
 
                 <TextBlock Text="Hasło"
-           Foreground="Black"
-           FontSize="20"
-           FontWeight="Medium"
-           FontFamily="Montserrat"
-           TextWrapping="Wrap"
-           Margin="15,45,0,0"/>
+                           Foreground="Black"
+                           FontSize="20"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           TextWrapping="Wrap"
+                           Margin="15,45,0,0"/>
 
                 <PasswordBox x:Name="passwordUser"
-                         FontSize="18"
-                         FontFamily="Montserrat"
-                         FontWeight="Medium"
-                         Foreground="Black"
-                         CaretBrush="Black"
-                         BorderThickness="0,0,0,1"
-                         Height="28"
-                         VerticalAlignment="Center"
-                         Margin="15,5,15,0"
-                         Padding="30,0,0,0">
+                             FontSize="18"
+                             FontFamily="Montserrat"
+                             FontWeight="Medium"
+                             Foreground="Black"
+                             CaretBrush="Black"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalAlignment="Center"
+                             Margin="15,5,15,0"
+                             Padding="30,0,0,0">
                     <PasswordBox.Background>
                         <ImageBrush ImageSource="/Images/key-icon.png"
                                     Stretch="Uniform"
