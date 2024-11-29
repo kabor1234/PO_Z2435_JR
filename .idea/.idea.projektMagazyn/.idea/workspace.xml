@@ -7,7 +7,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="próba" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="comittest">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektMagazyn/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektMagazyn/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +45,9 @@
     &quot;accountId&quot;: &quot;6c0d5a62-21b9-42b6-917c-426d944712a1&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/MainWindow.xaml" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -79,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732909366134</updated>
-      <workItem from="1732909367162" duration="2836000" />
+      <workItem from="1732909367162" duration="3490000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -129,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732912094259</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="comittest">
+      <option name="closed" value="true" />
+      <created>1732912322734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732912322734</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +173,7 @@
     <MESSAGE value="cvcxvxc" />
     <MESSAGE value="zczc" />
     <MESSAGE value="próba" />
-    <option name="LAST_COMMIT_MESSAGE" value="próba" />
+    <MESSAGE value="comittest" />
+    <option name="LAST_COMMIT_MESSAGE" value="comittest" />
   </component>
 </project>
