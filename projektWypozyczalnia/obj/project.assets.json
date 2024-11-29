@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\projektMagazyn\\projektMagazyn\\projektMagazyn.csproj",
-      "projectName": "projektMagazyn",
-      "projectPath": "C:\\Users\\Admin\\RiderProjects\\projektMagazyn\\projektMagazyn\\projektMagazyn.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\projektMagazyn\\projektWypozyczalnia\\projektWypozyczalnia.csproj",
+      "projectName": "projektWypozyczalnia",
+      "projectPath": "C:\\Users\\Admin\\RiderProjects\\projektMagazyn\\projektWypozyczalnia\\projektWypozyczalnia.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\RiderProjects\\projektMagazyn\\projektMagazyn\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\RiderProjects\\projektMagazyn\\projektWypozyczalnia\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
