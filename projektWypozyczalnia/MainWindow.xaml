@@ -14,50 +14,33 @@
         WindowStyle="SingleBorderWindow">
         
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" /> 
-            <RowDefinition Height="1*" /> 
-            <RowDefinition Height="1*" /> 
-            <RowDefinition Height="1*" /> 
-            <RowDefinition Height="1*" /> 
-            <RowDefinition Height="50" /> 
-        </Grid.RowDefinitions>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        
-        <TextBlock Grid.Row="0" Grid.Column="1"  
-                   Text="Magazyn i wypożyczalnia" 
-                   FontFamily="Candara" 
-                   FontSize="18" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   Foreground="Black"/>
-        
-        <Button Grid.Row="1" Grid.Column="1"
-                x:Name="Rent"
-                Content="Wypożycz"
-                Margin="0,10,0,10" Click="Rent_OnClick" />
-        <Button Grid.Row="2" Grid.Column="1"
-                x:Name="Rental"
-                Content="Wypożyczenia"
-                Margin="0,10,0,10" Click="Rental_OnClick" />
-        <Button Grid.Row="3" Grid.Column="1"
-                x:Name="InventoryStatus"
-                Content="Stan magazynu"
-                Margin="0,10,0,10" Click="InventoryStatus_OnClick" />
-        <Button Grid.Row="4" Grid.Column="1"
-                x:Name="AddToInventory"
-                Content="Dodaj do magazynu"
-                Margin="0,10,0,10" Click="AddToInventory_OnClick" />
-        <Button Grid.Row="5" Grid.Column="1"
-                x:Name="Exit"
-                Content="Wyjdź z programu"
-                Margin="0,10,0,10" Click="Exit_OnClick" />
+
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <TextBlock
+                            Text="Magazyn i wypożyczalnia"
+                            FontFamily="Candara"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="Black" />
+
+                    <Button x:Name="Rent"
+                            Content="Wypożycz"
+                            Margin="0,10,0,10" Click="Rent_OnClick" />
+                    <Button x:Name="Rental"
+                            Content="Wypożyczenia"
+                            Margin="0,10,0,10" Click="Rental_OnClick" />
+                    <Button x:Name="InventoryStatus"
+                            Content="Stan magazynu"
+                            Margin="0,10,0,10" Click="InventoryStatus_OnClick" />
+                    <Button x:Name="AddToInventory"
+                            Content="Dodaj do magazynu"
+                            Margin="0,10,0,10" Click="AddToInventory_OnClick" />
+                    <Button x:Name="Exit"
+                            Content="Wyjdź z programu"
+                            Margin="0,10,0,10" Click="Exit_OnClick" />
+            </StackPanel>
 
     </Grid>
 </Window>

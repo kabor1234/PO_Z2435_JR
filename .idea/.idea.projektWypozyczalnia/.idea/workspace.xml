@@ -8,40 +8,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="asdasd">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/InventoryStatusWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/InventoryStatusWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentalWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentalWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektMagazyn/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektMagazyn/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="guziki i okienka">
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.baml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektMagazyn_MarkupCompile.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektMagazyn_MarkupCompile.lref" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia_MarkupCompile.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia_MarkupCompile.lref" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +125,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732909366134</updated>
       <workItem from="1732909367162" duration="1092000" />
-      <workItem from="1732985986696" duration="4099000" />
+      <workItem from="1732985986696" duration="4464000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -161,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732910197256</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="guziki i okienka">
+      <option name="closed" value="true" />
+      <created>1732990182445</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732990182445</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +163,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="push test" />
     <MESSAGE value="asdasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasd" />
+    <MESSAGE value="guziki i okienka" />
+    <option name="LAST_COMMIT_MESSAGE" value="guziki i okienka" />
   </component>
 </project>
