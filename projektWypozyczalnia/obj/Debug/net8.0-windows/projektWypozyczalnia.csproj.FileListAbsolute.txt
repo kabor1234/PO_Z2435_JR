@@ -19,3 +19,11 @@ C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\projektWypozyczalnia.pdb
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\projektWypozyczalnia.genruntimeconfig.cache
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\ref\projektWypozyczalnia.dll
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\rentWindow.g.cs
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\rentWindow.baml
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\RentalWindow.g.cs
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\RentalWindow.baml
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddToInventoryWindow.g.cs
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\InventoryStatusWindow.g.cs
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddToInventoryWindow.baml
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\InventoryStatusWindow.baml
