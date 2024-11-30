@@ -20,4 +20,33 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void Rent_OnClick(object sender, RoutedEventArgs e)
+    {
+        RentWindow rentWindow = new RentWindow();
+        rentWindow.Show();
+    }
+
+    private void Rental_OnClick(object sender, RoutedEventArgs e)
+    {
+        RentalWindow rentalWindow = new RentalWindow();
+        rentalWindow.Show();
+    }
+
+    private void InventoryStatus_OnClick(object sender, RoutedEventArgs e)
+    {
+        InventoryStatusWindow inventoryStatusWindow = new InventoryStatusWindow();
+        inventoryStatusWindow.Show();
+    }
+
+    private void AddToInventory_OnClick(object sender, RoutedEventArgs e)
+    {
+        AddToInventoryWindow addToInventoryWindow = new AddToInventoryWindow();
+        addToInventoryWindow.Show();
+    }
+
+    private void Exit_OnClick(object sender, RoutedEventArgs e)
+    {
+        Application.Current.Shutdown();
+    }
 }
