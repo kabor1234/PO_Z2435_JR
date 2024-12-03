@@ -10,22 +10,19 @@
   <component name="ChangeListManager">
     <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/InventoryStatusWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/InventoryStatusWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentalWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentalWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.baml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/projektWypozyczalnia.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/projektWypozyczalnia.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/projektWypozyczalnia.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/projektWypozyczalnia.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +125,8 @@
       <updated>1732909366134</updated>
       <workItem from="1732909367162" duration="1092000" />
       <workItem from="1732985986696" duration="6566000" />
-      <workItem from="1733005114790" duration="303000" />
+      <workItem from="1733005114790" duration="1016000" />
+      <workItem from="1733240502532" duration="1184000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -162,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732990727658</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ustawienie okienek z przycisków na środek">
+      <option name="closed" value="true" />
+      <created>1733006113546</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733006113546</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +205,7 @@
     <MESSAGE value="asdasd" />
     <MESSAGE value="guziki i okienka" />
     <MESSAGE value="Stackpanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stackpanel" />
+    <MESSAGE value="ustawienie okienek z przycisków na środek" />
+    <option name="LAST_COMMIT_MESSAGE" value="ustawienie okienek z przycisków na środek" />
   </component>
 </project>
