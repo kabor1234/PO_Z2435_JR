@@ -18,10 +18,12 @@
                         Click="Close_OnClick"/>
                 <Button x:Name="AddToStock" 
                         Content="Dodaj do magazynu" 
-                        Margin="10,15,0,0"/>
+                        Margin="10,15,0,0"
+                        Click="AddToStock_OnClick"/>
                 <Button x:Name="RemoveFromStock"
                         Content="Usuń z magazynu"
-                        Margin="10,15,0,0"/>
+                        Margin="10,15,0,0"
+                        Click="RemoveFromStock_OnClick"/>
             </StackPanel>
             
             <StackPanel>

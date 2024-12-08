@@ -8,27 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/bin/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/ref/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" afterDir="false" />
-    </list>
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="okienko usuń z magazynu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +31,9 @@
     &quot;assignee&quot;: &quot;kabor1234&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="6c0d5a62-21b9-42b6-917c-426d944712a1" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/kabor1234/PO_Z2435_JR.git&quot;,
@@ -67,21 +50,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.projektWypozyczalnia.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;projektWypozyczalnia&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.projektWypozyczalnia.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "projektWypozyczalnia",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.projektWypozyczalnia">
     <configuration name="projektMagazyn" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -132,7 +115,7 @@
       <workItem from="1732985986696" duration="6566000" />
       <workItem from="1733005114790" duration="1016000" />
       <workItem from="1733240502532" duration="1884000" />
-      <workItem from="1733680089555" duration="1736000" />
+      <workItem from="1733680089555" duration="5698000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -182,7 +165,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733242380056</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="okienko dodaj do magazynu">
+      <option name="closed" value="true" />
+      <created>1733685710077</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733685710077</updated>
+    </task>
+    <task id="LOCAL-00008" summary="okienko usuń z magazynu">
+      <option name="closed" value="true" />
+      <created>1733688988443</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733688988443</updated>
+    </task>
+    <task id="LOCAL-00009" summary="okienko usuń z magazynu">
+      <option name="closed" value="true" />
+      <created>1733689244472</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733689244472</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +228,8 @@
     <MESSAGE value="Stackpanel" />
     <MESSAGE value="ustawienie okienek z przycisków na środek" />
     <MESSAGE value="dodanie nuggetów" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie nuggetów" />
+    <MESSAGE value="okienko dodaj do magazynu" />
+    <MESSAGE value="okienko usuń z magazynu" />
+    <option name="LAST_COMMIT_MESSAGE" value="okienko usuń z magazynu" />
   </component>
 </project>

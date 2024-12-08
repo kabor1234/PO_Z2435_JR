@@ -15,4 +15,16 @@ public partial class AddToInventoryWindow : Window
     {
         this.Close();
     }
+
+    private void AddToStock_OnClick(object sender, RoutedEventArgs e)
+    {
+        AddToStockWindow addToStockWindow = new AddToStockWindow();
+        addToStockWindow.Show();
+    }
+
+    private void RemoveFromStock_OnClick(object sender, RoutedEventArgs e)
+    {
+        RemoveFromStockWindow removeFromStockWindow = new RemoveFromStockWindow();
+        removeFromStockWindow.Show();
+    }
 }
