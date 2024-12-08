@@ -10,29 +10,9 @@ public partial class AddToInventoryWindow : Window
     {
         InitializeComponent();
     }
-    
-    public static List<Transaction> DeleteFromDatabase(int index,string dataBaseName = $"FinanseDataBase.db",string tableName = $"ListaTranzakcji")
+
+    private void Close_OnClick(object sender, RoutedEventArgs e)
     {
-        string command = $"DELETE FROM {tableName} WHERE ID = {index}";
-        List<Transaction> transactions = new();
-        SQLitePCL.Batteries.Init();
-
-        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
-        {
-            try
-            {
-                connection.Open(); 
-                var sqliteCommand = connection.CreateCommand();
-                sqliteCommand.CommandText = command;
-                sqliteCommand.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                connection.Close();
-            }
-        }
-
-        return transactions;
+        this.Close();
     }
 }

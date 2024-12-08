@@ -10,6 +10,23 @@
         ResizeMode="NoResize"
         WindowStyle="None">
     <Grid>
-        
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,0,0">
+                <Button x:Name="ExitFromStock"
+                        Content="Wyjdź" 
+                        Margin="10,15,0,0"
+                        Click="Close_OnClick"/>
+                <Button x:Name="AddToStock" 
+                        Content="Dodaj do magazynu" 
+                        Margin="10,15,0,0"/>
+                <Button x:Name="RemoveFromStock"
+                        Content="Usuń z magazynu"
+                        Margin="10,15,0,0"/>
+            </StackPanel>
+            
+            <StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
