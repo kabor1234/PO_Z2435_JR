@@ -5,8 +5,8 @@ namespace projektWypozyczalnia;
 
 public class DBUtility
 {
-    public static List<Client> aGetFromDatabase(string command = "SELECT * FROM Clients",
-        string dataBaseName = $"Shutterings.db")
+    public static List<Client> GetClientsFromDatabase(string command = "SELECT * FROM Clients",
+        string dataBaseName = "Shutterings.db")
     {
         var columns = new List<string> {"ClientID", "NameOfCompany", "Name", "Surname", "Address", "PhoneNumber", "E-mail"};
         List<Client> Clients = new();
@@ -24,16 +24,13 @@ public class DBUtility
                 {
                     while (reader.Read())
                     {
-                        MessageBox.Show("while");
-                        int ClientID = columns.Contains("ClientID") ? reader.GetInt32(columns.IndexOf("ClientID")) : -1;
-                        var NameOfCompany = (columns.Contains("NameOfCompany") && !reader.IsDBNull(columns.IndexOf("NameOfCompany"))
-                            ? reader.GetString(columns.IndexOf("NameOfCompany"))
-                            : null) ?? string.Empty;
-                        string Name = columns.Contains("Name") ? reader.GetString(columns.IndexOf("Name")) : String.Empty;
-                        string Surname = columns.Contains("Surname") ? reader.GetString(columns.IndexOf("Surname")) : String.Empty;
-                        string Address = columns.Contains("Address") ? reader.GetString(columns.IndexOf("Address")) : String.Empty;
-                        string PhoneNumber = columns.Contains("PhoneNumber") ? reader.GetString(columns.IndexOf("PhoneNumber")) : String.Empty;
-                        string Email = columns.Contains("Email") ? reader.GetString(columns.IndexOf("Email")) : String.Empty;
+                        int ClientID = GetDBColumnValue<int>("ClientID", columns, reader);
+                        string NameOfCompany = GetDBColumnValue<string>("NameOfCompany", columns, reader);
+                        string Name = GetDBColumnValue<string>("Name", columns, reader);
+                        string Surname = GetDBColumnValue<string>("Surname", columns, reader);
+                        string Address = GetDBColumnValue<string>("Address", columns, reader);
+                        string PhoneNumber = GetDBColumnValue<string>("PhoneNumber", columns, reader);
+                        string Email = GetDBColumnValue<string>("Email", columns, reader);
                         Clients.Add(new Client(ClientID, NameOfCompany, Name, Surname, Address, PhoneNumber, Email));
                     }
                 }
@@ -44,10 +41,88 @@ public class DBUtility
                 connection.Close();
             }
         }
-
+        
         return Clients;
     }
-    private static dynamic ListOfSales<T>(string condition, List<string> columns, SqliteDataReader? reader)
+
+    public static List<Sale> GetSalesFromDatabase(string command = "SELECT * FROM Sales",
+        string dataBaseName = "Shutterings.db")
+    {
+        var columns = new List<string>
+            { "SalesID", "ClientID", "SaleDate", "Comments" };
+        List<Sale> Sales = new();
+        SQLitePCL.Batteries.Init();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+                var sqliteCommand = connection.CreateCommand();
+                sqliteCommand.CommandText = command;
+
+                using (var reader = sqliteCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int SalesID = GetDBColumnValue<int>("SalesID", columns, reader);
+                        int ClientID = GetDBColumnValue<string>("ClientID", columns, reader);
+                        string SaleDate = GetDBColumnValue<string>("SaleDate", columns, reader);
+                        string Comments = GetDBColumnValue<string>("Comment", columns, reader);
+                        Sales.Add(new Sale(SalesID, ClientID, SaleDate, Comments));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
+
+        return Sales;
+    }
+    public static List<SaleDetails> GetSaleDetailsFromDatabase(string command = "SELECT * FROM SalesDetails",
+        string dataBaseName = "Shutterings.db")
+    {
+        var columns = new List<string>
+            { "SalesDetailsID", "SalesID", "ProductID", "EquipmentID", "Amount", "PricePerUnit" };
+        List<SaleDetails> saleDetail = new();
+        SQLitePCL.Batteries.Init();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+                var sqliteCommand = connection.CreateCommand();
+                sqliteCommand.CommandText = command;
+
+                using (var reader = sqliteCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int SalesDetailsID = GetDBColumnValue<int>("SalesDetailID", columns, reader);
+                        int SailsID = GetDBColumnValue<string>("SailsID", columns, reader);
+                        int ProductID = GetDBColumnValue<string>("ProductID", columns, reader);
+                        int EquipmentID = GetDBColumnValue<string>("EquipmentID", columns, reader);
+                        int Amount = GetDBColumnValue<string>("Amount", columns, reader);
+                        float PricePerUnit = GetDBColumnValue<string>("PricePerUnit", columns, reader);
+                        saleDetail.Add(new SaleDetails(SalesDetailsID, SailsID, ProductID, EquipmentID, Amount, PricePerUnit));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
+
+        return saleDetail;
+    }
+
+    private static dynamic GetDBColumnValue<T>(string condition, List<string> columns, SqliteDataReader? reader)
     {
         if (reader == null) throw new NullReferenceException();
         if (typeof(T) == typeof(double))

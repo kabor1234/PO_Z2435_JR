@@ -2,13 +2,13 @@ namespace projektWypozyczalnia;
 
 public class Client
 {
-    int ClientID { get; set; }
-    string NameOfCompany { get; set; }
-    string Name { get; set; }
-    string Surname { get; set; }
-    string Address { get; set; }
-    string PhoneNumber { get; set; }
-    string Email { get; set; }
+    public int ClientID { get; set; }
+    public string NameOfCompany { get; set; }
+    public string Name { get; set; }
+    public string Surname { get; set; }
+    public string Address { get; set; }
+    public string PhoneNumber { get; set; }
+    public string Email { get; set; }
 
     public Client(int clientID, string nameOfCompany, string name, string surname, string address, string phoneNumber,
         string email)
