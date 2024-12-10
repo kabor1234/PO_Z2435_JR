@@ -14,4 +14,11 @@
       <PackageReference Include="SQLitePCLRaw.core" Version="2.1.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Shutterings.db" />
+      <AdditionalFiles Include="Shutterings.db">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </AdditionalFiles>
+    </ItemGroup>
+
 </Project>
