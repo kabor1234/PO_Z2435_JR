@@ -16,9 +16,9 @@
 
     <ItemGroup>
       <None Remove="Shutterings.db" />
-      <AdditionalFiles Include="Shutterings.db">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </AdditionalFiles>
+      <Content Include="Shutterings.db">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

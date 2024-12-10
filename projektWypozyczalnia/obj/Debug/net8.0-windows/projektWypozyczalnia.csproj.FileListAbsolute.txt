@@ -58,3 +58,5 @@ C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddToStockWindow.baml
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\RemoveFromStockWindow.g.cs
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\RemoveFromStockWindow.baml
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\bin\Debug\net8.0-windows\Shutterings.db
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\projektWypozyczalnia_Content.g.cs
