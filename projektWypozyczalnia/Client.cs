@@ -10,10 +10,10 @@ public class Client
     public string PhoneNumber { get; set; }
     public string Email { get; set; }
 
-    public Client(int clientID, string nameOfCompany, string name, string surname, string address, string phoneNumber,
+    public Client(int clientId, string nameOfCompany, string name, string surname, string address, string phoneNumber,
         string email)
     {
-        ClientID = clientID;
+        ClientID = clientId;
         NameOfCompany = nameOfCompany;
         Name = name;
         Surname = surname;
@@ -22,4 +22,8 @@ public class Client
         Email = email;
     }
 
+    public Client(int clientId, int nameOfCompany, string startLendDate, string endLendDate, string comments)
+    {
+        throw new NotImplementedException();
+    }
 }

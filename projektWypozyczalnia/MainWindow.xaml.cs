@@ -47,12 +47,6 @@ public partial class MainWindow : Window
 
     private void Exit_OnClick(object sender, RoutedEventArgs e)
     {
-        //Application.Current.Shutdown();
-        DBUtility.GetClientsFromDatabase();
-        List<Client> clients = DBUtility.GetClientsFromDatabase();
-        foreach (var client in clients)
-        {
-            MessageBox.Show($"ID: {client.ClientID}, Name: {client.Name}, Surname: {client.Surname}");
-        }
+        Application.Current.Shutdown();
     }
 }
