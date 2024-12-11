@@ -32,4 +32,9 @@ public partial class AddToInventoryWindow : Window
         AddNewShutteringSystem addNewShutteringSystem = new AddNewShutteringSystem();
         addNewShutteringSystem.Show();
     }
+
+    private void ShowShutteringSystem_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }

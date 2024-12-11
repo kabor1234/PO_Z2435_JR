@@ -11,7 +11,7 @@
         WindowStyle="None">
     <Grid>
         <StackPanel Margin="10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,0,0">
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
                 <Button x:Name="ExitFromStock"
                         Content="Wyjdź" 
                         Margin="10,15,0,0"
@@ -28,6 +28,10 @@
                         Content = "Dodaj nowy system szalunkowy"
                         Margin = "10,15,0,0"
                         Click = "AddNewShutteringSystem_OnClick"/>
+                <Button x:Name="ShowShutteringSystem"
+                        Content = "Pokaż systemy szalunkowe"
+                        Margin = "10,15,0,0"
+                        Click = "ShowShutteringSystem_OnClick"/>
             </StackPanel>
             
             <StackPanel>
