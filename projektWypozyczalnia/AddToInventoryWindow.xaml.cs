@@ -26,4 +26,10 @@ public partial class AddToInventoryWindow : Window
         RemoveFromStockWindow removeFromStockWindow = new RemoveFromStockWindow();
         removeFromStockWindow.Show();
     }
+
+    private void AddNewShutteringSystem_OnClick(object sender, RoutedEventArgs e)
+    {
+        AddNewShutteringSystem addNewShutteringSystem = new AddNewShutteringSystem();
+        addNewShutteringSystem.Show();
+    }
 }

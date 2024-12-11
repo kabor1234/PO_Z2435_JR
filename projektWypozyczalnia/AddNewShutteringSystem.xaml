@@ -5,8 +5,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:projektWypozyczalnia"
         mc:Ignorable="d"
-        Title="AddNewShutteringSystem" Height="450" Width="800">
+        Title="Dodaj nowy system szalunkowy" Height="400" Width="500"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel  Margin="30,50,30,0">
+                <TextBlock Margin="0,0,0,5">Nazwa systemu szalunkowego: </TextBlock>
+                <TextBox x:Name="NameOfShutteringTextBox" Margin="0,0,0,15"/>
+                <TextBlock Margin="0,0,0,5">Producent: </TextBlock>
+                <TextBox x:Name="ManufacturerTextBox" Margin="0,0,0,15"/>
+                <TextBlock Margin="0,0,0,5">Długość [cm]: </TextBlock>
+                <TextBox x:Name="LengthTextBox" Margin="0,0,0,15"/>
+                <TextBlock Margin="0,0,0,5">Szerokość [cm]:</TextBlock>
+                <TextBox x:Name="WidthTextBox" />
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="Cancel"
+                        Content="Anuluj" 
+                        Margin="10,15,0,0"
+                        Click="Cancel_OnClick"/>
+                <Button x:Name="AddShutteringSystemButton" 
+                        Content="Dodaj" 
+                        Margin="10,15,0,0"
+                        Click="AddShutteringSystemButton_OnClick"/>
+                
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

@@ -378,4 +378,53 @@ public class DBUtility
 
         throw new NotSupportedException($"The type {typeof(T).Name} is not supported.");
     }
+    
+    public void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
+    {
+        string dataBaseName = "Shutterings.db";
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            connection.Open();
+            
+            string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer, Summary) VALUES (@NameOfShuttering, @Manufacturer, @Summary);";
+            int systemId;
+            using (var sqlCommand = new SqliteCommand(insertSystemQuery, connection))
+            {
+                sqlCommand.Parameters.AddWithValue("@NameOfShuttering", nameOfShuttering);
+                sqlCommand.Parameters.AddWithValue("@Manufacturer", manufacturer);
+                sqlCommand.Parameters.AddWithValue("@Summary", "Auto-generated entry");
+                sqlCommand.ExecuteNonQuery();
+                using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
+                {
+                    systemId = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            
+            string insertLengthQuery = "INSERT INTO LengthCategory (SystemID, Length) VALUES (@SystemID, @Length);";
+            int lengthId;
+            using (var sqlCommand = new SqliteCommand(insertLengthQuery, connection))
+            {
+                sqlCommand.Parameters.AddWithValue("@SystemID", systemId);
+                sqlCommand.Parameters.AddWithValue("@Length", length);
+                sqlCommand.ExecuteNonQuery();
+                using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
+                {
+                    lengthId = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            
+            string insertProductQuery = "INSERT INTO ShutteringProduct (LengthID, Width, AmountInStock) VALUES (@LengthID, @Width, @AmountInStock);";
+            foreach (var width in widths)
+            {
+                using (var command = new SqliteCommand(insertProductQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@LengthID", lengthId);
+                    command.Parameters.AddWithValue("@Width", width);
+                    command.Parameters.AddWithValue("@AmountInStock", 0);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+    }
 }

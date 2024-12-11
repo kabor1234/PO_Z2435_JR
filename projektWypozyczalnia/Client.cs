@@ -21,9 +21,4 @@ public class Client
         PhoneNumber = phoneNumber;
         Email = email;
     }
-
-    public Client(int clientId, int nameOfCompany, string startLendDate, string endLendDate, string comments)
-    {
-        throw new NotImplementedException();
-    }
 }

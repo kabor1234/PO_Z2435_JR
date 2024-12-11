@@ -24,6 +24,10 @@
                         Content="Usuń z magazynu"
                         Margin="10,15,0,0"
                         Click="RemoveFromStock_OnClick"/>
+                <Button x:Name="AddNewShutteringSystem"
+                        Content = "Dodaj nowy system szalunkowy"
+                        Margin = "10,15,0,0"
+                        Click = "AddNewShutteringSystem_OnClick"/>
             </StackPanel>
             
             <StackPanel>
