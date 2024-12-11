@@ -10,8 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +42,11 @@
     &quot;accountId&quot;: &quot;6c0d5a62-21b9-42b6-917c-426d944712a1&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -120,7 +123,8 @@
       <workItem from="1733005114790" duration="1016000" />
       <workItem from="1733240502532" duration="1884000" />
       <workItem from="1733680089555" duration="5891000" />
-      <workItem from="1733856232549" duration="512000" />
+      <workItem from="1733856232549" duration="8331000" />
+      <workItem from="1733906898633" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -202,7 +206,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733689356480</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="baza danych">
+      <option name="closed" value="true" />
+      <created>1733857476663</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733857476663</updated>
+    </task>
+    <task id="LOCAL-00012" summary="dodanie klientów">
+      <option name="closed" value="true" />
+      <created>1733860520445</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733860520445</updated>
+    </task>
+    <task id="LOCAL-00013" summary="dodanie klasy sale i saledetails">
+      <option name="closed" value="true" />
+      <created>1733864590843</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733864590843</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +271,9 @@
     <MESSAGE value="dodanie nuggetów" />
     <MESSAGE value="okienko dodaj do magazynu" />
     <MESSAGE value="okienko usuń z magazynu" />
-    <option name="LAST_COMMIT_MESSAGE" value="okienko usuń z magazynu" />
+    <MESSAGE value="baza danych" />
+    <MESSAGE value="dodanie klientów" />
+    <MESSAGE value="dodanie klasy sale i saledetails" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie klasy sale i saledetails" />
   </component>
 </project>
