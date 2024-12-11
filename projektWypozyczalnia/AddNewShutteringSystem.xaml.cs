@@ -33,6 +33,7 @@ public partial class AddNewShutteringSystem : Window
             dbUtility.AddShutteringSystemToDatabase(nameOfShuttering, manufacturer, length, widths);
 
             MessageBox.Show("Pomyślnie dodano do bazy");
+            this.Close();
         }
 
         catch (FormatException)
@@ -43,6 +44,7 @@ public partial class AddNewShutteringSystem : Window
         catch (Exception ex)
         {
             MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            this.Close();
         }
     }
 }
