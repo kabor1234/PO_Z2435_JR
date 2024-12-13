@@ -20,7 +20,7 @@ public partial class AddNewShutteringSystem : Window
         
         try
         {
-            string nameOfShuttering = NameOfShutteringTextBox.Text;
+            string nameOfShuttering = NameOfShutteringTextBox.Text.ToLower();
             string manufacturer = ManufacturerTextBox.Text;
             int length = int.Parse(LengthTextBox.Text);
             string widthsInput = WidthTextBox.Text;

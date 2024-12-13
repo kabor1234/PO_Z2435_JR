@@ -385,44 +385,68 @@ public class DBUtility
 
         using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
         {
-            connection.Open();
+             connection.Open();
             
-            string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer, Summary) VALUES (@NameOfShuttering, @Manufacturer, @Summary);";
-            int systemId;
-            using (var sqlCommand = new SqliteCommand(insertSystemQuery, connection))
+            string checkSystemQuery = "SELECT SystemID FROM SystemOfShuttering WHERE NameOfShuttering = @NameOfShuttering;";
+            int systemId = -1;
+
+            using (var checkCommand = new SqliteCommand(checkSystemQuery, connection))
             {
-                sqlCommand.Parameters.AddWithValue("@NameOfShuttering", nameOfShuttering);
-                sqlCommand.Parameters.AddWithValue("@Manufacturer", manufacturer);
-                sqlCommand.Parameters.AddWithValue("@Summary", "Auto-generated entry");
-                sqlCommand.ExecuteNonQuery();
+                checkCommand.Parameters.AddWithValue("@NameOfShuttering", nameOfShuttering);
+
+                var result = checkCommand.ExecuteScalar();
+                if (result != null)
+                {
+                    // Jeśli istnieje, pobieramy `SystemID`
+                    systemId = Convert.ToInt32(result);
+                }
+            }
+
+            if (systemId == -1)
+            {
+                // Jeśli nie istnieje, tworzymy nowy wpis w tabeli `SystemOfShuttering`
+                string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer, Summary) VALUES (@NameOfShuttering, @Manufacturer, @Summary);";
+                using (var insertCommand = new SqliteCommand(insertSystemQuery, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@NameOfShuttering", nameOfShuttering);
+                    insertCommand.Parameters.AddWithValue("@Manufacturer", manufacturer);
+                    insertCommand.Parameters.AddWithValue("@Summary", "Auto-generated entry");
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                // Pobieramy ID nowo utworzonego systemu
                 using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
                 {
                     systemId = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
-            
+
+            // Dodanie nowego wpisu do tabeli `LengthCategory`
             string insertLengthQuery = "INSERT INTO LengthCategory (SystemID, Length) VALUES (@SystemID, @Length);";
             int lengthId;
-            using (var sqlCommand = new SqliteCommand(insertLengthQuery, connection))
+
+            using (var lengthCommand = new SqliteCommand(insertLengthQuery, connection))
             {
-                sqlCommand.Parameters.AddWithValue("@SystemID", systemId);
-                sqlCommand.Parameters.AddWithValue("@Length", length);
-                sqlCommand.ExecuteNonQuery();
+                lengthCommand.Parameters.AddWithValue("@SystemID", systemId);
+                lengthCommand.Parameters.AddWithValue("@Length", length);
+                lengthCommand.ExecuteNonQuery();
+
                 using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
                 {
                     lengthId = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
-            
+
+            // Dodanie nowych produktów do tabeli `ShutteringProduct`
             string insertProductQuery = "INSERT INTO ShutteringProduct (LengthID, Width, AmountInStock) VALUES (@LengthID, @Width, @AmountInStock);";
             foreach (var width in widths)
             {
-                using (var command = new SqliteCommand(insertProductQuery, connection))
+                using (var productCommand = new SqliteCommand(insertProductQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@LengthID", lengthId);
-                    command.Parameters.AddWithValue("@Width", width);
-                    command.Parameters.AddWithValue("@AmountInStock", 0);
-                    command.ExecuteNonQuery();
+                    productCommand.Parameters.AddWithValue("@LengthID", lengthId);
+                    productCommand.Parameters.AddWithValue("@Width", width);
+                    productCommand.Parameters.AddWithValue("@AmountInStock", 0);
+                    productCommand.ExecuteNonQuery();
                 }
             }
         }

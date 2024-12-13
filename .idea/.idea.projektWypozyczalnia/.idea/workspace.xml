@@ -10,6 +10,13 @@
   <component name="ChangeListManager">
     <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/projektWypozyczalnia.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/refint/projektWypozyczalnia.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +50,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e4205e8a6694baad6eda95cafda8ae55521aa77cd189e59cbe5b4f758bb3d/TypeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -70,6 +77,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
   }
 }</component>
   <component name="RunManager" selected=".NET Project.projektWypozyczalnia">
@@ -125,6 +137,10 @@
       <workItem from="1733680089555" duration="5891000" />
       <workItem from="1733856232549" duration="8331000" />
       <workItem from="1733906898633" duration="9000" />
+      <workItem from="1733906938609" duration="16559000" />
+      <workItem from="1733930673529" duration="91000" />
+      <workItem from="1733989280712" duration="603000" />
+      <workItem from="1734106882137" duration="1865000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -230,7 +246,47 @@
       <option name="project" value="LOCAL" />
       <updated>1733864590843</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="dodanie wszystkich klas powiązanych z bazą danych">
+      <option name="closed" value="true" />
+      <created>1733908251849</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733908251849</updated>
+    </task>
+    <task id="LOCAL-00015" summary="połączenie wszystkich klas do tabel bazy danych">
+      <option name="closed" value="true" />
+      <created>1733916045589</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733916045589</updated>
+    </task>
+    <task id="LOCAL-00016" summary="dodawanie systemów i rodzajów szalunków do bazy danych">
+      <option name="closed" value="true" />
+      <created>1733923460259</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1733923460259</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor dodania systemów">
+      <option name="closed" value="true" />
+      <created>1733924327228</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1733924327228</updated>
+    </task>
+    <task id="LOCAL-00018" summary="dodanie guzika pokaż systemy szalunkowe">
+      <option name="closed" value="true" />
+      <created>1733925480714</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1733925480714</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +330,11 @@
     <MESSAGE value="baza danych" />
     <MESSAGE value="dodanie klientów" />
     <MESSAGE value="dodanie klasy sale i saledetails" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie klasy sale i saledetails" />
+    <MESSAGE value="dodanie wszystkich klas powiązanych z bazą danych" />
+    <MESSAGE value="połączenie wszystkich klas do tabel bazy danych" />
+    <MESSAGE value="dodawanie systemów i rodzajów szalunków do bazy danych" />
+    <MESSAGE value="refactor dodania systemów" />
+    <MESSAGE value="dodanie guzika pokaż systemy szalunkowe" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie guzika pokaż systemy szalunkowe" />
   </component>
 </project>
