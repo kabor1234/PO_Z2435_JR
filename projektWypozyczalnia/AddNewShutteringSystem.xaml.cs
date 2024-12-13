@@ -27,10 +27,26 @@ public partial class AddNewShutteringSystem : Window
             var widths = widthsInput.Split(' ').Where(w => !string.IsNullOrWhiteSpace(w)).Select(w => int.Parse(w))
                 .ToList();
             
+            if (string.IsNullOrWhiteSpace(nameOfShuttering) && string.IsNullOrWhiteSpace(manufacturer))
+            {
+                MessageBox.Show("Nazwa systemu szalunkowego i producent nie mogą być puste.");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(nameOfShuttering))
+            {
+                MessageBox.Show("Pole \"nazwa systemu szalunkowego\" nie może być pusta.");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Pole \"producent\" nie może być puste.");
+                return;
+            }
             
-            MessageBox.Show(widthsInput);
+                
+            dbUtility.AddShutteringSystemToDatabase(nameOfShuttering!, manufacturer, length, widths);
             
-            dbUtility.AddShutteringSystemToDatabase(nameOfShuttering, manufacturer, length, widths);
+            MessageBox.Show($"Dodano: {nameOfShuttering}; {manufacturer}; {length}; {widthsInput}");
 
             MessageBox.Show("Pomyślnie dodano do bazy");
             this.Close();
@@ -46,5 +62,11 @@ public partial class AddNewShutteringSystem : Window
             MessageBox.Show("Wystąpił błąd: " + ex.Message);
             this.Close();
         }
+    }
+
+    private void ShowShutteringSystems_OnClick(object sender, RoutedEventArgs e)
+    {
+        ShowShutteringSystemsWindow showShutteringSystemsWindow = new ShowShutteringSystemsWindow();
+        showShutteringSystemsWindow.ShowDialog();
     }
 }

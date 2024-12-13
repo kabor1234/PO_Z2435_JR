@@ -21,15 +21,20 @@
                 <TextBox x:Name="WidthTextBox" />
             </StackPanel>
             
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30,50,30,0">
+                <Button x:Name="ShowShutteringSystem"
+                        Content = "Pokaż systemy szalunkowe"
+                        Margin = "40,15,150,0"
+                        Click = "ShowShutteringSystems_OnClick"/>
                 <Button x:Name="Cancel"
                         Content="Anuluj" 
                         Margin="10,15,0,0"
                         Click="Cancel_OnClick"/>
                 <Button x:Name="AddShutteringSystemButton" 
                         Content="Dodaj" 
-                        Margin="10,15,0,0"
+                        Margin="10,15,40,0"
                         Click="AddShutteringSystemButton_OnClick"/>
+                
                 
                 
             </StackPanel>

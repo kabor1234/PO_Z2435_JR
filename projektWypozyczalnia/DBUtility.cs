@@ -451,4 +451,59 @@ public class DBUtility
             }
         }
     }
+    
+    public List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
+    {
+        string databaseName = "Shutterings.db";
+        var results = new List<AvailableSystemsOfShuttering>();
+
+        using (var connection = new SqliteConnection($"Data Source={databaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+            SELECT 
+                s.NameOfShuttering,
+                s.Manufacturer,
+                l.Length,
+                p.Width
+            FROM 
+                SystemOfShuttering s
+            INNER JOIN 
+                LengthCategory l ON s.SystemID = l.SystemID
+            INNER JOIN 
+                ShutteringProduct p ON l.LengthID = p.LengthID;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine($"NameOfShuttering: {reader["NameOfShuttering"]}, Manufacturer: {reader["Manufacturer"]}, Length: {reader["Length"]}, Width: {reader["Width"]}");
+                            var system = new AvailableSystemsOfShuttering(
+                                reader["NameOfShuttering"]?.ToString(),
+                                reader["Manufacturer"]?.ToString(),
+                                reader["Length"] != DBNull.Value ? Convert.ToInt32(reader["Length"]) : 0,
+                                reader["Width"] != DBNull.Value ? Convert.ToInt32(reader["Width"]) : 0
+                            );
+
+                            results.Add(system);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + ex.Message);
+            }
+        }
+
+        return results;
+    }
+
 }
+
+    

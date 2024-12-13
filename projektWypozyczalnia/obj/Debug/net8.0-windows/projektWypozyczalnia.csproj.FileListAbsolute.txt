@@ -62,3 +62,5 @@ C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\bin\Debug\net8.
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\projektWypozyczalnia_Content.g.cs
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddNewShutteringSystem.g.cs
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddNewShutteringSystem.baml
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\ShowShutteringSystemsWindow.g.cs
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\ShowShutteringSystemsWindow.baml

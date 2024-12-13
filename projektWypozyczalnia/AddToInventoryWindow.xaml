@@ -28,10 +28,6 @@
                         Content = "Dodaj nowy system szalunkowy"
                         Margin = "10,15,0,0"
                         Click = "AddNewShutteringSystem_OnClick"/>
-                <Button x:Name="ShowShutteringSystem"
-                        Content = "Pokaż systemy szalunkowe"
-                        Margin = "10,15,0,0"
-                        Click = "ShowShutteringSystem_OnClick"/>
             </StackPanel>
             
             <StackPanel>
