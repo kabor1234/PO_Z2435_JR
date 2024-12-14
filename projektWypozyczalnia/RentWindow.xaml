@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="Wypożycz" Height="600" Width="1200"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowStyle="None">
+        ResizeMode="NoResize">
     <Grid>
         <Button Width="50" Height="60"></Button>
     </Grid>
