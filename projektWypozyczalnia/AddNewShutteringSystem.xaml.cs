@@ -37,7 +37,7 @@ public partial class AddNewShutteringSystem : Window
                 MessageBox.Show("Pole \"nazwa systemu szalunkowego\" nie może być pusta.");
                 return;
             }
-            else
+            else if (string.IsNullOrWhiteSpace(manufacturer))
             {
                 MessageBox.Show("Pole \"producent\" nie może być puste.");
                 return;
