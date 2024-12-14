@@ -17,8 +17,8 @@ public partial class AddToInventoryWindow : Window
 
     private void AddToStock_OnClick(object sender, RoutedEventArgs e)
     {
-        AddToStockWindow addToStockWindow = new AddToStockWindow();
-        addToStockWindow.Show();
+        AddShutteringToStockWindow addShutteringToStockWindow = new AddShutteringToStockWindow();
+        addShutteringToStockWindow.Show();
     }
 
     private void RemoveFromStock_OnClick(object sender, RoutedEventArgs e)

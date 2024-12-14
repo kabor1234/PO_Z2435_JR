@@ -54,8 +54,6 @@ C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\bin\Debug\net8.
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\projektWypozyczalnia.csproj.AssemblyReference.cache
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\projektW.79E38FEA.Up2Date
-C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddToStockWindow.g.cs
-C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddToStockWindow.baml
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\RemoveFromStockWindow.g.cs
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\RemoveFromStockWindow.baml
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\bin\Debug\net8.0-windows\Shutterings.db
@@ -64,3 +62,5 @@ C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddNewShutteringSystem.baml
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\ShowShutteringSystemsWindow.g.cs
 C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\ShowShutteringSystemsWindow.baml
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddShutteringToStockWindow.g.cs
+C:\Users\Admin\RiderProjects\projektMagazyn\projektWypozyczalnia\obj\Debug\net8.0-windows\AddShutteringToStockWindow.baml
