@@ -33,12 +33,6 @@ public partial class MainWindow : Window
         rentalWindow.Show();
     }
 
-    private void InventoryStatus_OnClick(object sender, RoutedEventArgs e)
-    {
-        InventoryStatusWindow inventoryStatusWindow = new InventoryStatusWindow();
-        inventoryStatusWindow.Show();
-    }
-
     private void AddToInventory_OnClick(object sender, RoutedEventArgs e)
     {
         AddToInventoryWindow addToInventoryWindow = new AddToInventoryWindow();

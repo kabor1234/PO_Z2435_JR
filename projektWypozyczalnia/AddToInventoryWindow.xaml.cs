@@ -26,11 +26,17 @@ public partial class AddToInventoryWindow : Window
         RemoveFromStockWindow removeFromStockWindow = new RemoveFromStockWindow();
         removeFromStockWindow.Show();
     }
-
-    private void AddNewShutteringSystem_OnClick(object sender, RoutedEventArgs e)
-    {
-        AddNewShutteringSystem addNewShutteringSystem = new AddNewShutteringSystem();
-        addNewShutteringSystem.Show();
-    }
     
+
+    private void AddShutteringToStock_OnClick(object sender, RoutedEventArgs e)
+    {
+        AddShutteringToStockWindow addShutteringToStock = new AddShutteringToStockWindow();
+        addShutteringToStock.Show();
+    }
+
+    private void AddEquipmentToStock_OnClick(object sender, RoutedEventArgs e)
+    {
+        AddEquipmentToStockWindow addEquipmentToStockWindow = new AddEquipmentToStockWindow();
+        addEquipmentToStockWindow.Show();
+    }
 }

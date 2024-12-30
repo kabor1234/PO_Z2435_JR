@@ -2,9 +2,9 @@ using System.Windows;
 
 namespace projektWypozyczalnia;
 
-public partial class InventoryStatusWindow : Window
+public partial class AddEquipmentToStockWindow : Window
 {
-    public InventoryStatusWindow()
+    public AddEquipmentToStockWindow()
     {
         InitializeComponent();
     }

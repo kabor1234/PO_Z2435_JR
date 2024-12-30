@@ -5,8 +5,8 @@ namespace projektWypozyczalnia;
 
 public class DBUtility
 {
-    public static List<Client> GetClientsFromDatabase(string command = "SELECT * FROM Clients",
-        string dataBaseName = "Shutterings.db")
+    private static readonly string dataBaseName = "Shutterings.db";
+    public static List<Client> GetClientsFromDatabase(string command = "SELECT * FROM Clients")
     {
         var columns = new List<string> {"ClientID", "NameOfCompany", "Name", "Surname", "Address", "PhoneNumber", "E-mail"};
         List<Client> clients = new();
@@ -45,8 +45,7 @@ public class DBUtility
         return clients;
     }
 
-    public static List<Sale> GetSalesFromDatabase(string command = "SELECT * FROM Sales",
-        string dataBaseName = "Shutterings.db")
+    public static List<Sale> GetSalesFromDatabase(string command = "SELECT * FROM Sales")
     {
         var columns = new List<string> { "SalesID", "ClientID", "SaleDate", "Comments" };
         List<Sale> sales = new();
@@ -81,8 +80,7 @@ public class DBUtility
 
         return sales;
     }
-    public static List<SaleDetails> GetSaleDetailsFromDatabase(string command = "SELECT * FROM SalesDetails",
-        string dataBaseName = "Shutterings.db")
+    public static List<SaleDetails> GetSaleDetailsFromDatabase(string command = "SELECT * FROM SalesDetails")
     {
         var columns = new List<string>
             { "SalesDetailsID", "SalesID", "ProductID", "EquipmentID", "Amount", "PricePerUnit" };
@@ -121,8 +119,7 @@ public class DBUtility
         return salesDetails;
     }
     
-    public static List<Lending> GetLendingFromDatabase(string command = "SELECT * FROM Lending",
-        string dataBaseName = "Shutterings.db")
+    public static List<Lending> GetLendingFromDatabase(string command = "SELECT * FROM Lending")
     {
         var columns = new List<string> {"LendID", "ClientID", "StartLendDate", "EndLaneDate", "Comments"};
         List<Lending> lending = new();
@@ -159,8 +156,7 @@ public class DBUtility
         return lending;
     }
     
-    public static List<LendingDetails> GetLendingDetailsFromDatabase(string command = "SELECT * FROM LendingDetails",
-        string dataBaseName = "Shutterings.db")
+    public static List<LendingDetails> GetLendingDetailsFromDatabase(string command = "SELECT * FROM LendingDetails")
     {
         var columns = new List<string>
             { "detailsID", "SalesID", "ProductID", "EquipmentID", "Amount"};
@@ -198,8 +194,7 @@ public class DBUtility
         return lendingDetails;
     }
     
-    public static List<SystemOfShuttering> GetSystemOfShutteringFromDatabase(string command = "SELECT * FROM SystemOfShuttering",
-        string dataBaseName = "Shutterings.db")
+    public static List<SystemOfShuttering> GetSystemOfShutteringFromDatabase(string command = "SELECT * FROM SystemOfShuttering")
     {
         var columns = new List<string>
             { "detailsID", "SalesID", "ProductID", "EquipmentID", "Amount"};
@@ -236,8 +231,7 @@ public class DBUtility
         return systemOfShutterings;
     }
     
-    public static List<LengthCategory> GetLengthCategoryFromDatabase(string command = "SELECT * FROM LenghtCategory",
-        string dataBaseName = "Shutterings.db")
+    public static List<LengthCategory> GetLengthCategoryFromDatabase(string command = "SELECT * FROM LenghtCategory")
     {
         var columns = new List<string>
             { "LengthID", "SystemID", "Length"};
@@ -273,8 +267,7 @@ public class DBUtility
         return lengthCategory;
     }
     
-    public static List<ShutteringProduct> GetShutteringProductsFromDatabase(string command = "SELECT * FROM ShutteringCategory",
-        string dataBaseName = "Shutterings.db")
+    public static List<ShutteringProduct> GetShutteringProductsFromDatabase(string command = "SELECT * FROM ShutteringCategory")
     {
         var columns = new List<string>
             { "ProductID", "CategoryID", "Width", "AmountInStock"};
@@ -311,8 +304,7 @@ public class DBUtility
         return shutteringProduct;
     }
     
-    public static List<Equipment> GetEquipmentFromDatabase(string command = "SELECT * FROM Equipment",
-        string dataBaseName = "Shutterings.db")
+    public static List<Equipment> GetEquipmentFromDatabase(string command = "SELECT * FROM Equipment")
     {
         var columns = new List<string>
             { "EquipmentID", "NameOfEquipment", "Summary", "AmountInStock"};
@@ -397,14 +389,12 @@ public class DBUtility
                 var result = checkCommand.ExecuteScalar();
                 if (result != null)
                 {
-                    // Jeśli istnieje, pobieramy `SystemID`
                     systemId = Convert.ToInt32(result);
                 }
             }
 
             if (systemId == -1)
             {
-                // Jeśli nie istnieje, tworzymy nowy wpis w tabeli `SystemOfShuttering`
                 string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer, Summary) VALUES (@NameOfShuttering, @Manufacturer, @Summary);";
                 using (var insertCommand = new SqliteCommand(insertSystemQuery, connection))
                 {
@@ -413,15 +403,13 @@ public class DBUtility
                     insertCommand.Parameters.AddWithValue("@Summary", "Auto-generated entry");
                     insertCommand.ExecuteNonQuery();
                 }
-
-                // Pobieramy ID nowo utworzonego systemu
+                
                 using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
                 {
                     systemId = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
-
-            // Dodanie nowego wpisu do tabeli `LengthCategory`
+            
             string insertLengthQuery = "INSERT INTO LengthCategory (SystemID, Length) VALUES (@SystemID, @Length);";
             int lengthId;
 
@@ -436,8 +424,7 @@ public class DBUtility
                     lengthId = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
-
-            // Dodanie nowych produktów do tabeli `ShutteringProduct`
+            
             string insertProductQuery = "INSERT INTO ShutteringProduct (LengthID, Width, AmountInStock) VALUES (@LengthID, @Width, @AmountInStock);";
             foreach (var width in widths)
             {
@@ -503,7 +490,152 @@ public class DBUtility
 
         return results;
     }
+    
+        public List<string> GetShutteringSystems()
+    {
+        var results = new List<string>();
 
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"SELECT NameOfShuttering FROM SystemOfShuttering;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            results.Add(reader["NameOfShuttering"]?.ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas ładowania systemów: " + ex.Message);
+            }
+        }
+
+        return results;
+    }
+
+    public List<int> GetLengthsForSystem(string systemName)
+    {
+        var results = new List<int>();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                SELECT DISTINCT l.Length 
+                FROM LengthCategory l
+                INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
+                WHERE s.NameOfShuttering = @SystemName;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SystemName", systemName);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            results.Add(Convert.ToInt32(reader["Length"]));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas ładowania długości: " + ex.Message);
+            }
+        }
+
+        return results;
+    }
+
+    public List<int> GetWidthsForLength(int length)
+    {
+        var results = new List<int>();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                SELECT DISTINCT p.Width 
+                FROM ShutteringProduct p
+                INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
+                WHERE l.Length = @Length;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Length", length);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            results.Add(Convert.ToInt32(reader["Width"]));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas ładowania szerokości: " + ex.Message);
+            }
+        }
+
+        return results;
+    }
+
+    public void AddToStock(string systemName, int length, int width, int amount)
+    {
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                UPDATE ShutteringProduct
+                SET AmountInStock = AmountInStock + @Amount
+                WHERE ProductID IN (
+                    SELECT p.ProductID 
+                    FROM ShutteringProduct p
+                    INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
+                    INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
+                    WHERE s.NameOfShuttering = @SystemName AND l.Length = @Length AND p.Width = @Width
+                );";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SystemName", systemName);
+                    command.Parameters.AddWithValue("@Length", length);
+                    command.Parameters.AddWithValue("@Width", width);
+                    command.Parameters.AddWithValue("@Amount", amount);
+
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Ilość została zaktualizowana.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas dodawania do magazynu: " + ex.Message);
+            }
+        }
+    }
 }
+
 
     

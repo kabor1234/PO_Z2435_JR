@@ -16,18 +16,18 @@
                         Content="Wyjdź" 
                         Margin="10,15,0,0"
                         Click="Close_OnClick"/>
-                <Button x:Name="AddToStock" 
-                        Content="Dodaj do magazynu" 
+                <Button x:Name="AddEquipmentToStock" 
+                        Content="Dodaj szalunki" 
                         Margin="10,15,0,0"
-                        Click="AddToStock_OnClick"/>
+                        Click="AddShutteringToStock_OnClick"/>
+                <Button x:Name="AddShutteringToStock" 
+                        Content="Dodaj osprzęt" 
+                        Margin="10,15,0,0"
+                        Click="AddEquipmentToStock_OnClick"/>
                 <Button x:Name="RemoveFromStock"
                         Content="Usuń z magazynu"
                         Margin="10,15,0,0"
                         Click="RemoveFromStock_OnClick"/>
-                <Button x:Name="AddNewShutteringSystem"
-                        Content = "Dodaj nowy system szalunkowy"
-                        Margin = "10,15,0,0"
-                        Click = "AddNewShutteringSystem_OnClick"/>
             </StackPanel>
             
             <StackPanel>
