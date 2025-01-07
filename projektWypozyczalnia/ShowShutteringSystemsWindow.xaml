@@ -25,10 +25,10 @@
                   HorizontalScrollBarVisibility="Auto"
                   Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="NameOfShuttering" Binding="{Binding NameOfShutteringSystem}" Width="*"/>
-                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="*"/>
-                <DataGridTextColumn Header="Length" Binding="{Binding Length}" Width="*"/>
-                <DataGridTextColumn Header="Width" Binding="{Binding Width}" Width="*"/>
+                <DataGridTextColumn Header="System" Binding="{Binding NameOfShutteringSystem}" Width="*"/>
+                <DataGridTextColumn Header="Producent" Binding="{Binding Manufacturer}" Width="*"/>
+                <DataGridTextColumn Header="Długość" Binding="{Binding Length}" Width="*"/>
+                <DataGridTextColumn Header="Szerokość" Binding="{Binding Width}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

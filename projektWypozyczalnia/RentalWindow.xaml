@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="Wypożyczenia" Height="600" Width="1200"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowStyle="None">
+        ResizeMode="NoResize">
     <Grid>
         
     </Grid>

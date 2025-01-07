@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:projektWypozyczalnia"
         mc:Ignorable="d"
         Title="AddToStockWindow" Height="400" Width="300"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <Grid>
         <StackPanel Margin="20">
             <TextBlock TextAlignment="Center"> Dodawanie szalunków</TextBlock>
