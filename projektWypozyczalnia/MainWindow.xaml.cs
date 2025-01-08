@@ -33,9 +33,9 @@ public partial class MainWindow : Window
         rentalWindow.Show();
     }
 
-    private void AddToInventory_OnClick(object sender, RoutedEventArgs e)
+    private void StockCondition_OnClick(object sender, RoutedEventArgs e)
     {
-        AddToInventoryWindow addToInventoryWindow = new AddToInventoryWindow();
+        StockConditionWindow addToInventoryWindow = new StockConditionWindow();
         addToInventoryWindow.Show();
     }
 

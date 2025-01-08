@@ -8,14 +8,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EquipmentStockItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItem.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItem.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddToInventoryWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +148,7 @@
       <workItem from="1735556052053" duration="1548000" />
       <workItem from="1736103828866" duration="470000" />
       <workItem from="1736271128931" duration="2382000" />
-      <workItem from="1736326057964" duration="4217000" />
+      <workItem from="1736326057964" duration="6446000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -349,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736273492141</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie">
+      <option name="closed" value="true" />
+      <created>1736331351044</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1736331351044</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +414,7 @@
     <MESSAGE value="Combobox do dynamicznego zmieniania zawartości okienka w okienku dodaj do magazynu" />
     <MESSAGE value="Dodawanie szalunków do magazynu" />
     <MESSAGE value="przygotowanie okienek osprzętu do dodania logiki dodawania osprzętu do bazy, zmiana nazw kolumn w datagrid z angielskich na polskie" />
-    <option name="LAST_COMMIT_MESSAGE" value="przygotowanie okienek osprzętu do dodania logiki dodawania osprzętu do bazy, zmiana nazw kolumn w datagrid z angielskich na polskie" />
+    <MESSAGE value="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie" />
   </component>
 </project>
