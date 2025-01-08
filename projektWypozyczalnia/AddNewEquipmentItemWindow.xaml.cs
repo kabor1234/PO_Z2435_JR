@@ -13,7 +13,8 @@ public partial class AddNewEquipmentItemWindow : Window
 
     private void ShowEquipmentItems_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        ShowAllEquipmentItems window = new ShowAllEquipmentItems();
+        window.Show();
     }
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)

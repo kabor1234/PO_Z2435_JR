@@ -373,7 +373,6 @@ public class DBUtility
     
     public void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
     {
-        string dataBaseName = "Shutterings.db";
 
         using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
         {
@@ -441,10 +440,9 @@ public class DBUtility
     
     public List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
     {
-        string databaseName = "Shutterings.db";
         var results = new List<AvailableSystemsOfShuttering>();
 
-        using (var connection = new SqliteConnection($"Data Source={databaseName}"))
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
         {
             try
             {
@@ -491,7 +489,7 @@ public class DBUtility
         return results;
     }
     
-        public List<string> GetShutteringSystems()
+    public List<string> GetShutteringSystems()
     {
         var results = new List<string>();
 
@@ -598,6 +596,47 @@ public class DBUtility
 
         return results;
     }
+    
+    public List<string> GetAllEquipment()
+    {
+        var results = new List<string>();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+            SELECT 
+                NameOfEquipment
+            FROM 
+                Equipment;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var equipmentName = reader["NameOfEquipment"]?.ToString();
+                            Console.WriteLine($"NameOfEquipment: {equipmentName}");
+                            if (!string.IsNullOrEmpty(equipmentName))
+                            {
+                                results.Add(equipmentName);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + ex.Message);
+            }
+        }
+
+        return results;
+    }
 
     public void AddToStock(string systemName, int length, int width, int amount)
     {
@@ -637,7 +676,7 @@ public class DBUtility
     }
     
     
-        // Dodanie nowego osprzętu
+    
         public void AddEquipmentToDatabase(string nameOfEquipment)
         {
             using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
@@ -665,7 +704,7 @@ public class DBUtility
             }
         }
 
-        // Pobranie listy osprzętu (ComboBox)
+      
         public Dictionary<int, string> GetEquipmentList()
         {
             var equipmentList = new Dictionary<int, string>();
@@ -702,7 +741,6 @@ public class DBUtility
             return equipmentList;
         }
 
-        // Dodanie ilości do wybranego osprzętu
         public void AddAmountToEquipment(int equipmentId, int amount)
         {
             using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
@@ -732,86 +770,87 @@ public class DBUtility
             }
         }
         
-        // Pobieranie danych szalunków
-public List<ShutteringStockItem> GetShutteringStockData()
-{
-    var results = new List<ShutteringStockItem>();
-
-    using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
-    {
-        try
+        public List<ShutteringStockItem> GetShutteringStockData()
         {
-            connection.Open();
-            string query = @"
-                SELECT s.NameOfShuttering AS Name, s.Manufacturer, l.Length, p.Width, p.AmountInStock AS Amount
-                FROM ShutteringProduct p
-                INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
-                INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID;
-            ";
+            var results = new List<ShutteringStockItem>();
 
-            using (var command = new SqliteCommand(query, connection))
+            using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
             {
-                using (var reader = command.ExecuteReader())
+                try
                 {
-                    while (reader.Read())
+                    connection.Open();
+                    string query = @"
+                        SELECT s.NameOfShuttering AS Name, s.Manufacturer, l.Length, p.Width, p.AmountInStock AS Amount
+                        FROM ShutteringProduct p
+                        INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
+                        INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
+                        WHERE p.AmountInStock > 0;
+                    ";
+
+                    using (var command = new SqliteCommand(query, connection))
                     {
-                        results.Add(new ShutteringStockItem
+                        using (var reader = command.ExecuteReader())
                         {
-                            Name = reader["Name"].ToString(),
-                            Manufacturer = reader["Manufacturer"].ToString(),
-                            Length = Convert.ToInt32(reader["Length"]),
-                            Width = Convert.ToInt32(reader["Width"]),
-                            Amount = Convert.ToInt32(reader["Amount"])
-                        });
+                            while (reader.Read())
+                            {
+                                results.Add(new ShutteringStockItem
+                                {
+                                    Name = reader["Name"].ToString(),
+                                    Manufacturer = reader["Manufacturer"].ToString(),
+                                    Length = Convert.ToInt32(reader["Length"]),
+                                    Width = Convert.ToInt32(reader["Width"]),
+                                    Amount = Convert.ToInt32(reader["Amount"])
+                                });
+                            }
+                        }
                     }
                 }
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Błąd podczas ładowania danych szalunków: " + ex.Message);
-        }
-    }
-    return results;
-}
-
-// Pobieranie danych osprzętu
-public List<EquipmentStockItem> GetEquipmentStockData()
-{
-    var results = new List<EquipmentStockItem>();
-
-    using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
-    {
-        try
-        {
-            connection.Open();
-            string query = @"
-                SELECT e.NameOfEquipment AS EquipmentName, e.AmountInStock AS EquipmentAmount
-                FROM Equipment e;
-            ";
-
-            using (var command = new SqliteCommand(query, connection))
-            {
-                using (var reader = command.ExecuteReader())
+                catch (Exception ex)
                 {
-                    while (reader.Read())
-                    {
-                        results.Add(new EquipmentStockItem
-                        {
-                            EquipmentName = reader["EquipmentName"].ToString(),
-                            EquipmentAmount = Convert.ToInt32(reader["EquipmentAmount"])
-                        });
-                    }
+                    MessageBox.Show($"Błąd podczas ładowania danych szalunków: {ex.Message}");
                 }
             }
+            return results;
         }
-        catch (Exception ex)
+
+        public List<EquipmentStockItem> GetEquipmentStockData()
         {
-            MessageBox.Show("Błąd podczas ładowania danych osprzętu: " + ex.Message);
+            var results = new List<EquipmentStockItem>();
+
+            using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"
+                        SELECT e.NameOfEquipment AS EquipmentName, e.AmountInStock AS EquipmentAmount
+                        FROM Equipment e
+                        WHERE e.AmountInStock > 0;
+                    ";
+
+                    using (var command = new SqliteCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                results.Add(new EquipmentStockItem
+                                {
+                                    EquipmentName = reader["EquipmentName"].ToString(),
+                                    EquipmentAmount = Convert.ToInt32(reader["EquipmentAmount"])
+                                });
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {ex.Message}");
+                }
+            }
+            return results;
         }
-    }
-    return results;
-}
+
 }
 
 
