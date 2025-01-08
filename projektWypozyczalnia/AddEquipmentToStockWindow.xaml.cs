@@ -4,24 +4,86 @@ namespace projektWypozyczalnia;
 
 public partial class AddEquipmentToStockWindow : Window
 {
-    public AddEquipmentToStockWindow()
-    {
-        InitializeComponent();
-    }
+        private DBUtility dbUtility = new DBUtility();
+        private Dictionary<int, string> equipmentDictionary = new Dictionary<int, string>();
 
-    private void AddNewEquipmentItem_OnClick(object sender, RoutedEventArgs e)
-    {
-        AddNewEquipmentItem addNewEquipmentItem = new AddNewEquipmentItem();
-        addNewEquipmentItem.Show();
-    }
+        public AddEquipmentToStockWindow()
+        {
+            InitializeComponent();
+            Loaded += OnWindowLoaded;
+        }
+        
+        private void AddEquipmentToStock_onClick(object sender, RoutedEventArgs e)
+        {
+            if (EquipmentNameComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Proszę wybrać osprzęt.");
+                return;
+            }
 
-    private void Cancel_OnClick(object sender, RoutedEventArgs e)
-    {
-        this.Close();
-    }
+            string selectedEquipmentName = (string)EquipmentNameComboBox.SelectedItem;
+            int selectedEquipmentId = GetEquipmentIdByName(selectedEquipmentName);
 
-    private void AddEquipmentToStock_onClick(object sender, RoutedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
+            if (!int.TryParse(AmountOfEquipmentTextBox.Text, out int amount))
+            {
+                MessageBox.Show("Wprowadź poprawną liczbę dla ilości.");
+                return;
+            }
+
+            dbUtility.AddAmountToEquipment(selectedEquipmentId, amount);
+
+            ResetWindow();
+        }
+        
+        private void AddNewEquipment_OnClick(object sender, RoutedEventArgs e)
+        {
+            AddNewEquipmentItemWindow addNewEquipmentWindow = new AddNewEquipmentItemWindow();
+            addNewEquipmentWindow.EquipmentAdded += OnEquipmentAdded;
+            addNewEquipmentWindow.ShowDialog();
+        }
+        
+        private void Cancel_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            LoadEquipment();
+        }
+
+        private void LoadEquipment()
+        {
+            EquipmentNameComboBox.Items.Clear();
+            equipmentDictionary = dbUtility.GetEquipmentList();
+
+            foreach (var equipment in equipmentDictionary)
+            {
+                EquipmentNameComboBox.Items.Add(equipment.Value);
+            }
+        }
+        
+        private int GetEquipmentIdByName(string equipmentName)
+        {
+            foreach (var equipment in equipmentDictionary)
+            {
+                if (equipment.Value == equipmentName)
+                {
+                    return equipment.Key;
+                }
+            }
+            throw new Exception("Nie znaleziono osprzętu o tej nazwie.");
+        }
+        private void ResetWindow()
+        {
+            EquipmentNameComboBox.SelectedIndex = -1; 
+            AmountOfEquipmentTextBox.Clear();                 
+            LoadEquipment(); 
+        } 
+        private void OnEquipmentAdded(object sender, EventArgs e)
+        {
+            LoadEquipment();
+        }
+
+
 }

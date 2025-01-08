@@ -13,16 +13,16 @@
     <StackPanel Margin="10">
         <TextBlock TextAlignment="Center">Dodawanie osprzętu</TextBlock>
         <TextBlock Margin="0,15,0,0">Nazwa osprzętu:</TextBlock>
-        <ComboBox x:Name="EquipmentNameTextBox" Margin="0,5,0,0"></ComboBox>
+        <ComboBox x:Name="EquipmentNameComboBox" Margin="0,5,0,0"></ComboBox>
         <TextBlock Margin="0,15,0,0">Ilość:</TextBlock>
-        <TextBox x:Name="AmountOfEquipment" Margin="0,5,0,0"></TextBox>
+        <TextBox x:Name="AmountOfEquipmentTextBox" Margin="0,5,0,0"></TextBox>
         
         <StackPanel Orientation="Horizontal" Margin="0,25,0,20">
             <Button x:Name="AddNewEquipmentItem"
                     Content = "Dodaj nowy osprzęt"
                     Height="20"
                     Margin="0,0,175,0"
-                    Click = "AddNewEquipmentItem_OnClick"/>
+                    Click = "AddNewEquipment_OnClick"/>
             <Button x:Name="Cancel"
                     Content="Anuluj" 
                     Height="20"
