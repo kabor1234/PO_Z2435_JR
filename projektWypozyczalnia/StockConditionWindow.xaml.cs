@@ -12,7 +12,6 @@ public partial class StockConditionWindow : Window
     {
         InitializeComponent();
         LoadShutteringData();
-        this.Deactivated += WindowHelper.Window_Deactivated;
     }
     private void AddToStock_OnClick(object sender, RoutedEventArgs e)
     {
@@ -117,5 +116,20 @@ public partial class StockConditionWindow : Window
 
         StockDataGrid.Columns[5].Visibility = Visibility.Visible;
         StockDataGrid.Columns[6].Visibility = Visibility.Visible;
+    }
+    
+    protected override void OnSourceInitialized(EventArgs e)
+    {
+        base.OnSourceInitialized(e);
+        var hwndSource = System.Windows.Interop.HwndSource.FromHwnd(new System.Windows.Interop.WindowInteropHelper(this).Handle);
+        if (hwndSource != null) hwndSource.AddHook(HwndMessageHook);
+    }
+
+    private IntPtr HwndMessageHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+    {
+        const int WM_SYSCOMMAND = 0x0112;
+        const int SC_MOVE = 0xF010;
+        if (msg == WM_SYSCOMMAND && (wParam.ToInt32() & 0xFFF0) == SC_MOVE) handled = true;
+        return IntPtr.Zero;
     }
 }
