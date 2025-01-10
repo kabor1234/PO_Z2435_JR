@@ -18,11 +18,6 @@ public partial class StockConditionWindow : Window
         var addShutteringToStockWindow = new AddShutteringToStockWindow();
         addShutteringToStockWindow.Show();
     }
-    private void RemoveFromStock_OnClick(object sender, RoutedEventArgs e)
-    {
-        var removeFromStockWindow = new RemoveFromStockWindow();
-        removeFromStockWindow.Show();
-    }
     
     private void AddShutteringToStock_OnClick(object sender, RoutedEventArgs e)
     {
@@ -38,7 +33,7 @@ public partial class StockConditionWindow : Window
     
     private void Close_OnClick(object sender, RoutedEventArgs e)
     {
-        this.Close();
+        Close();
     }
     
     private void ShowEquipmentCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -117,19 +112,5 @@ public partial class StockConditionWindow : Window
         StockDataGrid.Columns[5].Visibility = Visibility.Visible;
         StockDataGrid.Columns[6].Visibility = Visibility.Visible;
     }
-    
-    protected override void OnSourceInitialized(EventArgs e)
-    {
-        base.OnSourceInitialized(e);
-        var hwndSource = System.Windows.Interop.HwndSource.FromHwnd(new System.Windows.Interop.WindowInteropHelper(this).Handle);
-        if (hwndSource != null) hwndSource.AddHook(HwndMessageHook);
-    }
 
-    private IntPtr HwndMessageHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
-    {
-        const int WM_SYSCOMMAND = 0x0112;
-        const int SC_MOVE = 0xF010;
-        if (msg == WM_SYSCOMMAND && (wParam.ToInt32() & 0xFFF0) == SC_MOVE) handled = true;
-        return IntPtr.Zero;
-    }
 }

@@ -8,7 +8,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +52,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e4205e8a6694baad6eda95cafda8ae55521aa77cd189e59cbe5b4f758bb3d/TypeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/AddNewShutteringSystem.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/RentWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/RentalWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -141,6 +152,10 @@
       <workItem from="1736271128931" duration="2382000" />
       <workItem from="1736326057964" duration="6524000" />
       <workItem from="1736375300262" duration="3996000" />
+      <workItem from="1736446409022" duration="789000" />
+      <workItem from="1736528963492" duration="2385000" />
+      <workItem from="1736535086763" duration="1102000" />
+      <workItem from="1736543260704" duration="811000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -366,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736379305249</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="pozbycie klasy">
+      <option name="closed" value="true" />
+      <created>1736446720885</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1736446720885</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +422,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="asdasd" />
     <MESSAGE value="guziki i okienka" />
     <MESSAGE value="Stackpanel" />
     <MESSAGE value="ustawienie okienek z przycisków na środek" />
@@ -424,6 +446,7 @@
     <MESSAGE value="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie" />
     <MESSAGE value="przygotowanie okienka ze stanem magazynu pod wyświetlanie stanu" />
     <MESSAGE value="wyświetlanie dostępnego osprzętu oraz dostępnych rzeczy na magazynie" />
-    <option name="LAST_COMMIT_MESSAGE" value="wyświetlanie dostępnego osprzętu oraz dostępnych rzeczy na magazynie" />
+    <MESSAGE value="pozbycie klasy" />
+    <option name="LAST_COMMIT_MESSAGE" value="pozbycie klasy" />
   </component>
 </project>

@@ -304,10 +304,10 @@ public class DBUtility
         return shutteringProduct;
     }
     
-    public static List<Equipment> GetEquipmentFromDatabase(string command = "SELECT * FROM Equipment")
+    public static List<Equipment> GetPriceListFromDatabase(string command = "SELECT * FROM PriceList")
     {
         var columns = new List<string>
-            { "EquipmentID", "NameOfEquipment", "Summary", "AmountInStock"};
+            { "PriceID", "ProductID", "EquipmentID", "Price"};
         List<Equipment> equipment = new();
         SQLitePCL.Batteries.Init();
 
@@ -339,6 +339,44 @@ public class DBUtility
         }
 
         return equipment;
+    }
+    
+    
+    public static List<PriceList> GetEquipmentFromDatabase(string command = "SELECT * FROM Equipment")
+    {
+        var columns = new List<string>
+            { "PriceID", "ProductID", "EquipmentID", "Price"};
+        List<PriceList> priceList = new();
+        SQLitePCL.Batteries.Init();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+                var sqliteCommand = connection.CreateCommand();
+                sqliteCommand.CommandText = command;
+
+                using (var reader = sqliteCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int priceID = GetDBColumnValue<int>("PriceID", columns, reader);
+                        int productID = GetDBColumnValue<string>("ProductID", columns, reader);
+                        int equipmentID = GetDBColumnValue<string>("EquipmentID", columns, reader);
+                        float price = GetDBColumnValue<int>("Price", columns, reader);
+                        priceList.Add(new PriceList(priceID, productID, equipmentID, price));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
+
+        return priceList;
     }
 
     private static dynamic GetDBColumnValue<T>(string condition, List<string> columns, SqliteDataReader? reader)
