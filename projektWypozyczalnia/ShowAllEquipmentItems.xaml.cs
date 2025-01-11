@@ -15,7 +15,7 @@ public partial class ShowAllEquipmentItems : Window
     {
         var equipmentList = dbUtility.GetAllEquipment();
         StockDataGrid.ItemsSource = equipmentList
-            .Select(name => new { EquipmentName = name })  // Mapowanie na obiekt anonimowy
+            .Select(name => new { EquipmentName = name })
             .ToList();
     }
     

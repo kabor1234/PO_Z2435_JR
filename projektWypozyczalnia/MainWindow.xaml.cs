@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -46,4 +47,8 @@ public partial class MainWindow : Window
     }
 
 
+    private void MainClose(object? sender, CancelEventArgs e)
+    {
+        Application.Current.Shutdown();
+    }
 }

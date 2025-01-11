@@ -14,12 +14,13 @@ public partial class PriceListWindow : Window
 
     private void EditPriceListButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        EditPriceWindow editPriceWindow = new EditPriceWindow();
+        editPriceWindow.Show();
     }
 
     private void CloseButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Close();
     }
 
     

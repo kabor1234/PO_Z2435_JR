@@ -8,10 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="odświeżanie okienek w stanie magazynu">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="odświeżanie po zamknięciu okienek">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +53,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8d42d5f1712377031e2892d1c29db5c23b8c7d49b9dc632fbf463bd930a8/RuntimeHelpers.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e4205e8a6694baad6eda95cafda8ae55521aa77cd189e59cbe5b4f758bb3d/TypeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/StockConditionWindow.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/StockConditionWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/AddNewShutteringSystem.g.cs" root0="SKIP_HIGHLIGHTING" />
@@ -152,7 +162,7 @@
       <workItem from="1736528963492" duration="2385000" />
       <workItem from="1736535086763" duration="1102000" />
       <workItem from="1736543260704" duration="11057000" />
-      <workItem from="1736610627962" duration="8056000" />
+      <workItem from="1736610627962" duration="12795000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -418,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736618445920</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="odświeżanie po zamknięciu okienek">
+      <option name="closed" value="true" />
+      <created>1736619091398</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1736619091398</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +469,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="dodanie nuggetów" />
     <MESSAGE value="okienko dodaj do magazynu" />
     <MESSAGE value="okienko usuń z magazynu" />
     <MESSAGE value="baza danych" />
@@ -476,6 +493,7 @@
     <MESSAGE value="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych" />
     <MESSAGE value="drobne poprawki" />
     <MESSAGE value="odświeżanie okienek w stanie magazynu" />
-    <option name="LAST_COMMIT_MESSAGE" value="odświeżanie okienek w stanie magazynu" />
+    <MESSAGE value="odświeżanie po zamknięciu okienek" />
+    <option name="LAST_COMMIT_MESSAGE" value="odświeżanie po zamknięciu okienek" />
   </component>
 </project>

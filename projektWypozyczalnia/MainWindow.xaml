@@ -11,7 +11,8 @@
         MinHeight="600"
         MinWidth="1200"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="SingleBorderWindow">
+        WindowStyle="SingleBorderWindow"
+        Closing="MainClose">
         
     <Grid>
 

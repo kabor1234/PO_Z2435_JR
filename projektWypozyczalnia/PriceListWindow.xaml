@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:projektWypozyczalnia"
         mc:Ignorable="d"
         Title="PriceListWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
         Loaded="ShowEquipmentCheckBox_Unchecked">
     <Grid>
             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Top">
@@ -31,9 +34,9 @@
                             <DataGridTextColumn Header="System szalunkowy" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Długość" Binding="{Binding Length}" Width="*"/>
                             <DataGridTextColumn Header="Szerokość" Binding="{Binding Width}" Width="*"/>
-                            <DataGridTextColumn Header="Ilość" Binding="{Binding Amount}" Width="*"/>
+                            <DataGridTextColumn Header="Cena" Binding="{Binding ShutteringPrice}" Width="*"/>
                             <DataGridTextColumn Header="Nazwa przedmiotu" Binding="{Binding EquipmentName}" Width="*"/>
-                            <DataGridTextColumn Header="Ilość" Binding="{Binding EquipmentAmount}" Width="*"/>
+                            <DataGridTextColumn Header="Cena" Binding="{Binding EquipmentPrice}" Width="*"/>
                     </DataGrid.Columns>
             </DataGrid>
     </Grid>
