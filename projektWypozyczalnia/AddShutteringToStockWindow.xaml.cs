@@ -20,57 +20,59 @@ public partial class AddShutteringToStockWindow : Window
 
     private void LoadShutteringSystems()
     {
-        shutteringComboBox.Items.Clear();
+        ShutteringComboBox.Items.Clear();
         List<string> systems = dbUtility.GetShutteringSystems();
 
         foreach (var system in systems)
         {
-            shutteringComboBox.Items.Add(system);
+            ShutteringComboBox.Items.Add(system);
         }
     }
 
     private void shutteringComboBox_SelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
     {
-        string selectedSystem = (string)shutteringComboBox.SelectedItem;
+        string selectedSystem = (string)ShutteringComboBox.SelectedItem;
         LoadLengthsForSystem(selectedSystem);
     }
 
     private void LoadLengthsForSystem(string systemName)
     {
-        lengthComboBox.Items.Clear();
+        LengthComboBox.Items.Clear();
         List<int> lengths = dbUtility.GetLengthsForSystem(systemName);
 
         foreach (var length in lengths)
         {
-            lengthComboBox.Items.Add(length);
+            LengthComboBox.Items.Add(length);
         }
     }
 
     private void lengthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        int selectedLength = (int)lengthComboBox.SelectedItem;
+        int selectedLength = (int)LengthComboBox.SelectedItem;
         LoadWidthsForLength(selectedLength);
     }
 
     private void LoadWidthsForLength(int length)
     {
-        widthComboBox.Items.Clear();
+        WidthComboBox.Items.Clear();
         List<int> widths = dbUtility.GetWidthsForLength(length);
 
         foreach (var width in widths)
         {
-            widthComboBox.Items.Add(width);
+            WidthComboBox.Items.Add(width);
         }
     }
 
     private void AddShutteringsToStock_onClick(object sender, RoutedEventArgs e)
     {
-        string selectedSystem = (string)shutteringComboBox.SelectedItem;
-        int selectedLength = (int)lengthComboBox.SelectedItem;
-        int selectedWidth = (int)widthComboBox.SelectedItem;
-        int amount = int.Parse(amountTextBox.Text);
+        string selectedSystem = (string)ShutteringComboBox.SelectedItem;
+        int selectedLength = (int)LengthComboBox.SelectedItem;
+        int selectedWidth = (int)WidthComboBox.SelectedItem;
+        int amount = int.Parse(AmountTextBox.Text);
 
-        dbUtility.AddToStock(selectedSystem, selectedLength, selectedWidth, amount);
+        dbUtility.AddShutteringToStock(selectedSystem, selectedLength, selectedWidth, amount);
+        
+
     }
 
     private void AddNewShutteringSystem_OnClick(object sender, RoutedEventArgs e)

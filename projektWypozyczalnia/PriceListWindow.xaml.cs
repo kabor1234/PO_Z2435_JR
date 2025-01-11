@@ -1,35 +1,27 @@
 using System.Windows;
-using Microsoft.Data.Sqlite;
 
 namespace projektWypozyczalnia;
 
-public partial class StockConditionWindow : Window
+public partial class PriceListWindow : Window
 {
     private DBUtility dbUtility = new DBUtility();
     private bool showEquipment = false;
-
-    public StockConditionWindow()
+    
+    public PriceListWindow()
     {
         InitializeComponent();
-        LoadShutteringData();
     }
-    
-    private void AddShutteringToStock_OnClick(object sender, RoutedEventArgs e)
+
+    private void EditPriceListButton_OnClick(object sender, RoutedEventArgs e)
     {
-        var addShutteringToStock = new AddShutteringToStockWindow();
-        addShutteringToStock.Show();
+        throw new NotImplementedException();
     }
-    
-    private void AddEquipmentToStock_OnClick(object sender, RoutedEventArgs e)
+
+    private void CloseButton_OnClick(object sender, RoutedEventArgs e)
     {
-        var addEquipmentToStockWindow = new AddEquipmentToStockWindow();
-        addEquipmentToStockWindow.Show();
+        throw new NotImplementedException();
     }
-    
-    private void Close_OnClick(object sender, RoutedEventArgs e)
-    {
-        Close();
-    }
+
     
     private void ShowEquipmentCheckBox_Checked(object sender, RoutedEventArgs e)
     {
@@ -47,16 +39,15 @@ public partial class StockConditionWindow : Window
     {
         if (showEquipment)
         {
-            LoadEquipmentData();
+            LoadEquipmentPriceData();
         }
         else
         {
-            LoadShutteringData();
+            LoadShutteringPriceData();
         }
     }
     
-    
-    private void LoadShutteringData()
+    private void LoadShutteringPriceData()
     {
         try
         {
@@ -71,11 +62,11 @@ public partial class StockConditionWindow : Window
         }
     }
     
-    private void LoadEquipmentData()
+    private void LoadEquipmentPriceData()
     {
         try
         {
-            var data = dbUtility.GetEquipmentStockData();
+            var data = dbUtility.GetEquipmentList();
             StockDataGrid.ItemsSource = data;
             SetColumnVisibilityForEquipment();
         }
@@ -108,5 +99,4 @@ public partial class StockConditionWindow : Window
         StockDataGrid.Columns[5].Visibility = Visibility.Visible;
         StockDataGrid.Columns[6].Visibility = Visibility.Visible;
     }
-
 }

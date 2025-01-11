@@ -26,6 +26,6 @@ public partial class ShowAllEquipmentItems : Window
 
     private void ExitButton_Click(object sender, RoutedEventArgs e)
     {
-        this.Close();
+        Close();
     }
 }

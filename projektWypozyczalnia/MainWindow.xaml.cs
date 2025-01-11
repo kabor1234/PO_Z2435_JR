@@ -17,26 +17,33 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    private void Rent_OnClick(object sender, RoutedEventArgs e)
-    {
-        RentWindow rentWindow = new RentWindow();
-        rentWindow.Show();
-    }
-
-    private void Rental_OnClick(object sender, RoutedEventArgs e)
+    private void RentalButton_OnClick(object sender, RoutedEventArgs e)
     {
         RentalWindow rentalWindow = new RentalWindow();
         rentalWindow.Show();
     }
 
-    private void StockCondition_OnClick(object sender, RoutedEventArgs e)
+    private void StockConditionButton_OnClick(object sender, RoutedEventArgs e)
     {
         StockConditionWindow addToInventoryWindow = new StockConditionWindow();
         addToInventoryWindow.Show();
     }
 
-    private void Exit_OnClick(object sender, RoutedEventArgs e)
+    private void PriceListButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        PriceListWindow priceListWindow = new PriceListWindow();
+        priceListWindow.Show();
+    }
+
+    private void SettingsButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+    
+    private void ExitButton_OnClick(object sender, RoutedEventArgs e)
     {
         Application.Current.Shutdown();
     }
+
+
 }

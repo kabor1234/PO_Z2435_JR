@@ -33,7 +33,9 @@ public partial class AddNewEquipmentItemWindow : Window
                 MessageBox.Show("Nazwa osprzętu nie może być pusta.");
                 return;
             }
-
+            
+            nameOfEquipment = nameOfEquipment.ToLower();
+            
             dbUtility.AddEquipmentToDatabase(nameOfEquipment);
                 
             MessageBox.Show($"Dodano osprzęt: {nameOfEquipment}");

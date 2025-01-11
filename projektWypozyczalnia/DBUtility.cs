@@ -635,6 +635,42 @@ public class DBUtility
         return results;
     }
     
+            public Dictionary<int, string> GetEquipmentList()
+        {
+            var equipmentList = new Dictionary<int, string>();
+
+            using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"
+                    SELECT EquipmentID, NameOfEquipment 
+                    FROM Equipment;";
+
+                    using (var command = new SqliteCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int id = Convert.ToInt32(reader["EquipmentID"]);
+                                string name = reader["NameOfEquipment"].ToString();
+                                equipmentList.Add(id, name);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + ex.Message);
+                }
+            }
+
+            return equipmentList;
+        }
+    
     public List<string> GetAllEquipment()
     {
         var results = new List<string>();
@@ -676,7 +712,7 @@ public class DBUtility
         return results;
     }
 
-    public void AddToStock(string systemName, int length, int width, int amount)
+    public void AddShutteringToStock(string systemName, int length, int width, int amount)
     {
         using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
         {
@@ -713,6 +749,35 @@ public class DBUtility
         }
     }
     
+    public void AddEquipmentToStock(int equipmentId, int amount)
+    {
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                    UPDATE Equipment
+                    SET AmountInStock = AmountInStock + @Amount
+                    WHERE EquipmentID = @EquipmentId;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Ilość została zaktualizowana.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas dodawania ilości: " + ex.Message);
+            }
+        }
+    }
+    
     
     
         public void AddEquipmentToDatabase(string nameOfEquipment)
@@ -741,72 +806,7 @@ public class DBUtility
                 }
             }
         }
-
-      
-        public Dictionary<int, string> GetEquipmentList()
-        {
-            var equipmentList = new Dictionary<int, string>();
-
-            using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string query = @"
-                    SELECT EquipmentID, NameOfEquipment 
-                    FROM Equipment;";
-
-                    using (var command = new SqliteCommand(query, connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                int id = Convert.ToInt32(reader["EquipmentID"]);
-                                string name = reader["NameOfEquipment"].ToString();
-                                equipmentList.Add(id, name);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + ex.Message);
-                }
-            }
-
-            return equipmentList;
-        }
-
-        public void AddAmountToEquipment(int equipmentId, int amount)
-        {
-            using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string query = @"
-                    UPDATE Equipment
-                    SET AmountInStock = AmountInStock + @Amount
-                    WHERE EquipmentID = @EquipmentId;";
-
-                    using (var command = new SqliteCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Amount", amount);
-                        command.Parameters.AddWithValue("@EquipmentId", equipmentId);
-
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Ilość została zaktualizowana.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Błąd podczas dodawania ilości: " + ex.Message);
-                }
-            }
-        }
+        
         
         public List<ShutteringStockItem> GetShutteringStockData()
         {

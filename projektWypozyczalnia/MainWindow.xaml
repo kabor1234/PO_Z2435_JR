@@ -25,18 +25,22 @@
                             VerticalAlignment="Top"
                             Foreground="Black" />
 
-                    <Button x:Name="Rent"
-                            Content="Wypożycz"
-                            Margin="0,10,0,10" Click="Rent_OnClick" />
-                    <Button x:Name="Rental"
+
+                    <Button x:Name="RentalButton"
                             Content="Wypożyczenia"
-                            Margin="0,10,0,10" Click="Rental_OnClick" />
-                    <Button x:Name="AddToInventory"
+                            Margin="0,10,0,10" Click="RentalButton_OnClick" />
+                    <Button x:Name="StockConditionButton"
                             Content="Stan magazynu"
-                            Margin="0,10,0,10" Click="StockCondition_OnClick" />
-                    <Button x:Name="Exit"
+                            Margin="0,10,0,10" Click="StockConditionButton_OnClick" />
+                    <Button x:Name="PriceListButton"
+                            Content="Cennik"
+                            Margin="0,10,0,10" Click="PriceListButton_OnClick" />
+                    <Button x:Name="SettingButton"
+                            Content="Ustawienia"
+                            Margin="0,10,0,10" Click="SettingsButton_OnClick" />
+                    <Button x:Name="ExitButton"
                             Content="Wyjdź z programu"
-                            Margin="0,10,0,10" Click="Exit_OnClick" />
+                            Margin="0,10,0,10" Click="ExitButton_OnClick" />
             </StackPanel>
 
     </Grid>

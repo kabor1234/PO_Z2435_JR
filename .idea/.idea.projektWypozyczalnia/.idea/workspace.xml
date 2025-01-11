@@ -8,11 +8,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RemoveFromStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RemoveFromStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
@@ -155,7 +162,7 @@
       <workItem from="1736446409022" duration="789000" />
       <workItem from="1736528963492" duration="2385000" />
       <workItem from="1736535086763" duration="1102000" />
-      <workItem from="1736543260704" duration="811000" />
+      <workItem from="1736543260704" duration="10843000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -389,7 +396,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736446720885</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych">
+      <option name="closed" value="true" />
+      <created>1736544235522</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1736544235522</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +437,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="guziki i okienka" />
     <MESSAGE value="Stackpanel" />
     <MESSAGE value="ustawienie okienek z przycisków na środek" />
     <MESSAGE value="dodanie nuggetów" />
@@ -447,6 +461,7 @@
     <MESSAGE value="przygotowanie okienka ze stanem magazynu pod wyświetlanie stanu" />
     <MESSAGE value="wyświetlanie dostępnego osprzętu oraz dostępnych rzeczy na magazynie" />
     <MESSAGE value="pozbycie klasy" />
-    <option name="LAST_COMMIT_MESSAGE" value="pozbycie klasy" />
+    <MESSAGE value="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych" />
   </component>
 </project>

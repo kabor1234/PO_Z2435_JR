@@ -1,4 +1,6 @@
 using System.Windows;
+using System.Globalization;
+
 
 namespace projektWypozyczalnia;
 
@@ -10,7 +12,7 @@ public partial class AddEquipmentToStockWindow : Window
         public AddEquipmentToStockWindow()
         {
             InitializeComponent();
-            Loaded += OnWindowLoaded;
+            Loaded += OnEquipmentAdded;
         }
         
         private void AddEquipmentToStock_onClick(object sender, RoutedEventArgs e)
@@ -20,6 +22,7 @@ public partial class AddEquipmentToStockWindow : Window
                 MessageBox.Show("Proszę wybrać osprzęt.");
                 return;
             }
+            
 
             string selectedEquipmentName = (string)EquipmentNameComboBox.SelectedItem;
             int selectedEquipmentId = GetEquipmentIdByName(selectedEquipmentName);
@@ -30,7 +33,7 @@ public partial class AddEquipmentToStockWindow : Window
                 return;
             }
 
-            dbUtility.AddAmountToEquipment(selectedEquipmentId, amount);
+            dbUtility.AddEquipmentToStock(selectedEquipmentId, amount);
 
             ResetWindow();
         }
@@ -42,20 +45,15 @@ public partial class AddEquipmentToStockWindow : Window
             addNewEquipmentWindow.ShowDialog();
         }
         
-        private void Cancel_OnClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void OnWindowLoaded(object sender, RoutedEventArgs e)
-        {
-            LoadEquipment();
-        }
 
         private void LoadEquipment()
         {
             EquipmentNameComboBox.Items.Clear();
             equipmentDictionary = dbUtility.GetEquipmentList();
+            
+            var sortedEquipment = equipmentDictionary.Values
+                .OrderBy(equipment => equipment, StringComparer.Create(CultureInfo.GetCultureInfo("pl-PL"), false))
+                .ToList();
 
             foreach (var equipment in equipmentDictionary)
             {
@@ -84,6 +82,9 @@ public partial class AddEquipmentToStockWindow : Window
         {
             LoadEquipment();
         }
-
-
+        
+        private void Cancel_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 }

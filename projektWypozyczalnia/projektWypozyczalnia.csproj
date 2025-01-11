@@ -17,8 +17,15 @@
     <ItemGroup>
       <None Remove="Shutterings.db" />
       <Content Include="Shutterings.db">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="AddShutteringToStockWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <DependentUpon>AddEquipmentToStockWindow.xaml</DependentUpon>
+      </Page>
     </ItemGroup>
 
 </Project>

@@ -13,13 +13,13 @@
         <StackPanel Margin="20">
             <TextBlock TextAlignment="Center"> Dodawanie szalunków</TextBlock>
             <TextBlock Margin="0,10,0,0">Wybierz system:</TextBlock>
-            <ComboBox x:Name="shutteringComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="shutteringComboBox_SelectionChanged"></ComboBox>
+            <ComboBox x:Name="ShutteringComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="shutteringComboBox_SelectionChanged"></ComboBox>
             <TextBlock Margin="0,10,0,0">Wybierz długość:</TextBlock>
-            <ComboBox x:Name="lengthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="lengthComboBox_SelectionChanged"></ComboBox>
+            <ComboBox x:Name="LengthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="lengthComboBox_SelectionChanged"></ComboBox>
             <TextBlock Margin="0,10,0,0">Wybierz szerokość:</TextBlock>
-            <ComboBox x:Name="widthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left"></ComboBox>
+            <ComboBox x:Name="WidthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left"></ComboBox>
             <TextBlock Margin="0,10,0,0">Podaj ilość:</TextBlock>
-            <TextBox x:Name="amountTextBox" Margin="0,5,0,0" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="AmountTextBox" Margin="0,5,0,0" Width="100" HorizontalAlignment="Left"></TextBox>
 
             
         </StackPanel>
