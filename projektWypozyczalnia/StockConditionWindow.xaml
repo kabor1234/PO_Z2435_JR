@@ -24,6 +24,10 @@
                         Content="Dodaj osprzęt" 
                         Margin="10,15,0,0"
                         Click="AddEquipmentToStock_OnClick"/>
+                <Button x:Name="Refresh" 
+                        Content="Odśwież" 
+                        Margin="10,15,0,0"
+                        Click="RefreshWindow_OnClick"/>
                 <CheckBox x:Name="ShowEquipmentCheckBox" 
                           Margin="10,17,0,0" 
                           Content="Pokaż osprzęt"

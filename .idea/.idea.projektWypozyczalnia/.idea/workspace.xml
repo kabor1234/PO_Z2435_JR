@@ -8,18 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="odświeżanie okienek w stanie magazynu">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Equipment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +152,7 @@
       <workItem from="1736528963492" duration="2385000" />
       <workItem from="1736535086763" duration="1102000" />
       <workItem from="1736543260704" duration="11057000" />
-      <workItem from="1736610627962" duration="7368000" />
+      <workItem from="1736610627962" duration="8056000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -418,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736554365313</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="odświeżanie okienek w stanie magazynu">
+      <option name="closed" value="true" />
+      <created>1736618445920</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1736618445920</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +451,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="ustawienie okienek z przycisków na środek" />
     <MESSAGE value="dodanie nuggetów" />
     <MESSAGE value="okienko dodaj do magazynu" />
     <MESSAGE value="okienko usuń z magazynu" />
@@ -476,6 +475,7 @@
     <MESSAGE value="pozbycie klasy" />
     <MESSAGE value="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych" />
     <MESSAGE value="drobne poprawki" />
-    <option name="LAST_COMMIT_MESSAGE" value="drobne poprawki" />
+    <MESSAGE value="odświeżanie okienek w stanie magazynu" />
+    <option name="LAST_COMMIT_MESSAGE" value="odświeżanie okienek w stanie magazynu" />
   </component>
 </project>

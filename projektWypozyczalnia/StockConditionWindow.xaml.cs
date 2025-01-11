@@ -109,4 +109,10 @@ public partial class StockConditionWindow : Window
         StockDataGrid.Columns[6].Visibility = Visibility.Visible;
     }
 
+    private void RefreshWindow_OnClick(object sender, RoutedEventArgs e)
+    {
+        Close();
+        StockConditionWindow newWindow = new StockConditionWindow();
+        newWindow.Show();
+    }
 }

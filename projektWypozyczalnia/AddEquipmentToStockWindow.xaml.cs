@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using System.Globalization;
 
@@ -77,5 +78,11 @@ public partial class AddEquipmentToStockWindow : Window
         private void Cancel_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ClosingWindow(object? sender, CancelEventArgs e)
+        {        
+            StockConditionWindow newWindow = new StockConditionWindow();
+            newWindow.Show();
         }
 }
