@@ -5,7 +5,7 @@ namespace projektWypozyczalnia;
 
 public partial class StockConditionWindow : Window
 {
-    private DBUtility dbUtility = new DBUtility();
+    
     private bool showEquipment = false;
 
     public StockConditionWindow()
@@ -60,7 +60,7 @@ public partial class StockConditionWindow : Window
     {
         try
         {
-            var data = dbUtility.GetShutteringStockData();
+            var data = DBUtility.GetShutteringStockData();
             StockDataGrid.ItemsSource = data;
             
             SetColumnVisibilityForShuttering();
@@ -75,7 +75,7 @@ public partial class StockConditionWindow : Window
     {
         try
         {
-            var data = dbUtility.GetEquipmentStockData();
+            var data = DBUtility.GetEquipmentStockData();
             StockDataGrid.ItemsSource = data;
             SetColumnVisibilityForEquipment();
         }

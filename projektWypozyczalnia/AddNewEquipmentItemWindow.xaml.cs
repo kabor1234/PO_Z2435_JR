@@ -5,7 +5,7 @@ namespace projektWypozyczalnia;
 
 public partial class AddNewEquipmentItemWindow : Window
 {
-    private DBUtility dbUtility = new DBUtility();
+    
     public event EventHandler EquipmentAdded;
     public AddNewEquipmentItemWindow()
     {
@@ -37,7 +37,7 @@ public partial class AddNewEquipmentItemWindow : Window
             
             nameOfEquipment = nameOfEquipment.ToLower();
             
-            dbUtility.AddEquipmentToDatabase(nameOfEquipment);
+            DBUtility.AddEquipmentToDatabase(nameOfEquipment);
                 
             MessageBox.Show($"Dodano osprzęt: {nameOfEquipment}");
             EquipmentAdded?.Invoke(this, EventArgs.Empty);

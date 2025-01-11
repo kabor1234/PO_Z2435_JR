@@ -7,7 +7,7 @@ namespace projektWypozyczalnia;
 
 public partial class AddEquipmentToStockWindow : Window
 {
-        private DBUtility dbUtility = new DBUtility();
+        
         private Dictionary<int, string> equipmentDictionary = new Dictionary<int, string>();
 
         public AddEquipmentToStockWindow()
@@ -34,7 +34,7 @@ public partial class AddEquipmentToStockWindow : Window
                 return;
             }
 
-            dbUtility.AddEquipmentToStock(selectedEquipmentId, amount);
+            DBUtility.AddEquipmentToStock(selectedEquipmentId, amount);
             
             Close();
         }
@@ -50,7 +50,7 @@ public partial class AddEquipmentToStockWindow : Window
         private void LoadEquipment()
         {
             EquipmentNameComboBox.Items.Clear();
-            equipmentDictionary = dbUtility.GetEquipmentList();
+            equipmentDictionary = DBUtility.GetEquipmentList();
             
             var sortedEquipment = equipmentDictionary.Values
                 .OrderBy(equipment => equipment, StringComparer.Create(CultureInfo.GetCultureInfo("pl-PL"), false))

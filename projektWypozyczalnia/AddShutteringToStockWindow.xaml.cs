@@ -6,7 +6,7 @@ namespace projektWypozyczalnia;
 
 public partial class AddShutteringToStockWindow : Window
 {
-    private DBUtility dbUtility = new DBUtility();
+    
 
     public AddShutteringToStockWindow()
     {
@@ -17,7 +17,7 @@ public partial class AddShutteringToStockWindow : Window
     private void LoadShutteringSystems()
     {
         ShutteringComboBox.Items.Clear();
-        List<string> systems = dbUtility.GetShutteringSystems();
+        List<string> systems = DBUtility.GetShutteringSystems();
 
         foreach (var system in systems)
         {
@@ -34,7 +34,7 @@ public partial class AddShutteringToStockWindow : Window
     private void LoadLengthsForSystem(string systemName)
     {
         LengthComboBox.Items.Clear();
-        List<int> lengths = dbUtility.GetLengthsForSystem(systemName);
+        List<int> lengths = DBUtility.GetLengthsForSystem(systemName);
 
         foreach (var length in lengths)
         {
@@ -51,7 +51,7 @@ public partial class AddShutteringToStockWindow : Window
     private void LoadWidthsForLength(int length)
     {
         WidthComboBox.Items.Clear();
-        List<int> widths = dbUtility.GetWidthsForLength(length);
+        List<int> widths = DBUtility.GetWidthsForLength(length);
 
         foreach (var width in widths)
         {
@@ -67,7 +67,7 @@ public partial class AddShutteringToStockWindow : Window
         int selectedWidth = (int)WidthComboBox.SelectedItem;
         int amount = int.Parse(AmountTextBox.Text);
         
-        dbUtility.AddShutteringToStock(selectedSystem, selectedLength, selectedWidth, amount);
+        DBUtility.AddShutteringToStock(selectedSystem, selectedLength, selectedWidth, amount);
         
         Close();
 

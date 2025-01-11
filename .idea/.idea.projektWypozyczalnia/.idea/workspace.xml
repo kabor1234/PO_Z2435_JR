@@ -8,16 +8,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="odświeżanie po zamknięciu okienek">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie okienka z edycją cen">
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowShutteringSystemsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowShutteringSystemsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,7 @@
     <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/StockConditionWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/AddNewEquipmentItemWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/AddNewShutteringSystem.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/RentalWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -162,7 +164,7 @@
       <workItem from="1736528963492" duration="2385000" />
       <workItem from="1736535086763" duration="1102000" />
       <workItem from="1736543260704" duration="11057000" />
-      <workItem from="1736610627962" duration="12795000" />
+      <workItem from="1736610627962" duration="13396000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -436,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736619091398</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="dodanie okienka z edycją cen">
+      <option name="closed" value="true" />
+      <created>1736623858063</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1736623858066</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +479,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="okienko dodaj do magazynu" />
     <MESSAGE value="okienko usuń z magazynu" />
     <MESSAGE value="baza danych" />
     <MESSAGE value="dodanie klientów" />
@@ -494,6 +503,7 @@
     <MESSAGE value="drobne poprawki" />
     <MESSAGE value="odświeżanie okienek w stanie magazynu" />
     <MESSAGE value="odświeżanie po zamknięciu okienek" />
-    <option name="LAST_COMMIT_MESSAGE" value="odświeżanie po zamknięciu okienek" />
+    <MESSAGE value="dodanie okienka z edycją cen" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie okienka z edycją cen" />
   </component>
 </project>

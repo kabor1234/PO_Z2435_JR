@@ -18,7 +18,7 @@ public partial class AddNewShutteringSystem : Window
 
     private void AddShutteringSystemButton_OnClick(object sender, RoutedEventArgs e)
     {
-        DBUtility dbUtility = new DBUtility();
+        
         
         try
         {
@@ -46,7 +46,7 @@ public partial class AddNewShutteringSystem : Window
             }
             
                 
-            dbUtility.AddShutteringSystemToDatabase(nameOfShuttering!, manufacturer, length, widths);
+            DBUtility.AddShutteringSystemToDatabase(nameOfShuttering!, manufacturer, length, widths);
             
             MessageBox.Show($"Dodano: {nameOfShuttering}; {manufacturer}; {length}; {widthsInput}");
 

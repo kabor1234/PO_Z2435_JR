@@ -12,11 +12,11 @@ public partial class ShowShutteringSystemsWindow : Window
 
     private void ShowShutteringSystemsMethod()
     {
-        DBUtility dbUtility = new DBUtility();
+        
 
         try
         {
-            var data = dbUtility.GetAllShutteringSystems();
+            var data = DBUtility.GetAllShutteringSystems();
             ActiveShutteringSystemsDg.ItemsSource = data;
         }
         catch (Exception ex)

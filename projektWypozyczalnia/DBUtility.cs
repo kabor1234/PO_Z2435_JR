@@ -3,7 +3,7 @@ using Microsoft.Data.Sqlite;
 
 namespace projektWypozyczalnia;
 
-public class DBUtility
+public static class DBUtility
 {
     private static readonly string dataBaseName = "Shutterings.db";
     public static List<Client> GetClientsFromDatabase(string command = "SELECT * FROM Clients")
@@ -409,7 +409,7 @@ public class DBUtility
         throw new NotSupportedException($"The type {typeof(T).Name} is not supported.");
     }
     
-    public void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
+    public static void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
     {
 
         using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
@@ -476,7 +476,7 @@ public class DBUtility
         }
     }
     
-    public List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
+    public static List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
     {
         var results = new List<AvailableSystemsOfShuttering>();
 
@@ -527,7 +527,7 @@ public class DBUtility
         return results;
     }
     
-    public List<string> GetShutteringSystems()
+    public static List<string> GetShutteringSystems()
     {
         var results = new List<string>();
 
@@ -559,7 +559,7 @@ public class DBUtility
         return results;
     }
 
-    public List<int> GetLengthsForSystem(string systemName)
+    public static List<int> GetLengthsForSystem(string systemName)
     {
         var results = new List<int>();
 
@@ -597,7 +597,7 @@ public class DBUtility
         return results;
     }
 
-    public List<int> GetWidthsForLength(int length)
+    public static List<int> GetWidthsForLength(int length)
     {
         var results = new List<int>();
 
@@ -635,7 +635,7 @@ public class DBUtility
         return results;
     }
     
-    public Dictionary<int, string> GetEquipmentList()
+    public static Dictionary<int, string> GetEquipmentList()
         {
             var equipmentList = new Dictionary<int, string>();
 
@@ -670,7 +670,7 @@ public class DBUtility
             return equipmentList;
         }
     
-    public List<string> GetAllEquipment()
+    public static List<string> GetAllEquipment()
     {
         var results = new List<string>();
 
@@ -711,7 +711,7 @@ public class DBUtility
         return results;
     }
 
-    public void AddShutteringToStock(string systemName, int length, int width, int amount)
+    public static void AddShutteringToStock(string systemName, int length, int width, int amount)
     {
         using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
         {
@@ -748,7 +748,7 @@ public class DBUtility
         }
     }
     
-    public void AddEquipmentToStock(int equipmentId, int amount)
+    public static void AddEquipmentToStock(int equipmentId, int amount)
     {
         using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
         {
@@ -778,8 +778,7 @@ public class DBUtility
     }
     
     
-    
-        public void AddEquipmentToDatabase(string nameOfEquipment)
+    public static void AddEquipmentToDatabase(string nameOfEquipment)
         {
             using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
             {
@@ -807,7 +806,7 @@ public class DBUtility
         }
         
         
-        public List<ShutteringStockItem> GetShutteringStockData()
+    public static List<ShutteringStockItem> GetShutteringStockData()
         {
             var results = new List<ShutteringStockItem>();
 
@@ -850,7 +849,7 @@ public class DBUtility
             return results;
         }
 
-        public List<EquipmentStockItem> GetEquipmentStockData()
+    public static List<EquipmentStockItem> GetEquipmentStockData()
         {
             var results = new List<EquipmentStockItem>();
 

@@ -4,7 +4,7 @@ namespace projektWypozyczalnia;
 
 public partial class PriceListWindow : Window
 {
-    private DBUtility dbUtility = new DBUtility();
+    
     private bool showEquipment = false;
     
     public PriceListWindow()
@@ -52,7 +52,7 @@ public partial class PriceListWindow : Window
     {
         try
         {
-            var data = dbUtility.GetShutteringStockData();
+            var data = DBUtility.GetShutteringStockData();
             StockDataGrid.ItemsSource = data;
             
             SetColumnVisibilityForShuttering();

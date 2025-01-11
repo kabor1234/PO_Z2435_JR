@@ -4,7 +4,7 @@ namespace projektWypozyczalnia;
 
 public partial class ShowAllEquipmentItems : Window
 {
-    DBUtility dbUtility = new DBUtility();
+    
     
     public ShowAllEquipmentItems()
     {
@@ -13,7 +13,7 @@ public partial class ShowAllEquipmentItems : Window
     
     private void LoadEquipmentData()
     {
-        var equipmentList = dbUtility.GetAllEquipment();
+        var equipmentList = DBUtility.GetAllEquipment();
         StockDataGrid.ItemsSource = equipmentList
             .Select(name => new { EquipmentName = name })
             .ToList();
