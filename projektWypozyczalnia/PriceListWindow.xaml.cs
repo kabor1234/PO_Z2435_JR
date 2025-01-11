@@ -39,7 +39,7 @@ public partial class PriceListWindow : Window
     {
         if (showEquipment)
         {
-            LoadEquipmentPriceData();
+            
         }
         else
         {
@@ -62,19 +62,6 @@ public partial class PriceListWindow : Window
         }
     }
     
-    private void LoadEquipmentPriceData()
-    {
-        try
-        {
-            var data = dbUtility.GetEquipmentList();
-            StockDataGrid.ItemsSource = data;
-            SetColumnVisibilityForEquipment();
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Błąd podczas ładowania danych osprzętu: " + ex.Message);
-        }
-    }
     
     private void SetColumnVisibilityForShuttering()
     {

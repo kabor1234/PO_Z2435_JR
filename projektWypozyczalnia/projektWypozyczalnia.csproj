@@ -24,7 +24,6 @@
     <ItemGroup>
       <Page Update="AddShutteringToStockWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
-        <DependentUpon>AddEquipmentToStockWindow.xaml</DependentUpon>
       </Page>
     </ItemGroup>
 

@@ -14,4 +14,5 @@ public class Equipment
         Summary = summary;
         AmountInStock = amountInStock;
     }
+
 }

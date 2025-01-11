@@ -10,14 +10,9 @@ public partial class AddShutteringToStockWindow : Window
     public AddShutteringToStockWindow()
     {
         InitializeComponent();
-        Loaded += OnWindowLoaded;
-    }
-
-    private void OnWindowLoaded(object sender, RoutedEventArgs e)
-    {
         LoadShutteringSystems();
     }
-
+    
     private void LoadShutteringSystems()
     {
         ShutteringComboBox.Items.Clear();
@@ -65,20 +60,25 @@ public partial class AddShutteringToStockWindow : Window
 
     private void AddShutteringsToStock_onClick(object sender, RoutedEventArgs e)
     {
+        
         string selectedSystem = (string)ShutteringComboBox.SelectedItem;
         int selectedLength = (int)LengthComboBox.SelectedItem;
         int selectedWidth = (int)WidthComboBox.SelectedItem;
         int amount = int.Parse(AmountTextBox.Text);
-
+        
         dbUtility.AddShutteringToStock(selectedSystem, selectedLength, selectedWidth, amount);
         
+        Close();
 
     }
 
     private void AddNewShutteringSystem_OnClick(object sender, RoutedEventArgs e)
     {
+        
         AddNewShutteringSystem addNewShutteringSystem = new AddNewShutteringSystem();
         addNewShutteringSystem.Show();
+        
+        Close();
     }
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
@@ -87,3 +87,4 @@ public partial class AddShutteringToStockWindow : Window
     }
     
 }
+

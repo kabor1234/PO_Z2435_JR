@@ -8,7 +8,8 @@
         Title="AddNewEquipmentItem" Height="200" Width="400"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Closing="AddNewEquipmentItemWindow_OnClosing">
     
     
     <StackPanel Margin="10">
@@ -22,7 +23,7 @@
                     Height="20"
                     Margin="0,0,140,0"
                     Click = "ShowEquipmentItems_OnClick"/>
-            <Button x:Name="Cancel"
+            <Button x:Name="CancelButton"
                     Content="Anuluj" 
                     Height="20"
                     Margin="0,0,8,0"

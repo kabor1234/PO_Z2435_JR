@@ -635,7 +635,7 @@ public class DBUtility
         return results;
     }
     
-            public Dictionary<int, string> GetEquipmentList()
+    public Dictionary<int, string> GetEquipmentList()
         {
             var equipmentList = new Dictionary<int, string>();
 
@@ -667,7 +667,6 @@ public class DBUtility
                     MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + ex.Message);
                 }
             }
-
             return equipmentList;
         }
     

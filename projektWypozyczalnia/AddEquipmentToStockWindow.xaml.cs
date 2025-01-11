@@ -12,7 +12,7 @@ public partial class AddEquipmentToStockWindow : Window
         public AddEquipmentToStockWindow()
         {
             InitializeComponent();
-            Loaded += OnEquipmentAdded;
+            LoadEquipment();
         }
         
         private void AddEquipmentToStock_onClick(object sender, RoutedEventArgs e)
@@ -34,14 +34,14 @@ public partial class AddEquipmentToStockWindow : Window
             }
 
             dbUtility.AddEquipmentToStock(selectedEquipmentId, amount);
-
-            ResetWindow();
+            
+            Close();
         }
         
         private void AddNewEquipment_OnClick(object sender, RoutedEventArgs e)
         {
+            Close();
             AddNewEquipmentItemWindow addNewEquipmentWindow = new AddNewEquipmentItemWindow();
-            addNewEquipmentWindow.EquipmentAdded += OnEquipmentAdded;
             addNewEquipmentWindow.ShowDialog();
         }
         
@@ -72,16 +72,7 @@ public partial class AddEquipmentToStockWindow : Window
             }
             throw new Exception("Nie znaleziono osprzętu o tej nazwie.");
         }
-        private void ResetWindow()
-        {
-            EquipmentNameComboBox.SelectedIndex = -1; 
-            AmountOfEquipmentTextBox.Clear();                 
-            LoadEquipment(); 
-        } 
-        private void OnEquipmentAdded(object sender, EventArgs e)
-        {
-            LoadEquipment();
-        }
+
         
         private void Cancel_OnClick(object sender, RoutedEventArgs e)
         {

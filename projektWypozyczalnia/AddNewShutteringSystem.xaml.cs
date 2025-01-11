@@ -1,4 +1,6 @@
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace projektWypozyczalnia;
 
@@ -11,7 +13,7 @@ public partial class AddNewShutteringSystem : Window
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
     {
-        this.Close();
+        Close();
     }
 
     private void AddShutteringSystemButton_OnClick(object sender, RoutedEventArgs e)
@@ -49,7 +51,7 @@ public partial class AddNewShutteringSystem : Window
             MessageBox.Show($"Dodano: {nameOfShuttering}; {manufacturer}; {length}; {widthsInput}");
 
             MessageBox.Show("Pomyślnie dodano do bazy");
-            this.Close();
+            Close();
         }
 
         catch (FormatException)
@@ -60,7 +62,7 @@ public partial class AddNewShutteringSystem : Window
         catch (Exception ex)
         {
             MessageBox.Show("Wystąpił błąd: " + ex.Message);
-            this.Close();
+            Close();
         }
     }
 
@@ -68,5 +70,12 @@ public partial class AddNewShutteringSystem : Window
     {
         ShowShutteringSystemsWindow showShutteringSystemsWindow = new ShowShutteringSystemsWindow();
         showShutteringSystemsWindow.ShowDialog();
+    }
+
+    private void AddNewShutteringSystem_Closing(object? sender, CancelEventArgs cancelEventArgs)
+    {
+        AddShutteringToStockWindow newWindow = new AddShutteringToStockWindow();
+        newWindow.Show();
+
     }
 }

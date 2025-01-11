@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 
 namespace projektWypozyczalnia;
@@ -46,5 +47,11 @@ public partial class AddNewEquipmentItemWindow : Window
         {
             MessageBox.Show("Wystąpił błąd: " + ex.Message);
         }
+    }
+
+    private void AddNewEquipmentItemWindow_OnClosing(object? sender, CancelEventArgs e)
+    {
+        AddEquipmentToStockWindow newWindow = new AddEquipmentToStockWindow();
+        newWindow.Show();
     }
 }
