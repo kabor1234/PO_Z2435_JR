@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Windows;
 using Microsoft.Data.Sqlite;
 
@@ -267,7 +268,7 @@ public static class DBUtility
         return lengthCategory;
     }
     
-    public static List<ShutteringProduct> GetShutteringProductsFromDatabase(string command = "SELECT * FROM ShutteringCategory")
+    public static List<ShutteringProduct> GetShutteringProductsFromDatabase(string command = "SELECT * FROM ShutteringProduct")
     {
         var columns = new List<string>
             { "ProductID", "CategoryID", "Width", "AmountInStock"};
@@ -831,8 +832,8 @@ public static class DBUtility
                             {
                                 results.Add(new ShutteringStockItem
                                 {
-                                    Name = reader["Name"].ToString(),
                                     Manufacturer = reader["Manufacturer"].ToString(),
+                                    Name = reader["Name"].ToString(),
                                     Length = Convert.ToInt32(reader["Length"]),
                                     Width = Convert.ToInt32(reader["Width"]),
                                     Amount = Convert.ToInt32(reader["Amount"])
@@ -886,9 +887,230 @@ public static class DBUtility
             }
             return results;
         }
-        
-        
+    
+public static void AddPriceListRecordsForExistingProductsAndEquipment()
+{
+    string getProductIdsQuery = "SELECT ProductID FROM ShutteringProduct";
+    string getEquipmentIdsQuery = "SELECT EquipmentID FROM Equipment";
+    string checkIfProductRecordExistsQuery = "SELECT COUNT(*) FROM PriceList WHERE ProductID = @ProductID";
+    string checkIfEquipmentRecordExistsQuery = "SELECT COUNT(*) FROM PriceList WHERE EquipmentID = @EquipmentID";
 
+    List<int> productIds = new();
+    List<int> equipmentIds = new();
+
+    using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+    {
+        try
+        {
+            connection.Open();
+            
+            using (var productCommand = connection.CreateCommand())
+            {
+                productCommand.CommandText = getProductIdsQuery;
+                using (var reader = productCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        productIds.Add(reader.GetInt32(0));
+                    }
+                }
+            }
+            
+            using (var equipmentCommand = connection.CreateCommand())
+            {
+                equipmentCommand.CommandText = getEquipmentIdsQuery;
+                using (var reader = equipmentCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        equipmentIds.Add(reader.GetInt32(0));
+                    }
+                }
+            }
+            
+            foreach (var productId in productIds)
+            {
+                using (var checkProductCommand = connection.CreateCommand())
+                {
+                    checkProductCommand.CommandText = checkIfProductRecordExistsQuery;
+                    checkProductCommand.Parameters.AddWithValue("@ProductID", productId);
+
+                    int productCount = Convert.ToInt32(checkProductCommand.ExecuteScalar());
+                    if (productCount > 0)
+                    {
+                        continue;  
+                    }
+                }
+                
+                string insertProductQuery = "INSERT INTO PriceList (ProductID, EquipmentID, Price) VALUES (@ProductID, NULL, NULL)";
+                using (var insertProductCommand = connection.CreateCommand())
+                {
+                    insertProductCommand.CommandText = insertProductQuery;
+                    insertProductCommand.Parameters.AddWithValue("@ProductID", productId);
+
+                    try
+                    {
+                        insertProductCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Błąd wstawiania danych ProductID: {ex.Message}");
+                    }
+                }
+            }
+            
+            foreach (var equipmentId in equipmentIds)
+            {
+                using (var checkEquipmentCommand = connection.CreateCommand())
+                {
+                    checkEquipmentCommand.CommandText = checkIfEquipmentRecordExistsQuery;
+                    checkEquipmentCommand.Parameters.AddWithValue("@EquipmentID", equipmentId);
+
+                    int equipmentCount = Convert.ToInt32(checkEquipmentCommand.ExecuteScalar());
+                    if (equipmentCount > 0)
+                    {
+                        continue;
+                    }
+                }
+                
+                string insertEquipmentQuery = "INSERT INTO PriceList (ProductID, EquipmentID, Price) VALUES (NULL, @EquipmentID, NULL)";
+                using (var insertEquipmentCommand = connection.CreateCommand())
+                {
+                    insertEquipmentCommand.CommandText = insertEquipmentQuery;
+                    insertEquipmentCommand.Parameters.AddWithValue("@EquipmentID", equipmentId);
+
+                    try
+                    {
+                        insertEquipmentCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Błąd wstawiania danych EquipmentID: {ex.Message}");
+                    }
+                }
+            }
+            
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Wystąpił błąd: {ex.Message}\n{ex.StackTrace}");
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+}
+    
+    public static List<PriceShuttering> GetShutteringPriceData()
+        {
+            AddPriceListRecordsForExistingProductsAndEquipment();
+            
+            var results = new List<PriceShuttering>();
+            
+            using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"
+                        SELECT 
+                            pl.Price AS Price,
+                            p.Width,
+                            l.Length,
+                            s.NameOfShuttering AS ShutteringName,
+                            s.Manufacturer 
+                        FROM
+                            PriceList pl
+                        INNER JOIN
+                            ShutteringProduct p ON pl.ProductID = p.ProductID
+                        INNER JOIN 
+                            LengthCategory l ON p.LengthID = l.LengthID
+                        INNER JOIN 
+                            SystemOfShuttering s ON l.SystemID = s.SystemID;
+                    ";
+
+                    using (var command = new SqliteCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                results.Add(new PriceShuttering
+                                {
+                                    Manufacturer = reader["Manufacturer"].ToString(),
+                                    System = reader["ShutteringName"].ToString(),
+                                    Length = Convert.ToInt32(reader["Length"]),
+                                    Width = Convert.ToInt32(reader["Width"]),
+                                    Price = reader["Price"] == DBNull.Value ? "brak ceny" : reader["Price"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                    MessageBox.Show($"Błąd podczas ładowania danych szalunków: {ex.Message}");
+                }
+            }
+            
+            return results;
+        }
+
+
+    public static List<PriceEquipment> GetEquipmentPriceData()
+    {
+        var results = new List<PriceEquipment>();
+
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                SELECT 
+                    pl.Price AS Price,
+                    e.NameOfEquipment
+                FROM
+                    PriceList pl
+                INNER JOIN
+                    Equipment e ON pl.EquipmentID = e.EquipmentID
+            ";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            results.Add(new PriceEquipment
+                            {
+                                NameOfEquipment = reader["NameOfEquipment"].ToString(),
+                                Price = reader["Price"] == DBNull.Value ? "brak ceny" : reader["Price"].ToString()
+                            });
+
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Poprawiony komunikat o błędzie
+                MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {ex.Message}");
+            }
+            finally
+            {
+                // Możliwość dodania dodatkowej logiki zamknięcia połączenia, choć blok using zapewnia jego automatyczne zamknięcie
+                connection.Close();
+            }
+        }
+
+        return results;
+    }
 }
 
 

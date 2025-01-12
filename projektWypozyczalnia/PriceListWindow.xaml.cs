@@ -10,21 +10,33 @@ public partial class PriceListWindow : Window
     public PriceListWindow()
     {
         InitializeComponent();
+        LoadData();
     }
 
-    private void EditPriceListButton_OnClick(object sender, RoutedEventArgs e)
+    private void EditShutteringPrice_OnClick(object sender, RoutedEventArgs e)
     {
-        EditPriceWindow editPriceWindow = new EditPriceWindow();
-        editPriceWindow.Show();
+        throw new NotImplementedException();
     }
 
-    private void CloseButton_OnClick(object sender, RoutedEventArgs e)
+    private void EditEquipmentPrice_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void RefreshWindow_OnClick(object sender, RoutedEventArgs e)
+    {
+        Close();
+        DBUtility.GetShutteringPriceData();
+        PriceListWindow priceListWindow = new PriceListWindow();
+        priceListWindow.Show();
+    }
+
+    private void Close_OnClick(object sender, RoutedEventArgs e)
     {
         Close();
     }
-
     
-    private void ShowEquipmentCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void ShowEquipmentCheckBox_Checked(object sender, RoutedEventArgs e)
     {
         showEquipment = true;
         LoadData();
@@ -40,51 +52,79 @@ public partial class PriceListWindow : Window
     {
         if (showEquipment)
         {
-            
+           LoadEquipmentData();
         }
         else
         {
-            LoadShutteringPriceData();
+            LoadShutteringData();
         }
     }
     
-    private void LoadShutteringPriceData()
+    
+    private void LoadShutteringData()
     {
         try
         {
-            var data = DBUtility.GetShutteringStockData();
-            StockDataGrid.ItemsSource = data;
-            
-            SetColumnVisibilityForShuttering();
+            var data = DBUtility.GetShutteringPriceData();
+            if (data == null || !data.Any())
+            {
+                MessageBox.Show("Brak danych do wyświetlenia.");
+            }
+            else
+            {
+                PriceDataGrid.ItemsSource = data;
+                SetColumnVisibilityForShuttering();
+            }
         }
         catch (Exception ex)
         {
             MessageBox.Show("Błąd podczas ładowania danych szalunków: " + ex.Message);
         }
     }
+   
     
+    private void LoadEquipmentData()
+    {
+        try
+        {
+            var data = DBUtility.GetEquipmentPriceData();
+            if (data == null || !data.Any())
+            {
+                MessageBox.Show("Brak danych do wyświetlenia.");
+            }
+            else
+            {
+                PriceDataGrid.ItemsSource = data;
+                SetColumnVisibilityForEquipment();
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Błąd podczas ładowania danych osprzętu: " + ex.Message);
+        }
+    }
     
     private void SetColumnVisibilityForShuttering()
     {
-        StockDataGrid.Columns[0].Visibility = Visibility.Visible;  // Manufacturer
-        StockDataGrid.Columns[1].Visibility = Visibility.Visible;  // Name
-        StockDataGrid.Columns[2].Visibility = Visibility.Visible;  // Length
-        StockDataGrid.Columns[3].Visibility = Visibility.Visible;  // Width
-        StockDataGrid.Columns[4].Visibility = Visibility.Visible;  // Amount
+        PriceDataGrid.Columns[0].Visibility = Visibility.Visible;  // Manufacturer
+        PriceDataGrid.Columns[1].Visibility = Visibility.Visible;  // Name
+        PriceDataGrid.Columns[2].Visibility = Visibility.Visible;  // Length
+        PriceDataGrid.Columns[3].Visibility = Visibility.Visible;  // Width
+        PriceDataGrid.Columns[4].Visibility = Visibility.Visible;  // Price
 
-        StockDataGrid.Columns[5].Visibility = Visibility.Collapsed;  // EquipmentName
-        StockDataGrid.Columns[6].Visibility = Visibility.Collapsed;  // EquipmentAmount
+        PriceDataGrid.Columns[5].Visibility = Visibility.Collapsed;  // EquipmentName
+        PriceDataGrid.Columns[6].Visibility = Visibility.Collapsed;  // Price
     }
     
     private void SetColumnVisibilityForEquipment()
     {
-        StockDataGrid.Columns[0].Visibility = Visibility.Collapsed;
-        StockDataGrid.Columns[1].Visibility = Visibility.Collapsed;
-        StockDataGrid.Columns[2].Visibility = Visibility.Collapsed;
-        StockDataGrid.Columns[3].Visibility = Visibility.Collapsed;
-        StockDataGrid.Columns[4].Visibility = Visibility.Collapsed;
+        PriceDataGrid.Columns[0].Visibility = Visibility.Collapsed;
+        PriceDataGrid.Columns[1].Visibility = Visibility.Collapsed;
+        PriceDataGrid.Columns[2].Visibility = Visibility.Collapsed;
+        PriceDataGrid.Columns[3].Visibility = Visibility.Collapsed;
+        PriceDataGrid.Columns[4].Visibility = Visibility.Collapsed;
 
-        StockDataGrid.Columns[5].Visibility = Visibility.Visible;
-        StockDataGrid.Columns[6].Visibility = Visibility.Visible;
+        PriceDataGrid.Columns[5].Visibility = Visibility.Visible;
+        PriceDataGrid.Columns[6].Visibility = Visibility.Visible;
     }
 }

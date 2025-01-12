@@ -86,11 +86,6 @@ public partial class AddShutteringToStockWindow : Window
     {
         this.Close();
     }
-
-    private void ClosingWindow(object? sender, CancelEventArgs e)
-    {
-        StockConditionWindow newWindow = new StockConditionWindow();
-        newWindow.Show();
-    }
+    
 }
 

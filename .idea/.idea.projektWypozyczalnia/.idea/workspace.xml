@@ -8,17 +8,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie okienka z edycją cen">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceEquipment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceShuttering.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowAllEquipmentItems.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowShutteringSystemsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowShutteringSystemsWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/StockConditionWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +171,8 @@
       <workItem from="1736528963492" duration="2385000" />
       <workItem from="1736535086763" duration="1102000" />
       <workItem from="1736543260704" duration="11057000" />
-      <workItem from="1736610627962" duration="13396000" />
+      <workItem from="1736610627962" duration="13438000" />
+      <workItem from="1736626958340" duration="16858000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -446,7 +454,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736623858066</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="kosmetyka">
+      <option name="closed" value="true" />
+      <created>1736624202592</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1736624202592</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="okienko usuń z magazynu" />
     <MESSAGE value="baza danych" />
     <MESSAGE value="dodanie klientów" />
     <MESSAGE value="dodanie klasy sale i saledetails" />
@@ -504,6 +519,7 @@
     <MESSAGE value="odświeżanie okienek w stanie magazynu" />
     <MESSAGE value="odświeżanie po zamknięciu okienek" />
     <MESSAGE value="dodanie okienka z edycją cen" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie okienka z edycją cen" />
+    <MESSAGE value="kosmetyka" />
+    <option name="LAST_COMMIT_MESSAGE" value="kosmetyka" />
   </component>
 </project>

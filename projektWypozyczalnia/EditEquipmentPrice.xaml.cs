@@ -2,12 +2,10 @@ using System.Windows;
 
 namespace projektWypozyczalnia;
 
-public partial class EditPriceWindow : Window
+public partial class EditEquipmentPrice : Window
 {
-    
-    public EditPriceWindow()
+    public EditEquipmentPrice()
     {
         InitializeComponent();
     }
-
 }

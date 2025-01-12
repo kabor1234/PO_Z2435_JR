@@ -8,18 +8,25 @@
         Title="PriceListWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        ResizeMode="NoResize"
-        Loaded="ShowEquipmentCheckBox_Unchecked">
+        ResizeMode="NoResize">
     <Grid>
             <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Top">
-                <Button x:Name="ExitFromPriceListButton"
-                        Content="Wyjdź" 
-                        Margin="10,15,0,0"
-                        Click="CloseButton_OnClick"/>
-                <Button x:Name="AddEquipmentToStock" 
-                        Content="Edytuj cennik" 
-                        Margin="10,15,0,0"
-                        Click="EditPriceListButton_OnClick"/>
+                    <Button x:Name="ExitFromStock"
+                            Content="Wyjdź" 
+                            Margin="10,15,0,0"
+                            Click="Close_OnClick"/>
+                    <Button x:Name="EditShutteringPrice" 
+                            Content="Edytuj cenę szalunków" 
+                            Margin="10,15,0,0"
+                            Click="EditShutteringPrice_OnClick"/>
+                    <Button x:Name="EditEquipmentPrice" 
+                            Content="Edytuj cenę osprzętu" 
+                            Margin="10,15,0,0"
+                            Click="EditEquipmentPrice_OnClick"/>
+                    <Button x:Name="Refresh" 
+                            Content="Odśwież" 
+                            Margin="10,15,0,0"
+                            Click="RefreshWindow_OnClick"/>
                 <CheckBox x:Name="ShowEquipmentCheckBox" 
                           Margin="10,17,0,0" 
                           Content="Pokaż osprzęt"
@@ -28,15 +35,16 @@
                           Unchecked="ShowEquipmentCheckBox_Unchecked"/>
             </StackPanel>
             
-            <DataGrid x:Name="StockDataGrid" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
+            <DataGrid x:Name="PriceDataGrid" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
                     <DataGrid.Columns>
-                            <DataGridTextColumn Header="Producent" Binding="{Binding Manufacturer}" Width="*"/>
-                            <DataGridTextColumn Header="System szalunkowy" Binding="{Binding Name}" Width="*"/>
-                            <DataGridTextColumn Header="Długość" Binding="{Binding Length}" Width="*"/>
-                            <DataGridTextColumn Header="Szerokość" Binding="{Binding Width}" Width="*"/>
-                            <DataGridTextColumn Header="Cena" Binding="{Binding ShutteringPrice}" Width="*"/>
-                            <DataGridTextColumn Header="Nazwa przedmiotu" Binding="{Binding EquipmentName}" Width="*"/>
-                            <DataGridTextColumn Header="Cena" Binding="{Binding EquipmentPrice}" Width="*"/>
+                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="*"/>
+                            <DataGridTextColumn Header="Shuttering Name" Binding="{Binding System}" Width="*"/>
+                            <DataGridTextColumn Header="Length" Binding="{Binding Length}" Width="*"/>
+                            <DataGridTextColumn Header="Width" Binding="{Binding Width}" Width="*"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                            
+                            <DataGridTextColumn Header="Equipment Name" Binding="{Binding NameOfEquipment}" Width="*"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
                     </DataGrid.Columns>
             </DataGrid>
     </Grid>
