@@ -1,14 +1,8 @@
 ﻿using System.ComponentModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using projektWypozyczalnia.Pricewindows;
+using projektWypozyczalnia.ShowWindows;
+
 
 namespace projektWypozyczalnia;
 public partial class MainWindow : Window
@@ -45,9 +39,8 @@ public partial class MainWindow : Window
     {
         Application.Current.Shutdown();
     }
-
-
-    private void MainClose(object? sender, CancelEventArgs e)
+    
+    private void MainClosing(object? sender, CancelEventArgs e)
     {
         Application.Current.Shutdown();
     }
