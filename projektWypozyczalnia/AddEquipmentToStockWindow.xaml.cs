@@ -28,7 +28,7 @@ public partial class AddEquipmentToStockWindow : Window
             string selectedEquipmentName = (string)EquipmentNameComboBox.SelectedItem;
             int selectedEquipmentId = GetEquipmentIdByName(selectedEquipmentName);
 
-            if (!int.TryParse(AmountOfEquipmentTextBox.Text, out int amount))
+            if (!int.TryParse(AmountOfEquipmentTextBox.Text, out int amount) && amount < 0)
             {
                 MessageBox.Show("Wprowadź poprawną liczbę dla ilości.");
                 return;

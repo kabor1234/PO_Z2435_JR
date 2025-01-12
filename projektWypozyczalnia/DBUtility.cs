@@ -1043,7 +1043,9 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
                                     System = reader["ShutteringName"].ToString(),
                                     Length = Convert.ToInt32(reader["Length"]),
                                     Width = Convert.ToInt32(reader["Width"]),
-                                    Price = reader["Price"] == DBNull.Value ? "brak ceny" : reader["Price"].ToString()
+                                    Price = reader["Price"] == DBNull.Value 
+                                        ? "brak ceny" 
+                                        : string.Format("{0:N2} zł", Convert.ToDecimal(reader["Price"]))
                                 });
                             }
                         }
@@ -1058,6 +1060,43 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
             
             return results;
         }
+    
+    public static void UpdateShutteringPrice(string systemName, int length, int width, float newPrice)
+    {
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+            UPDATE PriceList
+            SET Price = @NewPrice
+            WHERE ProductID IN (
+                SELECT p.ProductID 
+                FROM ShutteringProduct p
+                INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
+                INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
+                WHERE s.NameOfShuttering = @SystemName AND l.Length = @Length AND p.Width = @Width
+            );";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SystemName", systemName);
+                    command.Parameters.AddWithValue("@Length", length);
+                    command.Parameters.AddWithValue("@Width", width);
+                    command.Parameters.AddWithValue("@NewPrice", newPrice);
+
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Cena została zaktualizowana.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas aktualizacji ceny: " + ex.Message);
+            }
+        }
+    }
 
 
     public static List<PriceEquipment> GetEquipmentPriceData()
@@ -1089,7 +1128,9 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
                             results.Add(new PriceEquipment
                             {
                                 NameOfEquipment = reader["NameOfEquipment"].ToString(),
-                                Price = reader["Price"] == DBNull.Value ? "brak ceny" : reader["Price"].ToString()
+                                Price = reader["Price"] == DBNull.Value 
+                                    ? "brak ceny" 
+                                    : string.Format("{0:N2} zł", Convert.ToDecimal(reader["Price"]))
                             });
 
                         }
@@ -1110,6 +1151,35 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
         }
 
         return results;
+    }
+    
+    public static void UpdateEquipmentPrice(int equipmentId, float newPrice)
+    {
+        using (var connection = new SqliteConnection($"Data Source={dataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                UPDATE PriceList
+                SET Price = @NewPrice
+                WHERE EquipmentID = @EquipmentId;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NewPrice", newPrice);
+                    command.Parameters.AddWithValue("@EquipmentId", equipmentId);
+
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Cena została zaktualizowana.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas aktualizacji ceny: " + ex.Message);
+            }
+        }
     }
 }
 

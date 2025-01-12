@@ -8,24 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceEquipment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceShuttering.cs" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie okienka z cennikiem, brak edycji cen">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditPriceWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +164,7 @@
       <workItem from="1736535086763" duration="1102000" />
       <workItem from="1736543260704" duration="11057000" />
       <workItem from="1736610627962" duration="13438000" />
-      <workItem from="1736626958340" duration="16858000" />
+      <workItem from="1736626958340" duration="21741000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -462,7 +454,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736624202592</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="dodanie okienka z cennikiem, brak edycji cen">
+      <option name="closed" value="true" />
+      <created>1736644297166</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1736644297167</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="baza danych" />
     <MESSAGE value="dodanie klientów" />
     <MESSAGE value="dodanie klasy sale i saledetails" />
     <MESSAGE value="dodanie wszystkich klas powiązanych z bazą danych" />
@@ -520,6 +519,7 @@
     <MESSAGE value="odświeżanie po zamknięciu okienek" />
     <MESSAGE value="dodanie okienka z edycją cen" />
     <MESSAGE value="kosmetyka" />
-    <option name="LAST_COMMIT_MESSAGE" value="kosmetyka" />
+    <MESSAGE value="dodanie okienka z cennikiem, brak edycji cen" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie okienka z cennikiem, brak edycji cen" />
   </component>
 </project>

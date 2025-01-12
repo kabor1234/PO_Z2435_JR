@@ -15,12 +15,18 @@ public partial class PriceListWindow : Window
 
     private void EditShutteringPrice_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        EditShutteringPrice editShutteringPrice = new EditShutteringPrice();
+        editShutteringPrice.Show();
+        
+        Close();
     }
 
     private void EditEquipmentPrice_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        EditEquipmentPrice editEquipmentPrice = new EditEquipmentPrice();
+        editEquipmentPrice.Show();
+        
+        Close();
     }
 
     private void RefreshWindow_OnClick(object sender, RoutedEventArgs e)
