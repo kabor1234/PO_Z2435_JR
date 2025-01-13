@@ -10,17 +10,19 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-
+    
     private void RentalButton_OnClick(object sender, RoutedEventArgs e)
     {
-        RentalWindow rentalWindow = new RentalWindow();
-        rentalWindow.Show();
+        MessageBox.Show("Działa");
+        RentingsWindow rentingsWindow = new RentingsWindow();
+        rentingsWindow.Show();
     }
+    
 
     private void StockConditionButton_OnClick(object sender, RoutedEventArgs e)
     {
-        StockConditionWindow addToInventoryWindow = new StockConditionWindow();
-        addToInventoryWindow.Show();
+        StockConditionWindow stockConditionWindow = new StockConditionWindow();
+        stockConditionWindow.Show();
     }
 
     private void PriceListButton_OnClick(object sender, RoutedEventArgs e)
@@ -43,4 +45,6 @@ public partial class MainWindow : Window
     {
         Application.Current.Shutdown();
     }
+
+
 }
