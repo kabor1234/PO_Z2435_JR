@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using projektWypozyczalnia.Pricewindows;
 using projektWypozyczalnia.ShowWindows;
 
 

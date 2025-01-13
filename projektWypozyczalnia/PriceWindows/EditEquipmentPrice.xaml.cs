@@ -51,9 +51,12 @@ public partial class EditEquipmentPrice : Window
         EquipmentNameComboBox.Items.Clear();
         _equipmentDictionary = DBUtility.GetEquipmentList();
 
-        foreach (var equipment in _equipmentDictionary)
+        var sortedEquipment = _equipmentDictionary.Values
+            .OrderBy(name => name, StringComparer.CurrentCulture);
+        
+        foreach (var equipmentName in sortedEquipment)
         {
-            EquipmentNameComboBox.Items.Add(equipment.Value);
+            EquipmentNameComboBox.Items.Add(equipmentName);
         }
     }
 

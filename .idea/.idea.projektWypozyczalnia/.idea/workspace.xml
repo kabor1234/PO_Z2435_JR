@@ -8,36 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewEquipmentItemWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddNewShutteringSystem.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Client.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Pricewindows/EditEquipmentPrice.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditEquipmentPrice.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Pricewindows/EditEquipmentPrice.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Pricewindows/EditShutteringPrice.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EditShutteringPrice.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Pricewindows/EditShutteringPrice.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/EquipmentStockItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/EquipmentStockItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Lending.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/LendingDetails.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/LengthCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceEquipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceEquipment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceList.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Pricewindows/PriceListWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Pricewindows/PriceListWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Sale.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/SaleDetails.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowShutteringSystemsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowShutteringSystemsWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShutteringStockItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/SystemOfShuttering.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,7 +155,7 @@
       <workItem from="1736543260704" duration="11057000" />
       <workItem from="1736610627962" duration="13438000" />
       <workItem from="1736626958340" duration="21947000" />
-      <workItem from="1736718102113" duration="4775000" />
+      <workItem from="1736718102113" duration="5051000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -490,7 +461,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736649081611</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="lekki refactor i uporządkowanie kodu">
+      <option name="closed" value="true" />
+      <created>1736723164332</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1736723164332</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +502,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="dodanie klasy sale i saledetails" />
     <MESSAGE value="dodanie wszystkich klas powiązanych z bazą danych" />
     <MESSAGE value="połączenie wszystkich klas do tabel bazy danych" />
     <MESSAGE value="dodawanie systemów i rodzajów szalunków do bazy danych" />
@@ -548,6 +526,7 @@
     <MESSAGE value="kosmetyka" />
     <MESSAGE value="dodanie okienka z cennikiem, brak edycji cen" />
     <MESSAGE value="edycja cen w cenniku" />
-    <option name="LAST_COMMIT_MESSAGE" value="edycja cen w cenniku" />
+    <MESSAGE value="lekki refactor i uporządkowanie kodu" />
+    <option name="LAST_COMMIT_MESSAGE" value="lekki refactor i uporządkowanie kodu" />
   </component>
 </project>
