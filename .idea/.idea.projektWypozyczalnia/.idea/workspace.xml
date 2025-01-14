@@ -8,9 +8,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie i edycja tabel w bazie danych">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentItemsPriceAndValue.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentingsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowWindows/PriceListWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowWindows/PriceListWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,6 +169,7 @@
       <workItem from="1736790366398" duration="4992000" />
       <workItem from="1736881556194" duration="574000" />
       <workItem from="1736882148021" duration="111000" />
+      <workItem from="1736882332960" duration="7466000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -492,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736796921178</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="dodanie i edycja tabel w bazie danych">
+      <option name="closed" value="true" />
+      <created>1736882370448</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1736882370448</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +540,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="dodawanie systemów i rodzajów szalunków do bazy danych" />
     <MESSAGE value="refactor dodania systemów" />
     <MESSAGE value="dodanie guzika pokaż systemy szalunkowe" />
     <MESSAGE value="zmiana w bazie danych aby nie mogło być 2 takich samych nazw standardów deskowania oraz zmiana w kodzie do dopisywania do standardu jeśli nazwa się powtórzy" />
@@ -550,6 +564,7 @@
     <MESSAGE value="lekki refactor i uporządkowanie kodu" />
     <MESSAGE value="sortowanie combobox" />
     <MESSAGE value="okienko pokazujące wynajem" />
-    <option name="LAST_COMMIT_MESSAGE" value="okienko pokazujące wynajem" />
+    <MESSAGE value="dodanie i edycja tabel w bazie danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie i edycja tabel w bazie danych" />
   </component>
 </project>

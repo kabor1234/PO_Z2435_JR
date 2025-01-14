@@ -13,7 +13,6 @@ public partial class MainWindow : Window
     
     private void RentalButton_OnClick(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Działa");
         RentingsWindow rentingsWindow = new RentingsWindow();
         rentingsWindow.Show();
     }

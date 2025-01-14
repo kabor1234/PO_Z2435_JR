@@ -32,8 +32,8 @@ public partial class AddEquipmentToStockWindow : Window
             
                 Close();
             }
-
-            MessageBox.Show("Wprowadź poprawną wartość liczbową");
+            else 
+                MessageBox.Show("Wprowadź poprawną wartość liczbową");
 
 
 

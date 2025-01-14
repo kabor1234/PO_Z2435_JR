@@ -71,8 +71,8 @@ public partial class AddShutteringToStockWindow : Window
             DBUtility.AddShutteringToStock(selectedSystem, selectedLength, selectedWidth, amount);
             Close();
         }
-
-        MessageBox.Show("Wprowadź poprawną wartość liczbową");
+        else
+            MessageBox.Show("Wprowadź poprawną wartość liczbową");
     }
 
     private void AddNewShutteringSystem_OnClick(object sender, RoutedEventArgs e)

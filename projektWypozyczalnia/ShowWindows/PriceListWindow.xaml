@@ -37,14 +37,14 @@
             
             <DataGrid x:Name="PriceDataGrid" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
                     <DataGrid.Columns>
-                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="*"/>
-                            <DataGridTextColumn Header="Shuttering Name" Binding="{Binding System}" Width="*"/>
-                            <DataGridTextColumn Header="Length" Binding="{Binding Length}" Width="*"/>
-                            <DataGridTextColumn Header="Width" Binding="{Binding Width}" Width="*"/>
-                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                            <DataGridTextColumn Header="Producent" Binding="{Binding Manufacturer}" Width="*"/>
+                            <DataGridTextColumn Header="System szalunkowy" Binding="{Binding System}" Width="*"/>
+                            <DataGridTextColumn Header="Długość" Binding="{Binding Length}" Width="*"/>
+                            <DataGridTextColumn Header="Szerokość" Binding="{Binding Width}" Width="*"/>
+                            <DataGridTextColumn Header="Cena netto" Binding="{Binding Price}" Width="*"/>
                             
-                            <DataGridTextColumn Header="Equipment Name" Binding="{Binding NameOfEquipment}" Width="*"/>
-                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                            <DataGridTextColumn Header="Nazwa osprzętu" Binding="{Binding NameOfEquipment}" Width="*"/>
+                            <DataGridTextColumn Header="Cena netto" Binding="{Binding Price}" Width="*"/>
                     </DataGrid.Columns>
             </DataGrid>
     </Grid>
