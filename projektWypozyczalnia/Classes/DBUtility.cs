@@ -353,9 +353,9 @@ public static class DBUtility
                 connection.Open();
 
                 string query = @"
-                    UPDATE Equipment
-                    SET AmountInStock = AmountInStock + @Amount
-                    WHERE EquipmentID = @EquipmentId;";
+                                UPDATE Equipment
+                                SET AmountInStock = AmountInStock + @Amount
+                                WHERE EquipmentID = @EquipmentId;";
 
                 using (var command = new SqliteCommand(query, connection))
                 {
@@ -588,11 +588,7 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Wystąpił błąd: {ex.Message}\n{ex.StackTrace}");
-        }
-        finally
-        {
-            connection.Close();
+            MessageBox.Show($"Wystąpił błąd: {ex.Message}");
         }
     }
 }
@@ -640,7 +636,7 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
                                     Width = Convert.ToInt32(reader["Width"]),
                                     Price = reader["Price"] == DBNull.Value 
                                         ? "brak ceny" 
-                                        : string.Format("{0:N2} zł", Convert.ToDecimal(reader["Price"]))
+                                        : $"{(double)reader["Price"]:N2} zł"
                                 });
                             }
                         }
@@ -725,7 +721,7 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
                                 NameOfEquipment = reader["NameOfEquipment"].ToString(),
                                 Price = reader["Price"] == DBNull.Value 
                                     ? "brak ceny" 
-                                    : $"{(float)reader["Price"]:N2} zł"
+                                    : $"{(double)reader["Price"]:N2} zł"
                             });
 
                         }
@@ -735,12 +731,10 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
             }
             catch (Exception ex)
             {
-                // Poprawiony komunikat o błędzie
                 MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {ex.Message}");
             }
             finally
             {
-                // Możliwość dodania dodatkowej logiki zamknięcia połączenia, choć blok using zapewnia jego automatyczne zamknięcie
                 connection.Close();
             }
         }
@@ -757,9 +751,9 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
                 connection.Open();
 
                 string query = @"
-                UPDATE PriceList
-                SET Price = @NewPrice
-                WHERE EquipmentID = @EquipmentId;";
+                                UPDATE PriceList
+                                SET Price = @NewPrice
+                                WHERE EquipmentID = @EquipmentId;";
 
                 using (var command = new SqliteCommand(query, connection))
                 {
@@ -773,6 +767,37 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
             catch (Exception ex)
             {
                 MessageBox.Show("Błąd podczas aktualizacji ceny: " + ex.Message);
+            }
+        }
+    }
+
+    public static void AddClientToDatabase(string nameOfCompany, int nip, string address, string postNumber, string nameOfPostEstablishment)
+    {
+        using (var connection = new SqliteConnection($"DataSource={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+                
+                string query = @"
+                                INSERT Clients
+                                VALUES (@NameOfCompany, @NIP, @Address, @PostNumber, @NameOfPostEstablishment)";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NameOfCompany", nameOfCompany);
+                    command.Parameters.AddWithValue("@NIP", nip);
+                    command.Parameters.AddWithValue("@Address", address);
+                    command.Parameters.AddWithValue("@PostNumber", postNumber);
+                    command.Parameters.AddWithValue("@NameOfPostEstablishment", nameOfPostEstablishment);
+                    
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Klient został dodany.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas dodawania klienta: " + ex.Message);
             }
         }
     }

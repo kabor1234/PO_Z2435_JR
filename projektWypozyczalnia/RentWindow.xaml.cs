@@ -11,6 +11,48 @@ public partial class RentWindow : Window
         TotalValueOfEquipment.Text = "156 903,43 zł";
     }
     
+    
+    private void Rent_OnClick(object sender, RoutedEventArgs e)
+    {
+        //Checking null textboxes
+        
+        //Client column is null?
+        if (NameOfCompanyTextBox.Text == "")
+            MessageBox.Show("Pole \"nazwa firmy\" nie może być puste.");
+        if(NumberOfCompanyTextBox.Text == "")
+            MessageBox.Show("Pole \"NIP\" nie może być puste.");
+        if(AddressOfCompanyTextBox.Text == "")
+            MessageBox.Show("Pole \"Adres\" nie może być puste.");
+        if(PostNumberTextBox.Text == "")
+            MessageBox.Show("Pole \"Kod pocztowy\" nie może być puste.");
+        if(NameOfPostEstablishmentTextBox.Text == "")
+            MessageBox.Show("Pole \"Poczta\" nie może być puste.");
+        
+        //Contact person column is null?
+        if(ContactPersonNameTextBox.Text == "")
+            MessageBox.Show("Pole \"Imię\" nie może być puste.");
+        if(ContactPersonSurnameTextBox.Text == "")
+            MessageBox.Show("Pole \"Nazwisko\" nie może być puste.");
+        if(ContactPersonEmailTextBox.Text == "")
+            MessageBox.Show("Pole \"E-mail\" nie może być puste.");
+        if(ContactPersonPhoneNumberTextBox.Text == "")
+            MessageBox.Show("Pole \"Numer telefonu\" nie może być puste.");
+        
+        //Calendar is null?
+        var selectedDate = DateSelectionsCalendar.SelectedDates;
+        if( selectedDate.Count() <= 0 )
+            MessageBox.Show("Brak wybranego zakresu dat w kalendarzu.");
+        
+        //Checking information in textboxes are correct
+        if(!int.TryParse(NumberOfCompanyTextBox.Text, out int numberOfCompany) && NumberOfCompanyTextBox.Text.Length != 10 && NumberOfCompanyTextBox.Text != "")
+            MessageBox.Show("Podano błędny NIP");
+        if(!(PostNumberTextBox.Text.Length == 6 && PostNumberTextBox.Text[2] == '-' && PostNumberTextBox.Text.Substring(0,2).All(Char.IsDigit) && PostNumberTextBox.Text.Substring(3).All(Char.IsDigit))  && PostNumberTextBox.Text != "")
+            MessageBox.Show("Błędny kod pocztowy");
+        if(NameOfPostEstablishmentTextBox.Text.All(Char.IsDigit) && NameOfCompanyTextBox.Text !=  "")
+            MessageBox.Show("Błąd w polu \"Poczta\" ");
+    }
+    
+    
     private void CommentsTextBox_GotFocused(object sender, RoutedEventArgs e)
     {
         
@@ -30,11 +72,7 @@ public partial class RentWindow : Window
             CommentsTextBox.Foreground = System.Windows.Media.Brushes.Gray;
         }
     }
-
-    private void Rent_OnClick(object sender, RoutedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
+    
 
     private void AddItems_OnClick(object sender, RoutedEventArgs e)
     {
@@ -44,5 +82,10 @@ public partial class RentWindow : Window
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
     {
         Close();
+    }
+
+    private void ChooseContractorFromAvaible_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }
