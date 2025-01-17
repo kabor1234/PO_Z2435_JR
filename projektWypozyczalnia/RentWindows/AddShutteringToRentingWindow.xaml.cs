@@ -6,7 +6,7 @@ namespace projektWypozyczalnia.RentWindows;
 
 public partial class AddShutteringToRentingWindow : Window
 {
-    
+    private List<WidthForLength> _widths = new();
     public AddShutteringToRentingWindow()
     {
         InitializeComponent();
@@ -26,15 +26,15 @@ public partial class AddShutteringToRentingWindow : Window
     private void LoadShutteringSystems()
     {
         ShutteringComboBox.Items.Clear();
-        List<string> systems = DBUtility.GetShutteringSystems();
+        List<ShutteringSystem> systems = DBUtility.GetShutteringSystems();
 
         foreach (var system in systems)
         {
-            ShutteringComboBox.Items.Add(system);
+            ShutteringComboBox.Items.Add(system.NameOfShuttering);
         }
     }
 
-    private void shutteringComboBox_SelectionChanged(object sender, SelectionChangedEventArgs changedEventArgs)
+    private void ShutteringComboBox_SelectionChanged(object sender, SelectionChangedEventArgs changedEventArgs)
     {
         string selectedSystem = (string)ShutteringComboBox.SelectedItem;
         LoadLengthsForSystem(selectedSystem);
@@ -43,15 +43,15 @@ public partial class AddShutteringToRentingWindow : Window
     private void LoadLengthsForSystem(string systemName)
     {
         LengthComboBox.Items.Clear();
-        List<int> lengths = DBUtility.GetLengthsForSystem(systemName);
+        List<LengthForSystem> lengths = DBUtility.GetLengthsForSystem(systemName);
 
         foreach (var length in lengths)
         {
-            LengthComboBox.Items.Add(length);
+            LengthComboBox.Items.Add(length.Length);
         }
     }
 
-    private void lengthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void LengthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         int selectedLength = (int)LengthComboBox.SelectedItem;
         LoadWidthsForLength(selectedLength);
@@ -60,12 +60,26 @@ public partial class AddShutteringToRentingWindow : Window
     private void LoadWidthsForLength(int length)
     {
         WidthComboBox.Items.Clear();
-        List<int> widths = DBUtility.GetWidthsForLength(length);
+        _widths = DBUtility.GetWidthsForLength(length);  // Pobieramy dane i zapisujemy w zmiennej globalnej
 
-        foreach (var width in widths)
+        foreach (var width in _widths)
         {
-            WidthComboBox.Items.Add(width);
+            WidthComboBox.Items.Add(width.Width);
         }
     }
-    
+
+    private void WidthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (WidthComboBox.SelectedItem != null)
+        {
+            int selectedWidth = (int)WidthComboBox.SelectedItem;
+            
+            var selectedWidthInfo = _widths.FirstOrDefault(w => w.Width == selectedWidth);
+
+            if (selectedWidthInfo != null)
+            {
+                AvaibleAmountOfShutteringTextBlock.Text = $"{selectedWidthInfo.AmountInStock}";
+            }
+        }
+    }
 }

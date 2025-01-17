@@ -17,15 +17,15 @@ public partial class AddShutteringToStockWindow : Window
     private void LoadShutteringSystems()
     {
         ShutteringComboBox.Items.Clear();
-        List<string> systems = DBUtility.GetShutteringSystems();
+        List<ShutteringSystem> systems = DBUtility.GetShutteringSystems();
 
         foreach (var system in systems)
         {
-            ShutteringComboBox.Items.Add(system);
+            ShutteringComboBox.Items.Add(system.NameOfShuttering);
         }
     }
 
-    private void shutteringComboBox_SelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+    private void ShutteringComboBox_SelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
     {
         string selectedSystem = (string)ShutteringComboBox.SelectedItem;
         LoadLengthsForSystem(selectedSystem);
@@ -34,15 +34,15 @@ public partial class AddShutteringToStockWindow : Window
     private void LoadLengthsForSystem(string systemName)
     {
         LengthComboBox.Items.Clear();
-        List<int> lengths = DBUtility.GetLengthsForSystem(systemName);
+        List<LengthForSystem> lengths = DBUtility.GetLengthsForSystem(systemName);
 
         foreach (var length in lengths)
         {
-            LengthComboBox.Items.Add(length);
+            LengthComboBox.Items.Add(length.Length);
         }
     }
 
-    private void lengthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void LengthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         int selectedLength = (int)LengthComboBox.SelectedItem;
         LoadWidthsForLength(selectedLength);
@@ -51,11 +51,11 @@ public partial class AddShutteringToStockWindow : Window
     private void LoadWidthsForLength(int length)
     {
         WidthComboBox.Items.Clear();
-        List<int> widths = DBUtility.GetWidthsForLength(length);
+        List<WidthForLength> widths = DBUtility.GetWidthsForLength(length);
 
         foreach (var width in widths)
         {
-            WidthComboBox.Items.Add(width);
+            WidthComboBox.Items.Add(width.Width);
         }
     }
 

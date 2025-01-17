@@ -14,16 +14,16 @@
                 <StackPanel Margin="20">
                         <TextBlock TextAlignment="Center">Wypożycz szalunki</TextBlock>
                         <TextBlock Margin="0,10,0,0">Wybierz system:</TextBlock>
-                        <ComboBox x:Name="ShutteringComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="shutteringComboBox_SelectionChanged"></ComboBox>
+                        <ComboBox x:Name="ShutteringComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="ShutteringComboBox_SelectionChanged"></ComboBox>
                         <TextBlock Margin="0,10,0,0">Wybierz długość:</TextBlock>
-                        <ComboBox x:Name="LengthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="lengthComboBox_SelectionChanged"></ComboBox>
+                        <ComboBox x:Name="LengthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="LengthComboBox_SelectionChanged"></ComboBox>
                         <TextBlock Margin="0,10,0,0">Wybierz szerokość:</TextBlock>
-                        <ComboBox x:Name="WidthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left"></ComboBox>
+                        <ComboBox x:Name="WidthComboBox" Width="100" Margin="0,5,0,0" HorizontalAlignment="Left" SelectionChanged="WidthComboBox_SelectionChanged"/>
                 </StackPanel>
                 
                 <StackPanel Margin="20 , 0, 20, 180" Orientation="Horizontal" VerticalAlignment="Bottom">
                         <TextBlock Text="Dostępna ilość na stanie: "/>
-                        <TextBlock x:Name="AvaibleAmountOfShuttering"></TextBlock>
+                        <TextBlock x:Name="AvaibleAmountOfShutteringTextBlock"></TextBlock>
                 </StackPanel>
                 
                 <StackPanel Margin="20" VerticalAlignment="Bottom">

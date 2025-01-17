@@ -17,11 +17,11 @@ public partial class EditShutteringPrice : Window
     private void LoadShutteringSystems()
     {
         ShutteringComboBox.Items.Clear();
-        List<string> systems = DBUtility.GetShutteringSystems();
+        List<ShutteringSystem> systems = DBUtility.GetShutteringSystems();
 
         foreach (var system in systems)
         {
-            ShutteringComboBox.Items.Add(system);
+            ShutteringComboBox.Items.Add(system.NameOfShuttering);
         }
     }
 
@@ -34,11 +34,11 @@ public partial class EditShutteringPrice : Window
     private void LoadLengthsForSystem(string systemName)
     {
         LengthComboBox.Items.Clear();
-        List<int> lengths = DBUtility.GetLengthsForSystem(systemName);
+        List<LengthForSystem> lengths = DBUtility.GetLengthsForSystem(systemName);
 
         foreach (var length in lengths)
         {
-            LengthComboBox.Items.Add(length);
+            LengthComboBox.Items.Add(length.Length);
         }
     }
 
@@ -51,11 +51,11 @@ public partial class EditShutteringPrice : Window
     private void LoadWidthsForLength(int length)
     {
         WidthComboBox.Items.Clear();
-        List<int> widths = DBUtility.GetWidthsForLength(length);
+        List<WidthForLength> widths = DBUtility.GetWidthsForLength(length);
 
         foreach (var width in widths)
         {
-            WidthComboBox.Items.Add(width);
+            WidthComboBox.Items.Add(width.Width);
         }
     }
 

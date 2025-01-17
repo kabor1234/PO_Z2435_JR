@@ -102,7 +102,7 @@ public static class DBUtility
                         while (reader.Read())
                         {
                             var system = new AvailableSystemsOfShuttering(
-                                reader["NameOfShuttering"]?.ToString(),
+                                reader["NameOfShuttering"].ToString(),
                                 reader["Manufacturer"]?.ToString(),
                                 reader["Length"] != DBNull.Value ? Convert.ToInt32(reader["Length"]) : 0,
                                 reader["Width"] != DBNull.Value ? Convert.ToInt32(reader["Width"]) : 0
@@ -121,40 +121,37 @@ public static class DBUtility
 
         return results;
     }
-    public static List<string> GetShutteringSystems()
+    public static List<ShutteringSystem> GetShutteringSystems()
     {
-        var results = new List<string>();
+        var results = new List<ShutteringSystem>();
 
-        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        using var connection = new SqliteConnection($"Data Source={DataBaseName}");
+        try
         {
-            try
+            connection.Open();
+
+            string query = @"SELECT NameOfShuttering FROM SystemOfShuttering;";
+
+            using var command = new SqliteCommand(query, connection);
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                connection.Open();
-
-                string query = @"SELECT NameOfShuttering FROM SystemOfShuttering;";
-
-                using (var command = new SqliteCommand(query, connection))
+                results.Add(new ShutteringSystem
                 {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            results.Add(reader["NameOfShuttering"]?.ToString());
-                        }
-                    }
-                }
+                    NameOfShuttering = reader["NameOfShuttering"]?.ToString()
+                });
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Błąd podczas ładowania systemów: " + ex.Message);
-            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Błąd podczas ładowania systemów: " + ex.Message);
         }
 
         return results;
     }
-    public static List<int> GetLengthsForSystem(string systemName)
+    public static List<LengthForSystem> GetLengthsForSystem(string systemName)
     {
-        var results = new List<int>();
+        var results = new List<LengthForSystem>();
 
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
@@ -163,10 +160,10 @@ public static class DBUtility
                 connection.Open();
 
                 string query = @"
-                SELECT DISTINCT l.Length 
-                FROM LengthCategory l
-                INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
-                WHERE s.NameOfShuttering = @SystemName;";
+            SELECT DISTINCT l.Length 
+            FROM LengthCategory l
+            INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
+            WHERE s.NameOfShuttering = @SystemName;";
 
                 using (var command = new SqliteCommand(query, connection))
                 {
@@ -176,7 +173,10 @@ public static class DBUtility
                     {
                         while (reader.Read())
                         {
-                            results.Add(Convert.ToInt32(reader["Length"]));
+                            results.Add(new LengthForSystem
+                            {
+                                Length = Convert.ToInt32(reader["Length"])
+                            });
                         }
                     }
                 }
@@ -189,9 +189,9 @@ public static class DBUtility
 
         return results;
     }
-    public static List<int> GetWidthsForLength(int length)
+    public static List<WidthForLength> GetWidthsForLength(int length)
     {
-        var results = new List<int>();
+        var results = new List<WidthForLength>();
 
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
@@ -200,10 +200,10 @@ public static class DBUtility
                 connection.Open();
 
                 string query = @"
-                SELECT DISTINCT p.Width 
-                FROM ShutteringProduct p
-                INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
-                WHERE l.Length = @Length;";
+            SELECT DISTINCT p.Width, p.AmountInStock 
+            FROM ShutteringProduct p
+            INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
+            WHERE l.Length = @Length;";
 
                 using (var command = new SqliteCommand(query, connection))
                 {
@@ -213,14 +213,18 @@ public static class DBUtility
                     {
                         while (reader.Read())
                         {
-                            results.Add(Convert.ToInt32(reader["Width"]));
+                            results.Add(new WidthForLength
+                            {
+                                Width = Convert.ToInt32(reader["Width"]),
+                                AmountInStock = Convert.ToInt32(reader["AmountInStock"])
+                            });
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błąd podczas ładowania szerokości: " + ex.Message);
+                MessageBox.Show("Błąd podczas ładowania szerokości i ilości: " + ex.Message);
             }
         }
 
