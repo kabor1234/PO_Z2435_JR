@@ -8,9 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="nowa metoda dodawania osoby do kontaktu do bazy danych">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceWindows/EditEquipmentPrice.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceWindows/EditEquipmentPrice.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowWindows/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowWindows/PriceListWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,15 +170,7 @@
       <workItem from="1736951713885" duration="4183000" />
       <workItem from="1736955937019" duration="45000" />
       <workItem from="1737137979554" duration="11098000" />
-      <workItem from="1737153124149" duration="1183000" />
-    </task>
-    <task id="LOCAL-00001" summary="push test">
-      <option name="closed" value="true" />
-      <created>1732910129905</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1732910129905</updated>
+      <workItem from="1737153124149" duration="3888000" />
     </task>
     <task id="LOCAL-00002" summary="asdasd">
       <option name="closed" value="true" />
@@ -560,7 +556,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737150484315</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="nowa metoda dodawania osoby do kontaktu do bazy danych">
+      <option name="closed" value="true" />
+      <created>1737154362154</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1737154362155</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +597,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Combobox do dynamicznego zmieniania zawartości okienka w okienku dodaj do magazynu" />
     <MESSAGE value="Dodawanie szalunków do magazynu" />
     <MESSAGE value="przygotowanie okienek osprzętu do dodania logiki dodawania osprzętu do bazy, zmiana nazw kolumn w datagrid z angielskich na polskie" />
     <MESSAGE value="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie" />
@@ -618,6 +621,7 @@
     <MESSAGE value="dodanie osprzętu do wypożyczenia - okienko na surowo" />
     <MESSAGE value="zmiana metod wiążących parametry szalunków, dodanie do nich odpowiadającym ich klas oraz dokończenie podokienka wypożyczeń" />
     <MESSAGE value="edycja klasy osprzętu, pokazywanie dostępnej ilości w podoknie wypozyczenia" />
-    <option name="LAST_COMMIT_MESSAGE" value="edycja klasy osprzętu, pokazywanie dostępnej ilości w podoknie wypozyczenia" />
+    <MESSAGE value="nowa metoda dodawania osoby do kontaktu do bazy danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="nowa metoda dodawania osoby do kontaktu do bazy danych" />
   </component>
 </project>

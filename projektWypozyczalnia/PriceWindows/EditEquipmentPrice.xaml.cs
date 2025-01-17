@@ -33,6 +33,7 @@ public partial class EditEquipmentPrice : Window
         }
         
         DBUtility.UpdateEquipmentPrice(selectedEquipmentId, newPrice);
+        Close();
     }
     
     private void LoadEquipment()

@@ -6,12 +6,13 @@ namespace projektWypozyczalnia.Classes;
 public static class DBUtility
 {
     private static readonly string DataBaseName = "Shutterings.db";
-    public static void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
+public static void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
+{
+    try
     {
-
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
-             connection.Open();
+            connection.Open();
             
             string checkSystemQuery = "SELECT SystemID FROM SystemOfShuttering WHERE NameOfShuttering = @NameOfShuttering;";
             int systemId = -1;
@@ -26,7 +27,7 @@ public static class DBUtility
                     systemId = Convert.ToInt32(result);
                 }
             }
-
+            
             if (systemId == -1)
             {
                 string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer, Summary) VALUES (@NameOfShuttering, @Manufacturer, @Summary);";
@@ -44,34 +45,79 @@ public static class DBUtility
                 }
             }
             
-            string insertLengthQuery = "INSERT INTO LengthCategory (SystemID, Length) VALUES (@SystemID, @Length);";
-            int lengthId;
+            string checkLengthQuery = "SELECT LengthID FROM LengthCategory WHERE SystemID = @SystemID AND Length = @Length;";
+            int lengthId = -1;
 
-            using (var lengthCommand = new SqliteCommand(insertLengthQuery, connection))
+            using (var checkLengthCommand = new SqliteCommand(checkLengthQuery, connection))
             {
-                lengthCommand.Parameters.AddWithValue("@SystemID", systemId);
-                lengthCommand.Parameters.AddWithValue("@Length", length);
-                lengthCommand.ExecuteNonQuery();
+                checkLengthCommand.Parameters.AddWithValue("@SystemID", systemId);
+                checkLengthCommand.Parameters.AddWithValue("@Length", length);
 
-                using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
+                var lengthResult = checkLengthCommand.ExecuteScalar();
+                if (lengthResult != null)
                 {
-                    lengthId = Convert.ToInt32(command.ExecuteScalar());
+                    lengthId = Convert.ToInt32(lengthResult);
                 }
             }
             
+            if (lengthId == -1)
+            {
+                string insertLengthQuery = "INSERT INTO LengthCategory (SystemID, Length) VALUES (@SystemID, @Length);";
+                using (var lengthCommand = new SqliteCommand(insertLengthQuery, connection))
+                {
+                    lengthCommand.Parameters.AddWithValue("@SystemID", systemId);
+                    lengthCommand.Parameters.AddWithValue("@Length", length);
+                    lengthCommand.ExecuteNonQuery();
+
+                    using (var command = new SqliteCommand("SELECT last_insert_rowid();", connection))
+                    {
+                        lengthId = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+            }
+            
+            string checkProductQuery = "SELECT COUNT(*) FROM ShutteringProduct WHERE LengthID = @LengthID AND Width = @Width;";
             string insertProductQuery = "INSERT INTO ShutteringProduct (LengthID, Width, AmountInStock) VALUES (@LengthID, @Width, @AmountInStock);";
+
             foreach (var width in widths)
             {
-                using (var productCommand = new SqliteCommand(insertProductQuery, connection))
+                try
                 {
-                    productCommand.Parameters.AddWithValue("@LengthID", lengthId);
-                    productCommand.Parameters.AddWithValue("@Width", width);
-                    productCommand.Parameters.AddWithValue("@AmountInStock", 0);
-                    productCommand.ExecuteNonQuery();
+                    using (var checkProductCommand = new SqliteCommand(checkProductQuery, connection))
+                    {
+                        checkProductCommand.Parameters.AddWithValue("@LengthID", lengthId);
+                        checkProductCommand.Parameters.AddWithValue("@Width", width);
+
+                        var productExists = Convert.ToInt32(checkProductCommand.ExecuteScalar()) > 0;
+
+                        if (productExists)
+                        {
+                            MessageBox.Show($"Produkt o szerokości {width} już istnieje.");
+                        }
+                        else 
+                        {
+                            using (var productCommand = new SqliteCommand(insertProductQuery, connection))
+                            {
+                                productCommand.Parameters.AddWithValue("@LengthID", lengthId);
+                                productCommand.Parameters.AddWithValue("@Width", width);
+                                productCommand.Parameters.AddWithValue("@AmountInStock", 0);
+                                productCommand.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Błąd podczas dodawania produktu: " + ex.Message);
                 }
             }
         }
     }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Błąd: " + ex.Message);
+    }
+}
     public static List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
     {
         var results = new List<AvailableSystemsOfShuttering>();
@@ -827,6 +873,39 @@ public static class DBUtility
             }
         }
         return;
+    }
+
+    public static void AddNewLending(string numberOfLend, int clientId, string startOfLendDate, string endOfLendDate, string? comments, string addressOfBuilding)
+    {
+        try
+        {
+            using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+            {
+                connection.Open();
+
+                string query = @"
+                INSERT INTO Lending (NumberOfLend, IsFinished, ClientID, StartLendDate, EndLendDate, Comments, AddressOfBuilding)
+                VALUES (@NumberOfLend, 0, @ClientID, @StartLendDate, @EndLendDate, @Comments, @AddressOfBuilding);";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NumberOfLend", numberOfLend);
+                    command.Parameters.AddWithValue("@ClientID", clientId);
+                    command.Parameters.AddWithValue("@StartLendDate", startOfLendDate);
+                    command.Parameters.AddWithValue("@EndLendDate", endOfLendDate);
+                    command.Parameters.AddWithValue("@Comments", comments ?? string.Empty);
+                    command.Parameters.AddWithValue("@AddressOfBuilding", addressOfBuilding);
+
+                    command.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Wypożyczenie zostało dodane do bazy danych.");
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + ex.Message);
+        }
     }
 }
 

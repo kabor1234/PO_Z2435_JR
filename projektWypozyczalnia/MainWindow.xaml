@@ -15,9 +15,15 @@
         Closing="MainClosing">
         
     <Grid>
-
+            <Rectangle x:Name="OverlayRectangle" 
+                       Fill="White" 
+                       Opacity="0.8" 
+                       Visibility="Collapsed" 
+                       Height="600"
+                       Width="1200"/>
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
                     <TextBlock
                             Text="Magazyn i wypożyczalnia"
                             FontFamily="Candara"
