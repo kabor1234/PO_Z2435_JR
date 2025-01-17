@@ -7,7 +7,7 @@ namespace projektWypozyczalnia.ShowWindows;
 public partial class StockConditionWindow : Window
 {
     
-    private bool showEquipment = false;
+    private bool _showEquipment = false;
 
     public StockConditionWindow()
     {
@@ -17,13 +17,13 @@ public partial class StockConditionWindow : Window
     
     private void AddShutteringToStock_OnClick(object sender, RoutedEventArgs e)
     {
-        var addShutteringToStock = new AddShutteringToStockWindow();
+        AddShutteringToStockWindow addShutteringToStock = new AddShutteringToStockWindow();
         addShutteringToStock.Show();
     }
     
     private void AddEquipmentToStock_OnClick(object sender, RoutedEventArgs e)
     {
-        var addEquipmentToStockWindow = new AddEquipmentToStockWindow();
+        AddEquipmentToStockWindow addEquipmentToStockWindow = new AddEquipmentToStockWindow();
         addEquipmentToStockWindow.Show();
     }
     
@@ -34,19 +34,19 @@ public partial class StockConditionWindow : Window
     
     private void ShowEquipmentCheckBox_Checked(object sender, RoutedEventArgs e)
     {
-        showEquipment = true;
+        _showEquipment = true;
         LoadData();
     }
     
     private void ShowEquipmentCheckBox_Unchecked(object sender, RoutedEventArgs e)
     {
-        showEquipment = false;
+        _showEquipment = false;
         LoadData();
     }
     
     private void LoadData()
     {
-        if (showEquipment)
+        if (_showEquipment)
         {
             LoadEquipmentData();
         }

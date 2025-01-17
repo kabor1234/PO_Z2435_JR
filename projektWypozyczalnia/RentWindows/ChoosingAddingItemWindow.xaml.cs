@@ -1,4 +1,5 @@
 using System.Windows;
+using projektWypozyczalnia.AddingToStock;
 
 namespace projektWypozyczalnia.RentWindows;
 
@@ -13,13 +14,18 @@ public partial class ChoosingAddingItemWindow : Window
         AddShutteringToRentingWindow addShutterings = new AddShutteringToRentingWindow();
         addShutterings.Show();
     }
-
+    
     private void ChooseEquipment_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        AddEquipmentToRentingWindow addEquipment = new AddEquipmentToRentingWindow();
+        addEquipment.Show();
     }
+
+
     private void Exit_OnClick(object sender, RoutedEventArgs e)
     {
         Close();
     }
+
+
 }
