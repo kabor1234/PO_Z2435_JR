@@ -11,8 +11,6 @@
     <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +46,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8d42d5f1712377031e2892d1c29db5c23b8c7d49b9dc632fbf463bd930a8/RuntimeHelpers.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e4205e8a6694baad6eda95cafda8ae55521aa77cd189e59cbe5b4f758bb3d/TypeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/RentWindows/AddShutteringToRentingWindow.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/ShowWindows/StockConditionWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/ShowWindows/StockConditionWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/AddNewEquipmentItemWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/AddNewShutteringSystem.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/RentalWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/ShowShutteringSystemsWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -168,6 +165,8 @@
       <workItem from="1736928579623" duration="7367000" />
       <workItem from="1736951713885" duration="4183000" />
       <workItem from="1736955937019" duration="45000" />
+      <workItem from="1737137979554" duration="11098000" />
+      <workItem from="1737153124149" duration="1183000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -521,7 +520,47 @@
       <option name="project" value="LOCAL" />
       <updated>1736936437560</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="dodawanie do wypożyczenia - szalunki, surowe okienko">
+      <option name="closed" value="true" />
+      <created>1737141012402</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1737141012402</updated>
+    </task>
+    <task id="LOCAL-00046" summary="dodawanie do wypożyczenia - szalunki, surowe okienko">
+      <option name="closed" value="true" />
+      <created>1737141057045</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1737141057045</updated>
+    </task>
+    <task id="LOCAL-00047" summary="dodanie osprzętu do wypożyczenia - okienko na surowo">
+      <option name="closed" value="true" />
+      <created>1737142692216</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1737142692216</updated>
+    </task>
+    <task id="LOCAL-00048" summary="zmiana metod wiążących parametry szalunków, dodanie do nich odpowiadającym ich klas oraz dokończenie podokienka wypożyczeń">
+      <option name="closed" value="true" />
+      <created>1737148342472</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1737148342472</updated>
+    </task>
+    <task id="LOCAL-00049" summary="edycja klasy osprzętu, pokazywanie dostępnej ilości w podoknie wypozyczenia">
+      <option name="closed" value="true" />
+      <created>1737150484315</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1737150484315</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,10 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="zmiana w bazie danych aby nie mogło być 2 takich samych nazw standardów deskowania oraz zmiana w kodzie do dopisywania do standardu jeśli nazwa się powtórzy" />
-    <MESSAGE value="listowanie aktywnych systemów szalunkowych, zabezpieczenie przed nie wpisaniem nazwy szalunku i producenta przy dodawaniu nowego systemu" />
-    <MESSAGE value="kosmetyka warunków przy dodawaniu nowego systemu" />
-    <MESSAGE value="kosmetyka okna dostępne systemy" />
     <MESSAGE value="Combobox do dynamicznego zmieniania zawartości okienka w okienku dodaj do magazynu" />
     <MESSAGE value="Dodawanie szalunków do magazynu" />
     <MESSAGE value="przygotowanie okienek osprzętu do dodania logiki dodawania osprzętu do bazy, zmiana nazw kolumn w datagrid z angielskich na polskie" />
@@ -579,6 +614,10 @@
     <MESSAGE value="dodanie i edycja tabel w bazie danych" />
     <MESSAGE value="Przygotowanie okienka wypożyczania do dodania logiki" />
     <MESSAGE value="Sprawdzanie czy textboxy w okienku wypożycz nie są puste i sprawdzają czy wpisane dane są ok - brak regexa dla email" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprawdzanie czy textboxy w okienku wypożycz nie są puste i sprawdzają czy wpisane dane są ok - brak regexa dla email" />
+    <MESSAGE value="dodawanie do wypożyczenia - szalunki, surowe okienko" />
+    <MESSAGE value="dodanie osprzętu do wypożyczenia - okienko na surowo" />
+    <MESSAGE value="zmiana metod wiążących parametry szalunków, dodanie do nich odpowiadającym ich klas oraz dokończenie podokienka wypożyczeń" />
+    <MESSAGE value="edycja klasy osprzętu, pokazywanie dostępnej ilości w podoknie wypozyczenia" />
+    <option name="LAST_COMMIT_MESSAGE" value="edycja klasy osprzętu, pokazywanie dostępnej ilości w podoknie wypozyczenia" />
   </component>
 </project>

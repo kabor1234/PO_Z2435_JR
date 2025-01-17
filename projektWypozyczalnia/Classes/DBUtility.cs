@@ -764,27 +764,69 @@ public static class DBUtility
             {
                 connection.Open();
                 
-                string query = @"
-                                INSERT Clients
-                                VALUES (@NameOfCompany, @NIP, @Address, @PostNumber, @NameOfPostEstablishment)";
-
-                using (var command = new SqliteCommand(query, connection))
+                string checkQuery = "SELECT COUNT(*) FROM Clients WHERE NIP = @NIP";
+        
+                using (var checkCommand = new SqliteCommand(checkQuery, connection))
+                {
+                    checkCommand.Parameters.AddWithValue("@NIP", nip);
+                    var exists = Convert.ToInt32(checkCommand.ExecuteScalar()) > 0;
+            
+                    if (exists)
+                    {
+                        MessageBox.Show("Klient o tym NIPie już istnieje.");
+                        return;
+                    }
+                }
+                
+                string insertQuery = @"INSERT INTO Clients (NameOfCompany, NIP, Address, PostNumber, NameOfPostEstablishment)
+                                       VALUES (@NameOfCompany, @NIP, @Address, @PostNumber, @NameOfPostEstablishment)";
+        
+                using (var command = new SqliteCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@NameOfCompany", nameOfCompany);
                     command.Parameters.AddWithValue("@NIP", nip);
                     command.Parameters.AddWithValue("@Address", address);
                     command.Parameters.AddWithValue("@PostNumber", postNumber);
                     command.Parameters.AddWithValue("@NameOfPostEstablishment", nameOfPostEstablishment);
-                    
+            
                     command.ExecuteNonQuery();
                     MessageBox.Show("Klient został dodany.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas dodawania klienta: " + ex.Message);
+                MessageBox.Show("Błąd podczas dodawania klienta: " + e.Message);
             }
         }
+    }
+
+    public static void AddContactPerson(string name, string surname, string phoneNumber ,string email)
+    {
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+                string insertQuery = @"INSERT INTO ContactPersons (Name, Surname, PhoneNumber, Email)
+                                      VALUES (@Name, @Surname, @PhoneNumber, @Email)";
+
+                using (var command = new SqliteCommand(insertQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue("@Surname", surname);
+                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    command.Parameters.AddWithValue("@Email", email);
+                    
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Osoba do kontaktu została dodana.");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd podczas dodawania klienta: " + e.Message);
+            }
+        }
+        return;
     }
 }
 
