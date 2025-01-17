@@ -1,4 +1,5 @@
 using System.Windows;
+using projektWypozyczalnia.RentWindows;
 
 namespace projektWypozyczalnia;
 

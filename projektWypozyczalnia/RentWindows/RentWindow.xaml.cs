@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace projektWypozyczalnia;
+namespace projektWypozyczalnia.RentWindows;
 
 public partial class RentWindow : Window
 {
@@ -14,6 +14,8 @@ public partial class RentWindow : Window
     
     private void Rent_OnClick(object sender, RoutedEventArgs e)
     {
+        
+        //zrobić metodę, która będzie wyrzucała błąd jak będą złe wartości / puste pola
         //Checking null textboxes
         
         //Client column is null?
@@ -76,7 +78,8 @@ public partial class RentWindow : Window
 
     private void AddItems_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow();
+        choosingAddingItemWindow.ShowDialog();
     }
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)

@@ -9,16 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/projektWypozyczalnia.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/projektWypozyczalnia.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,26 +68,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.projektWypozyczalnia.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "projektWypozyczalnia",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.projektWypozyczalnia.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;projektWypozyczalnia&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.projektWypozyczalnia">
     <configuration name="projektMagazyn" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -171,7 +165,9 @@
       <workItem from="1736881556194" duration="574000" />
       <workItem from="1736882148021" duration="111000" />
       <workItem from="1736882332960" duration="7599000" />
-      <workItem from="1736928579623" duration="7227000" />
+      <workItem from="1736928579623" duration="7367000" />
+      <workItem from="1736951713885" duration="4183000" />
+      <workItem from="1736955937019" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="push test">
       <option name="closed" value="true" />
@@ -517,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736889856391</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Sprawdzanie czy textboxy w okienku wypożycz nie są puste i sprawdzają czy wpisane dane są ok - brak regexa dla email">
+      <option name="closed" value="true" />
+      <created>1736936437560</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1736936437560</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +554,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="dodanie guzika pokaż systemy szalunkowe" />
     <MESSAGE value="zmiana w bazie danych aby nie mogło być 2 takich samych nazw standardów deskowania oraz zmiana w kodzie do dopisywania do standardu jeśli nazwa się powtórzy" />
     <MESSAGE value="listowanie aktywnych systemów szalunkowych, zabezpieczenie przed nie wpisaniem nazwy szalunku i producenta przy dodawaniu nowego systemu" />
     <MESSAGE value="kosmetyka warunków przy dodawaniu nowego systemu" />
@@ -575,6 +578,7 @@
     <MESSAGE value="okienko pokazujące wynajem" />
     <MESSAGE value="dodanie i edycja tabel w bazie danych" />
     <MESSAGE value="Przygotowanie okienka wypożyczania do dodania logiki" />
-    <option name="LAST_COMMIT_MESSAGE" value="Przygotowanie okienka wypożyczania do dodania logiki" />
+    <MESSAGE value="Sprawdzanie czy textboxy w okienku wypożycz nie są puste i sprawdzają czy wpisane dane są ok - brak regexa dla email" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sprawdzanie czy textboxy w okienku wypożycz nie są puste i sprawdzają czy wpisane dane są ok - brak regexa dla email" />
   </component>
 </project>

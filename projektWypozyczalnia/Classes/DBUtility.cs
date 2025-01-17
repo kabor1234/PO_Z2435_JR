@@ -72,7 +72,6 @@ public static class DBUtility
             }
         }
     }
-    
     public static List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
     {
         var results = new List<AvailableSystemsOfShuttering>();
@@ -122,7 +121,6 @@ public static class DBUtility
 
         return results;
     }
-    
     public static List<string> GetShutteringSystems()
     {
         var results = new List<string>();
@@ -154,7 +152,6 @@ public static class DBUtility
 
         return results;
     }
-
     public static List<int> GetLengthsForSystem(string systemName)
     {
         var results = new List<int>();
@@ -192,7 +189,6 @@ public static class DBUtility
 
         return results;
     }
-
     public static List<int> GetWidthsForLength(int length)
     {
         var results = new List<int>();
@@ -230,7 +226,6 @@ public static class DBUtility
 
         return results;
     }
-    
     public static Dictionary<int, string> GetEquipmentList()
         {
             var equipmentList = new Dictionary<int, string>();
@@ -265,7 +260,6 @@ public static class DBUtility
             }
             return equipmentList;
         }
-    
     public static List<string> GetAllEquipment()
     {
         var results = new List<string>();
@@ -306,7 +300,6 @@ public static class DBUtility
 
         return results;
     }
-
     public static void AddShutteringToStock(string systemName, int length, int width, int amount)
     {
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
@@ -343,7 +336,6 @@ public static class DBUtility
             }
         }
     }
-    
     public static void AddEquipmentToStock(int equipmentId, int amount)
     {
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
@@ -372,8 +364,6 @@ public static class DBUtility
             }
         }
     }
-    
-    
     public static void AddEquipmentToDatabase(string nameOfEquipment)
         {
             using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
@@ -400,8 +390,6 @@ public static class DBUtility
                 }
             }
         }
-        
-        
     public static List<ShutteringStockItem> GetShutteringStockData()
         {
             var results = new List<ShutteringStockItem>();
@@ -444,7 +432,6 @@ public static class DBUtility
             }
             return results;
         }
-
     public static List<EquipmentStockItem> GetEquipmentStockData()
         {
             var results = new List<EquipmentStockItem>();
@@ -482,8 +469,7 @@ public static class DBUtility
             }
             return results;
         }
-    
-public static void AddPriceListRecordsForExistingProductsAndEquipment()
+    public static void AddPriceListRecordsForExistingProductsAndEquipment()
 {
     string getProductIdsQuery = "SELECT ProductID FROM ShutteringProduct";
     string getEquipmentIdsQuery = "SELECT EquipmentID FROM Equipment";
@@ -592,7 +578,6 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
         }
     }
 }
-    
     public static List<PriceShuttering> GetShutteringPriceData()
         {
             AddPriceListRecordsForExistingProductsAndEquipment();
@@ -651,7 +636,6 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
             
             return results;
         }
-    
     public static void UpdateShutteringPrice(string systemName, int length, int width, float newPrice)
     {
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
@@ -688,8 +672,6 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
             }
         }
     }
-
-
     public static List<PriceEquipment> GetEquipmentPriceData()
     {
         var results = new List<PriceEquipment>();
@@ -741,7 +723,6 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
 
         return results;
     }
-    
     public static void UpdateEquipmentPrice(int equipmentId, float newPrice)
     {
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
@@ -770,7 +751,6 @@ public static void AddPriceListRecordsForExistingProductsAndEquipment()
             }
         }
     }
-
     public static void AddClientToDatabase(string nameOfCompany, int nip, string address, string postNumber, string nameOfPostEstablishment)
     {
         using (var connection = new SqliteConnection($"DataSource={DataBaseName}"))
