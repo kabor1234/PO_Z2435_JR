@@ -8,7 +8,7 @@ namespace projektWypozyczalnia.Pricewindows;
 public partial class EditEquipmentPrice : Window
 {
     
-    private Dictionary<int, string> _equipmentDictionary = new();
+    private Dictionary<int, (string Name, int AmountInStock)> _equipmentDictionary = new();
     public EditEquipmentPrice()
     {
         InitializeComponent();
@@ -35,29 +35,30 @@ public partial class EditEquipmentPrice : Window
         DBUtility.UpdateEquipmentPrice(selectedEquipmentId, newPrice);
     }
     
-    private int GetEquipmentIdByName(string equipmentName)
-    {
-        foreach (var equipment in _equipmentDictionary)
-        {
-            if (equipment.Value == equipmentName)
-            {
-                return equipment.Key;
-            }
-        }
-        throw new Exception("Nie znaleziono osprzętu o tej nazwie.");
-    }
     private void LoadEquipment()
     {
         EquipmentNameComboBox.Items.Clear();
         _equipmentDictionary = DBUtility.GetEquipmentList();
 
         var sortedEquipment = _equipmentDictionary.Values
-            .OrderBy(name => name, StringComparer.CurrentCulture);
-        
-        foreach (var equipmentName in sortedEquipment)
+            .OrderBy(e => e.Name, StringComparer.CurrentCulture);
+
+        foreach (var equipment in sortedEquipment)
         {
-            EquipmentNameComboBox.Items.Add(equipmentName);
+            EquipmentNameComboBox.Items.Add(equipment.Name);
         }
+    }
+    
+    private int GetEquipmentIdByName(string equipmentName)
+    {
+        foreach (var equipment in _equipmentDictionary)
+        {
+            if (equipment.Value.Name == equipmentName)
+            {
+                return equipment.Key;
+            }
+        }
+        throw new Exception("Nie znaleziono osprzętu o tej nazwie.");
     }
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)

@@ -1,11 +1,12 @@
 using System.Windows;
+using System.Windows.Controls;
 using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
 public partial class AddEquipmentToRentingWindow : Window
 {
-    private Dictionary<int, string> _equipmentDictionary = new();
+    private Dictionary<int, (string Name, int AmountInStock)> _equipmentDictionary = new();
     public AddEquipmentToRentingWindow()
     {
         InitializeComponent();
@@ -17,11 +18,11 @@ public partial class AddEquipmentToRentingWindow : Window
         _equipmentDictionary = DBUtility.GetEquipmentList();
 
         var sortedEquipment = _equipmentDictionary.Values
-            .OrderBy(name => name, StringComparer.CurrentCulture);
-            
-        foreach (var equipmentName in sortedEquipment)
+            .OrderBy(e => e.Name, StringComparer.CurrentCulture);
+
+        foreach (var equipment in sortedEquipment)
         {
-            EquipmentNameComboBox.Items.Add(equipmentName);
+            EquipmentNameComboBox.Items.Add(equipment.Name);
         }
     }
         
@@ -29,12 +30,32 @@ public partial class AddEquipmentToRentingWindow : Window
     {
         foreach (var equipment in _equipmentDictionary)
         {
-            if (equipment.Value == equipmentName)
+            if (equipment.Value.Name == equipmentName)
             {
                 return equipment.Key;
             }
         }
         throw new Exception("Nie znaleziono osprzętu o tej nazwie.");
+    }
+    
+    private (string Name, int AmountInStock) GetEquipmentById(int equipmentId)
+    {
+        if (_equipmentDictionary.TryGetValue(equipmentId, out var equipment))
+        {
+            return equipment;
+        }
+        throw new Exception("Nie znaleziono osprzętu o tym ID.");
+    }
+    private void EquipmentNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+    {
+        if (EquipmentNameComboBox.SelectedItem != null)
+        {
+            string selectedEquipmentName = EquipmentNameComboBox.SelectedItem.ToString();
+            int equipmentId = GetEquipmentIdByName(selectedEquipmentName);
+            var equipment = GetEquipmentById(equipmentId);
+            
+            AvaibleAmountOfShuttering.Text = $"{equipment.AmountInStock}";
+        }
     }
 
     private void AddEquipmentToRent_onClick(object sender, RoutedEventArgs e)

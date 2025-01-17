@@ -230,40 +230,41 @@ public static class DBUtility
 
         return results;
     }
-    public static Dictionary<int, string> GetEquipmentList()
+    public static Dictionary<int, (string Name, int AmountInStock)> GetEquipmentList()
+    {
+        var equipmentList = new Dictionary<int, (string Name, int AmountInStock)>();
+
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
-            var equipmentList = new Dictionary<int, string>();
-
-            using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+            try
             {
-                try
+                connection.Open();
+
+                string query = @"
+            SELECT EquipmentID, NameOfEquipment, AmountInStock 
+            FROM Equipment;";
+
+                using (var command = new SqliteCommand(query, connection))
                 {
-                    connection.Open();
-
-                    string query = @"
-                    SELECT EquipmentID, NameOfEquipment 
-                    FROM Equipment;";
-
-                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
                     {
-                        using (var reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                int id = Convert.ToInt32(reader["EquipmentID"]);
-                                string name = reader["NameOfEquipment"].ToString();
-                                equipmentList.Add(id, name);
-                            }
+                            int id = Convert.ToInt32(reader["EquipmentID"]);
+                            string name = reader["NameOfEquipment"].ToString();
+                            int amountInStock = Convert.ToInt32(reader["AmountInStock"]);
+                            equipmentList.Add(id, (name, amountInStock));
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + ex.Message);
-                }
             }
-            return equipmentList;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + ex.Message);
+            }
         }
+        return equipmentList;
+    }
     public static List<string> GetAllEquipment()
     {
         var results = new List<string>();

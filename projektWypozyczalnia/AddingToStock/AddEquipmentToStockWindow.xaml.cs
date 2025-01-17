@@ -6,7 +6,7 @@ namespace projektWypozyczalnia.AddingToStock;
 public partial class AddEquipmentToStockWindow : Window
 {
         
-        private Dictionary<int, string> _equipmentDictionary = new();
+        private Dictionary<int, (string Name, int AmountInStock)> _equipmentDictionary = new();
 
         public AddEquipmentToStockWindow()
         {
@@ -53,11 +53,11 @@ public partial class AddEquipmentToStockWindow : Window
             _equipmentDictionary = DBUtility.GetEquipmentList();
 
             var sortedEquipment = _equipmentDictionary.Values
-                .OrderBy(name => name, StringComparer.CurrentCulture);
-            
-            foreach (var equipmentName in sortedEquipment)
+                .OrderBy(e => e.Name, StringComparer.CurrentCulture);
+
+            foreach (var equipment in sortedEquipment)
             {
-                EquipmentNameComboBox.Items.Add(equipmentName);
+                EquipmentNameComboBox.Items.Add(equipment.Name);
             }
         }
         
@@ -65,7 +65,7 @@ public partial class AddEquipmentToStockWindow : Window
         {
             foreach (var equipment in _equipmentDictionary)
             {
-                if (equipment.Value == equipmentName)
+                if (equipment.Value.Name == equipmentName)
                 {
                     return equipment.Key;
                 }
