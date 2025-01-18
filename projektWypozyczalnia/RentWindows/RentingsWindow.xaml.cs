@@ -21,7 +21,7 @@ public partial class RentingsWindow : Window
 
     private void Rent_OnClick(object sender, RoutedEventArgs e)
     {
-        RentWindow rentWindow = new();
+        RentWindow rentWindow = new RentWindow();
         rentWindow.Show();
     }
 

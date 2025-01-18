@@ -8,7 +8,8 @@
         Title="Wypożycz" Height="600" Width="1200"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        WindowStyle="None">
+        WindowStyle="None"
+        Closing="RentWindow_OnClosing">
     <Grid Margin="10">
        
         <Grid.RowDefinitions>
@@ -111,11 +112,12 @@
         </Grid>
         
 
-        <DataGrid Grid.Row="2" x:Name="AddedObjectDataGrid" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">\
+        <DataGrid Grid.Row="2" x:Name="AddedObjectDataGrid" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" ItemsSource="{Binding Items}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Dodano" Binding="{Binding Added}" Width="*"/>
-                <DataGridTextColumn Header="Ilość" Binding="{Binding Amount}" Width="*"/>
-                <DataGridTextColumn Header="Cena netto" Binding="{Binding Price}" Width="*"/>
+                <DataGridTextColumn Header="Dodano" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Ilość" Binding="{Binding Amount}" Width="*" />
+                <DataGridTextColumn Header="Cena netto (szt)" Binding="{Binding PricePerUnit}" Width="*" />
+                <DataGridTextColumn Header="Całkowita cena netto" Binding="{Binding TotalPrice}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         
@@ -133,7 +135,7 @@
             </StackPanel>
             
             <StackPanel Grid.Column="1" HorizontalAlignment="Left">
-                <TextBlock x:Name="TotalValueOfEquipment"/>
+                <TextBlock x:Name="TotalValueOfEquipmentTextBlock"/>
                 <TextBlock x:Name="DailyPriceOfRent"/>
             </StackPanel>
             

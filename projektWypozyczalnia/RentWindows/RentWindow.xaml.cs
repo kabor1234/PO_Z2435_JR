@@ -1,20 +1,33 @@
 using System.Windows;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
 public partial class RentWindow : Window
 {
+    public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 
     public RentWindow()
     {
         InitializeComponent();
-        TotalValueOfEquipment.Text = "156 903,43 zł";
-        
+        Items = new ObservableCollection<Item>();
+        DataContext = this;  
+        Loaded += RentWindow_Loaded;
     }
-    
-    
+    private void RentWindow_Loaded(object sender, RoutedEventArgs e)
+    {
+        AddedObjectDataGrid.ItemsSource = Items;
+    }
+
+    public void AddItemToList(Item item)
+    {
+        Items.Add(item);
+        UpdateTotalValue();
+    }
+
+
     private void StartRent_OnClick(object sender, RoutedEventArgs e)
     {
         
@@ -78,10 +91,25 @@ public partial class RentWindow : Window
         }
     }
     
+    private void UpdateTotalValue()
+    {
+        double totalValue = 0;
+        
+        foreach (var item in AddedObjectDataGrid.Items)
+        {
+            if (item is Item currentItem)
+            {
+                totalValue += currentItem.TotalPrice;
+            }
+        }
+        
+        TotalValueOfEquipmentTextBlock.Text = $"{totalValue:F2} zł"; 
+    }
+    
 
     private void AddItems_OnClick(object sender, RoutedEventArgs e)
     {
-        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow();
+        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow(this);
         choosingAddingItemWindow.ShowDialog();
     }
 
@@ -94,6 +122,10 @@ public partial class RentWindow : Window
     {
         throw new NotImplementedException();
     }
-    
-    
+
+
+    private void RentWindow_OnClosing(object? sender, CancelEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }

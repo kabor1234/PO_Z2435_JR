@@ -275,10 +275,10 @@ public static class DBUtility
                 connection.Open();
 
                 string query = @"
-            SELECT DISTINCT p.Width, p.AmountInStock, p.PriceOfShuttering 
-            FROM ShutteringProduct p
-            INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
-            WHERE l.Length = @Length;";
+                                SELECT DISTINCT p.Width, p.AmountInStock, p.PriceOfShuttering 
+                                FROM ShutteringProduct p
+                                INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
+                                WHERE l.Length = @Length;";
 
                 using (var command = new SqliteCommand(query, connection))
                 {

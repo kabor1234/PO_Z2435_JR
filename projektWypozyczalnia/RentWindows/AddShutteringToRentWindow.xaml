@@ -25,10 +25,14 @@
                         <TextBlock Text="Dostępna ilość na stanie: "/>
                         <TextBlock x:Name="AvaibleAmountOfShutteringTextBlock"></TextBlock>
                 </StackPanel>
+                <StackPanel Margin="20 , 0, 20, 160" Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <TextBlock Text="Cena netto: "/>
+                        <TextBlock x:Name="PriceOfShutteringTextBlock"></TextBlock>
+                </StackPanel>
                 
                 <StackPanel Margin="20" VerticalAlignment="Bottom">
                         <TextBlock Margin="0,10,0,0">Podaj ilość:</TextBlock>
-                        <TextBox x:Name="AmountTextBox" Margin="0,5,0,110" Width="100" HorizontalAlignment="Left"></TextBox>
+                        <TextBox x:Name="AmountTextBox" Margin="0,5,0,95" Width="100" HorizontalAlignment="Left"></TextBox>
                 </StackPanel>
                 
 
