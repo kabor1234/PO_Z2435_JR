@@ -6,7 +6,7 @@ namespace projektWypozyczalnia.Classes;
 public static class DBUtility
 {
     private static readonly string DataBaseName = "Shutterings.db";
-public static void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
+    public static void AddShutteringSystemToDatabase(string nameOfShuttering, string manufacturer, int length, List<int> widths)
 {
     try
     {
@@ -30,7 +30,7 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
             
             if (systemId == -1)
             {
-                string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer, Summary) VALUES (@NameOfShuttering, @Manufacturer, @Summary);";
+                string insertSystemQuery = "INSERT INTO SystemOfShuttering (NameOfShuttering, Manufacturer) VALUES (@NameOfShuttering, @Manufacturer);";
                 using (var insertCommand = new SqliteCommand(insertSystemQuery, connection))
                 {
                     insertCommand.Parameters.AddWithValue("@NameOfShuttering", nameOfShuttering);
@@ -77,7 +77,7 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
             }
             
             string checkProductQuery = "SELECT COUNT(*) FROM ShutteringProduct WHERE LengthID = @LengthID AND Width = @Width;";
-            string insertProductQuery = "INSERT INTO ShutteringProduct (LengthID, Width, AmountInStock) VALUES (@LengthID, @Width, @AmountInStock);";
+            string insertProductQuery = "INSERT INTO ShutteringProduct (LengthID, Width, AmountInStock, PriceOfShuttering) VALUES (@LengthID, @Width, @AmountInStock, @PriceOfShuttering);";
 
             foreach (var width in widths)
             {
@@ -101,6 +101,7 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
                                 productCommand.Parameters.AddWithValue("@LengthID", lengthId);
                                 productCommand.Parameters.AddWithValue("@Width", width);
                                 productCommand.Parameters.AddWithValue("@AmountInStock", 0);
+                                productCommand.Parameters.AddWithValue("@PriceOfShuttering", 0);
                                 productCommand.ExecuteNonQuery();
                             }
                         }
@@ -118,6 +119,34 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
         MessageBox.Show("Błąd: " + ex.Message);
     }
 }
+    public static void AddEquipmentToDatabase(string nameOfEquipment)
+    {
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                        INSERT INTO Equipment (NameOfEquipment, AmountInStock, PriceOfEquipment) 
+                        VALUES (@Name, @AmountInStock, @PriceOfEquipment);";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", nameOfEquipment);
+                    command.Parameters.AddWithValue("@AmountInStock", 0);
+                    command.Parameters.AddWithValue("@PriceOfEquipment", 0);
+                    command.ExecuteNonQuery();
+                            
+                    MessageBox.Show("Osprzęt został dodany.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas dodawania osprzętu: " + ex.Message);
+            }
+        }
+    }
     public static List<AvailableSystemsOfShuttering> GetAllShutteringSystems()
     {
         var results = new List<AvailableSystemsOfShuttering>();
@@ -415,32 +444,6 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
             }
         }
     }
-    public static void AddEquipmentToDatabase(string nameOfEquipment)
-        {
-            using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string query = @"
-                    INSERT INTO Equipment (NameOfEquipment, AmountInStock) 
-                    VALUES (@Name, 0);";
-
-                    using (var command = new SqliteCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Name", nameOfEquipment);
-                        command.ExecuteNonQuery();
-                        
-                        MessageBox.Show("Osprzęt został dodany.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Błąd podczas dodawania osprzętu: " + ex.Message);
-                }
-            }
-        }
     public static List<ShutteringStockItem> GetShutteringStockData()
         {
             var results = new List<ShutteringStockItem>();
@@ -520,119 +523,8 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
             }
             return results;
         }
-    public static void AddPriceListRecordsForExistingProductsAndEquipment()
-{
-    string getProductIdsQuery = "SELECT ProductID FROM ShutteringProduct";
-    string getEquipmentIdsQuery = "SELECT EquipmentID FROM Equipment";
-    string checkIfProductRecordExistsQuery = "SELECT COUNT(*) FROM PriceList WHERE ProductID = @ProductID";
-    string checkIfEquipmentRecordExistsQuery = "SELECT COUNT(*) FROM PriceList WHERE EquipmentID = @EquipmentID";
-
-    List<int> productIds = new();
-    List<int> equipmentIds = new();
-
-    using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
-    {
-        try
-        {
-            connection.Open();
-            
-            using (var productCommand = connection.CreateCommand())
-            {
-                productCommand.CommandText = getProductIdsQuery;
-                using (var reader = productCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        productIds.Add(reader.GetInt32(0));
-                    }
-                }
-            }
-            
-            using (var equipmentCommand = connection.CreateCommand())
-            {
-                equipmentCommand.CommandText = getEquipmentIdsQuery;
-                using (var reader = equipmentCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        equipmentIds.Add(reader.GetInt32(0));
-                    }
-                }
-            }
-            
-            foreach (var productId in productIds)
-            {
-                using (var checkProductCommand = connection.CreateCommand())
-                {
-                    checkProductCommand.CommandText = checkIfProductRecordExistsQuery;
-                    checkProductCommand.Parameters.AddWithValue("@ProductID", productId);
-
-                    int productCount = Convert.ToInt32(checkProductCommand.ExecuteScalar());
-                    if (productCount > 0)
-                    {
-                        continue;  
-                    }
-                }
-                
-                string insertProductQuery = "INSERT INTO PriceList (ProductID, EquipmentID, Price) VALUES (@ProductID, NULL, NULL)";
-                using (var insertProductCommand = connection.CreateCommand())
-                {
-                    insertProductCommand.CommandText = insertProductQuery;
-                    insertProductCommand.Parameters.AddWithValue("@ProductID", productId);
-
-                    try
-                    {
-                        insertProductCommand.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Błąd wstawiania danych ProductID: {ex.Message}");
-                    }
-                }
-            }
-            
-            foreach (var equipmentId in equipmentIds)
-            {
-                using (var checkEquipmentCommand = connection.CreateCommand())
-                {
-                    checkEquipmentCommand.CommandText = checkIfEquipmentRecordExistsQuery;
-                    checkEquipmentCommand.Parameters.AddWithValue("@EquipmentID", equipmentId);
-
-                    int equipmentCount = Convert.ToInt32(checkEquipmentCommand.ExecuteScalar());
-                    if (equipmentCount > 0)
-                    {
-                        continue;
-                    }
-                }
-                
-                string insertEquipmentQuery = "INSERT INTO PriceList (ProductID, EquipmentID, Price) VALUES (NULL, @EquipmentID, NULL)";
-                using (var insertEquipmentCommand = connection.CreateCommand())
-                {
-                    insertEquipmentCommand.CommandText = insertEquipmentQuery;
-                    insertEquipmentCommand.Parameters.AddWithValue("@EquipmentID", equipmentId);
-
-                    try
-                    {
-                        insertEquipmentCommand.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Błąd wstawiania danych EquipmentID: {ex.Message}");
-                    }
-                }
-            }
-            
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Wystąpił błąd: {ex.Message}");
-        }
-    }
-}
     public static List<PriceShuttering> GetShutteringPriceData()
         {
-            AddPriceListRecordsForExistingProductsAndEquipment();
-            
             var results = new List<PriceShuttering>();
             
             using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
@@ -641,21 +533,18 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
                 {
                     connection.Open();
 
-                    string query = @"
-                        SELECT 
-                            pl.Price AS Price,
-                            p.Width,
-                            l.Length,
-                            s.NameOfShuttering AS ShutteringName,
-                            s.Manufacturer 
-                        FROM
-                            PriceList pl
-                        INNER JOIN
-                            ShutteringProduct p ON pl.ProductID = p.ProductID
-                        INNER JOIN 
-                            LengthCategory l ON p.LengthID = l.LengthID
-                        INNER JOIN 
-                            SystemOfShuttering s ON l.SystemID = s.SystemID;
+                    string query = @"SELECT 
+                                     p.PriceOfShuttering AS Price,
+                                     p.Width,
+                                     l.Length,
+                                     s.NameOfShuttering AS ShutteringName,
+                                     s.Manufacturer 
+                                     FROM                                      
+                                     ShutteringProduct p
+                                     INNER JOIN 
+                                     LengthCategory l ON p.LengthID = l.LengthID
+                                     INNER JOIN 
+                                     SystemOfShuttering s ON l.SystemID = s.SystemID;
                     ";
 
                     using (var command = new SqliteCommand(query, connection))
@@ -696,15 +585,15 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
                 connection.Open();
 
                 string query = @"
-            UPDATE PriceList
-            SET Price = @NewPrice
-            WHERE ProductID IN (
-                SELECT p.ProductID 
-                FROM ShutteringProduct p
-                INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
-                INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
-                WHERE s.NameOfShuttering = @SystemName AND l.Length = @Length AND p.Width = @Width
-            );";
+                UPDATE ShutteringProduct
+                SET PriceOfShuttering = @NewPrice
+                WHERE LengthID IN (
+                    SELECT l.LengthID 
+                    FROM LengthCategory l
+                    INNER JOIN SystemOfShuttering s ON l.SystemID = s.SystemID
+                    WHERE s.NameOfShuttering = @SystemName AND l.Length = @Length
+                )
+                AND Width = @Width;";
 
                 using (var command = new SqliteCommand(query, connection))
                 {
@@ -713,8 +602,15 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
                     command.Parameters.AddWithValue("@Width", width);
                     command.Parameters.AddWithValue("@NewPrice", newPrice);
 
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Cena została zaktualizowana.");
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Cena została zaktualizowana.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie znaleziono produktu do aktualizacji.");
+                    }
                 }
             }
             catch (Exception ex)
@@ -732,16 +628,13 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
             try
             {
                 connection.Open();
-
                 string query = @"
-                SELECT 
-                    pl.Price AS Price,
-                    e.NameOfEquipment
-                FROM
-                    PriceList pl
-                INNER JOIN
-                    Equipment e ON pl.EquipmentID = e.EquipmentID
-            ";
+                                SELECT 
+                                    NameOfEquipment AS Name,
+                                    PriceOfEquipment AS Price
+                                FROM 
+                                    Equipment;";
+                
 
                 using (var command = new SqliteCommand(query, connection))
                 {
@@ -751,24 +644,18 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
                         {
                             results.Add(new PriceEquipment
                             {
-                                NameOfEquipment = reader["NameOfEquipment"].ToString(),
+                                NameOfEquipment = reader["Name"].ToString(),
                                 Price = reader["Price"] == DBNull.Value 
                                     ? "brak ceny" 
                                     : $"{(double)reader["Price"]:N2} zł"
                             });
-
                         }
-                        
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {ex.Message}");
-            }
-            finally
-            {
-                connection.Close();
             }
         }
 
@@ -783,8 +670,8 @@ public static void AddShutteringSystemToDatabase(string nameOfShuttering, string
                 connection.Open();
 
                 string query = @"
-                                UPDATE PriceList
-                                SET Price = @NewPrice
+                                UPDATE Equipment
+                                SET PriceOfEquipment = @NewPrice
                                 WHERE EquipmentID = @EquipmentId;";
 
                 using (var command = new SqliteCommand(query, connection))
