@@ -1,4 +1,4 @@
-namespace projektWypozyczalnia;
+namespace projektWypozyczalnia.Classes;
 
 public class AvailableSystemsOfShuttering
 {

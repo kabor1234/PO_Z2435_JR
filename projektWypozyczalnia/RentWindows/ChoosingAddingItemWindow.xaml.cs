@@ -5,19 +5,21 @@ namespace projektWypozyczalnia.RentWindows;
 
 public partial class ChoosingAddingItemWindow : Window
 {
-    public ChoosingAddingItemWindow()
+    private RentWindow rentWindow;
+    public ChoosingAddingItemWindow(RentWindow parentWindow)
     {
         InitializeComponent();
+        rentWindow = parentWindow;
     }
     private void ChooseShutterings_OnClick(object sender, RoutedEventArgs e)
     {
-        AddShutteringToRentingWindow addShutterings = new AddShutteringToRentingWindow();
-        addShutterings.Show();
+        AddShutteringToRentWindow addShutterings = new AddShutteringToRentWindow(rentWindow);
+        addShutterings.ShowDialog();
     }
     
     private void ChooseEquipment_OnClick(object sender, RoutedEventArgs e)
     {
-        AddEquipmentToRentingWindow addEquipment = new AddEquipmentToRentingWindow();
+        AddEquipmentToRentWindow addEquipment = new AddEquipmentToRentWindow();
         addEquipment.Show();
     }
 

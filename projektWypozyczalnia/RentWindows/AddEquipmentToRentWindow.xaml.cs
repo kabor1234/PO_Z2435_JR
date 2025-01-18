@@ -4,10 +4,10 @@ using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
-public partial class AddEquipmentToRentingWindow : Window
+public partial class AddEquipmentToRentWindow : Window
 {
     private Dictionary<int, (string Name, int AmountInStock)> _equipmentDictionary = new();
-    public AddEquipmentToRentingWindow()
+    public AddEquipmentToRentWindow()
     {
         InitializeComponent();
         LoadEquipment();

@@ -1,14 +1,21 @@
 using System.Windows;
+using System.Collections.ObjectModel;
+using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
 public partial class RentWindow : Window
 {
+    public ObservableCollection<Item> Items { get; private set; }
     public RentWindow()
     {
         InitializeComponent();
+        
+        Items = new ObservableCollection<Item>();
+        AddedObjectDataGrid.ItemsSource = Items;
 
         TotalValueOfEquipment.Text = "156 903,43 zł";
+        
     }
     
     
@@ -75,10 +82,15 @@ public partial class RentWindow : Window
         }
     }
     
+    public void AddItemToDataGrid(Item newItem)
+    {
+        Items.Add(newItem);
+    }
+    
 
     private void AddItems_OnClick(object sender, RoutedEventArgs e)
     {
-        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow();
+        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow(this);
         choosingAddingItemWindow.ShowDialog();
     }
 
@@ -91,4 +103,6 @@ public partial class RentWindow : Window
     {
         throw new NotImplementedException();
     }
+    
+    
 }

@@ -4,18 +4,33 @@ using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
-public partial class AddShutteringToRentingWindow : Window
+public partial class AddShutteringToRentWindow : Window
 {
     private List<WidthForLength> _widths = new();
-    public AddShutteringToRentingWindow()
+    private RentWindow rentWindow;
+
+    public AddShutteringToRentWindow(RentWindow parentWindow)
     {
         InitializeComponent();
+        rentWindow = parentWindow;
         LoadShutteringSystems();
     }
 
     private void RentShutterings_onClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        // Tworzenie nowego elementu (dane przykładowe)
+        var newItem = new Item
+        {
+            Name = "Nowy sprzęt",
+            Quantity = 2,
+            Price = 200.0
+        };
+
+        // Wywołanie metody w RentWindow
+        rentWindow.AddItemToDataGrid(newItem);
+
+        // Zamknij okno po dodaniu elementu
+        this.Close();
     }
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
