@@ -5,15 +5,13 @@ namespace projektWypozyczalnia.RentWindows;
 
 public partial class ChoosingAddingItemWindow : Window
 {
-    private RentWindow rentWindow;
-    public ChoosingAddingItemWindow(RentWindow parentWindow)
+    public ChoosingAddingItemWindow()
     {
         InitializeComponent();
-        rentWindow = parentWindow;
     }
     private void ChooseShutterings_OnClick(object sender, RoutedEventArgs e)
     {
-        AddShutteringToRentWindow addShutterings = new AddShutteringToRentWindow(rentWindow);
+        AddShutteringToRentWindow addShutterings = new AddShutteringToRentWindow();
         addShutterings.ShowDialog();
     }
     

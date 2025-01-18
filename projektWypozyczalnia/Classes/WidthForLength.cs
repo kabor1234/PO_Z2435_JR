@@ -4,4 +4,5 @@ public class WidthForLength
 {
     public int Width { get; set; }
     public int AmountInStock { get; set; }
+    public double Price { get; set; }
 }

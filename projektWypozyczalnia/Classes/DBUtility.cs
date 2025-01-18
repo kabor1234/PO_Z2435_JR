@@ -275,7 +275,7 @@ public static class DBUtility
                 connection.Open();
 
                 string query = @"
-            SELECT DISTINCT p.Width, p.AmountInStock 
+            SELECT DISTINCT p.Width, p.AmountInStock, p.PriceOfShuttering 
             FROM ShutteringProduct p
             INNER JOIN LengthCategory l ON p.LengthID = l.LengthID
             WHERE l.Length = @Length;";
@@ -291,7 +291,8 @@ public static class DBUtility
                             results.Add(new WidthForLength
                             {
                                 Width = Convert.ToInt32(reader["Width"]),
-                                AmountInStock = Convert.ToInt32(reader["AmountInStock"])
+                                AmountInStock = Convert.ToInt32(reader["AmountInStock"]),
+                                Price = (double)reader["PriceOfShuttering"]
                             });
                         }
                     }
@@ -299,6 +300,7 @@ public static class DBUtility
             }
             catch (Exception ex)
             {
+                MessageBox.Show("To tutaj");
                 MessageBox.Show("Błąd podczas ładowania szerokości i ilości: " + ex.Message);
             }
         }
@@ -559,7 +561,7 @@ public static class DBUtility
                                     System = reader["ShutteringName"].ToString(),
                                     Length = Convert.ToInt32(reader["Length"]),
                                     Width = Convert.ToInt32(reader["Width"]),
-                                    Price = reader["Price"] == DBNull.Value 
+                                    Price = (double)reader["Price"] == 0 
                                         ? "brak ceny" 
                                         : $"{(double)reader["Price"]:N2} zł"
                                 });
@@ -645,7 +647,7 @@ public static class DBUtility
                             results.Add(new PriceEquipment
                             {
                                 NameOfEquipment = reader["Name"].ToString(),
-                                Price = reader["Price"] == DBNull.Value 
+                                Price = (double)reader["Price"] == 0
                                     ? "brak ceny" 
                                     : $"{(double)reader["Price"]:N2} zł"
                             });

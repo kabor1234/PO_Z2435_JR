@@ -6,20 +6,16 @@ namespace projektWypozyczalnia.RentWindows;
 
 public partial class RentWindow : Window
 {
-    public ObservableCollection<Item> Items { get; private set; }
+
     public RentWindow()
     {
         InitializeComponent();
-        
-        Items = new ObservableCollection<Item>();
-        AddedObjectDataGrid.ItemsSource = Items;
-
         TotalValueOfEquipment.Text = "156 903,43 zł";
         
     }
     
     
-    private void Rent_OnClick(object sender, RoutedEventArgs e)
+    private void StartRent_OnClick(object sender, RoutedEventArgs e)
     {
         
         //zrobić metodę, która będzie wyrzucała błąd jak będą złe wartości / puste pola
@@ -82,15 +78,10 @@ public partial class RentWindow : Window
         }
     }
     
-    public void AddItemToDataGrid(Item newItem)
-    {
-        Items.Add(newItem);
-    }
-    
 
     private void AddItems_OnClick(object sender, RoutedEventArgs e)
     {
-        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow(this);
+        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow();
         choosingAddingItemWindow.ShowDialog();
     }
 

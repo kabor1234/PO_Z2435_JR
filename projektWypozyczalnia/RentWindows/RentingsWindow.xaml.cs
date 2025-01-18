@@ -1,7 +1,6 @@
 using System.Windows;
-using projektWypozyczalnia.RentWindows;
 
-namespace projektWypozyczalnia;
+namespace projektWypozyczalnia.RentWindows;
 
 public partial class RentingsWindow : Window
 {
@@ -22,7 +21,7 @@ public partial class RentingsWindow : Window
 
     private void Rent_OnClick(object sender, RoutedEventArgs e)
     {
-        RentWindow rentWindow = new RentWindow();
+        RentWindow rentWindow = new();
         rentWindow.Show();
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using projektWypozyczalnia.RentWindows;
 using projektWypozyczalnia.ShowWindows;
 
 

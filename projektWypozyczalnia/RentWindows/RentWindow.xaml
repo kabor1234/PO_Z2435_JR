@@ -154,7 +154,7 @@
                         Width="60"/>
                 <Button x:Name="RentButton"
                         Content="Wypożycz"
-                        Click="Rent_OnClick"
+                        Click="StartRent_OnClick"
                         Margin="5,0,10,0"
                         Height="30"
                         Width="60"/>

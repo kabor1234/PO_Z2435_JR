@@ -8,11 +8,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="commit po wielkiej rewolucji bazy danych i edycji metod">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/ShowWindows/PriceListWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/ShowWindows/PriceListWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/WidthForLength.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/WidthForLength.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChoosingAddingItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChoosingAddingItemWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentingsWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,15 +178,7 @@
       <workItem from="1737153124149" duration="4182000" />
       <workItem from="1737220055392" duration="1690000" />
       <workItem from="1737221777943" duration="15000" />
-      <workItem from="1737221942441" duration="2211000" />
-    </task>
-    <task id="LOCAL-00004" summary="Stackpanel">
-      <option name="closed" value="true" />
-      <created>1732990727658</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1732990727658</updated>
+      <workItem from="1737221942441" duration="4323000" />
     </task>
     <task id="LOCAL-00005" summary="ustawienie okienek z przycisków na środek">
       <option name="closed" value="true" />
@@ -565,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737221580453</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="commit po wielkiej rewolucji bazy danych i edycji metod">
+      <option name="closed" value="true" />
+      <created>1737224487859</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1737224487859</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Dodawanie nowego osprzętu oraz edycja ilości posiadania go na stanie" />
     <MESSAGE value="przygotowanie okienka ze stanem magazynu pod wyświetlanie stanu" />
     <MESSAGE value="wyświetlanie dostępnego osprzętu oraz dostępnych rzeczy na magazynie" />
     <MESSAGE value="pozbycie klasy" />
@@ -623,6 +629,7 @@
     <MESSAGE value="nowa metoda dodawania osoby do kontaktu do bazy danych" />
     <MESSAGE value="dodanie nowych metod zapisujących do bazy danych" />
     <MESSAGE value="awaryjny commit przed rewolucją" />
-    <option name="LAST_COMMIT_MESSAGE" value="awaryjny commit przed rewolucją" />
+    <MESSAGE value="commit po wielkiej rewolucji bazy danych i edycji metod" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit po wielkiej rewolucji bazy danych i edycji metod" />
   </component>
 </project>
