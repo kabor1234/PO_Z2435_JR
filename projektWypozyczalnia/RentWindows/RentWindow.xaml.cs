@@ -8,7 +8,7 @@ namespace projektWypozyczalnia.RentWindows;
 public partial class RentWindow : Window
 {
     public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
-    public bool IsRentConfirmed { get; set; } = false;
+    public WidthForLength AvailableAmountItemInfo { get; set; }
 
     public RentWindow()
     {
@@ -39,6 +39,10 @@ public partial class RentWindow : Window
         //Client column is null?
         if (NameOfCompanyTextBox.Text == "")
             MessageBox.Show("Pole \"nazwa firmy\" nie może być puste.");
+        else
+        {
+            string nameOfCompany = NameOfCompanyTextBox.Text;
+        }
         if (NumberOfCompanyTextBox.Text == "")
             MessageBox.Show("Pole \"NIP\" nie może być puste.");
         if (AddressOfCompanyTextBox.Text == "")
@@ -62,19 +66,38 @@ public partial class RentWindow : Window
         var selectedDate = DateSelectionsCalendar.SelectedDates;
         if (selectedDate.Count() <= 0)
             MessageBox.Show("Brak wybranego zakresu dat w kalendarzu.");
+        else
+        {
+            DateTime startDate = selectedDate.Min();
+            DateTime endDate = selectedDate.Max();
+            
+            string startDateString = startDate.ToString("dd/MM/yyyy");
+            string endDateString = endDate.ToString("dd/MM/yyyy");
+        }
 
         //Checking information in textboxes are correct
-        if (!int.TryParse(NumberOfCompanyTextBox.Text, out int numberOfCompany) &&
-            NumberOfCompanyTextBox.Text.Length != 10 && NumberOfCompanyTextBox.Text != "")
+        if (NumberOfCompanyTextBox.Text.Length != 10 || !NumberOfCompanyTextBox.Text.All(char.IsDigit))
+        {
             MessageBox.Show("Podano błędny NIP");
+        }
+        else
+        {
+            string numberOfCompany = NumberOfCompanyTextBox.Text;
+        }
         if (!(PostNumberTextBox.Text.Length == 6 && PostNumberTextBox.Text[2] == '-' &&
               PostNumberTextBox.Text.Substring(0, 2).All(Char.IsDigit) &&
               PostNumberTextBox.Text.Substring(3).All(Char.IsDigit)) && PostNumberTextBox.Text != "")
             MessageBox.Show("Błędny kod pocztowy");
+        else
+        {
+            string postNumber = PostNumberTextBox.Text;
+        }
         if (NameOfPostEstablishmentTextBox.Text.All(Char.IsDigit) && NameOfCompanyTextBox.Text != "")
             MessageBox.Show("Błąd w polu \"Poczta\" ");
-
-        IsRentConfirmed = true;
+        else
+        {
+            string nameOfEstablishment = NameOfPostEstablishmentTextBox.Text;
+        }
         
         Close();
     }
@@ -116,10 +139,10 @@ public partial class RentWindow : Window
     }
 
 
-    private void AddItems_OnClick(object sender, RoutedEventArgs e)
+    private void AddShutterings_OnClick(object sender, RoutedEventArgs e)
     {
-        ChoosingAddingItemWindow choosingAddingItemWindow = new ChoosingAddingItemWindow(this);
-        choosingAddingItemWindow.ShowDialog();
+        AddShutteringToRentWindow addShutterings = new AddShutteringToRentWindow(this, AvailableAmountItemInfo);
+        addShutterings.ShowDialog();
     }
 
     private void CancelButton_OnClick(object sender, RoutedEventArgs e)
@@ -131,53 +154,9 @@ public partial class RentWindow : Window
     {
 
     }
-    
+
     private void RentWindow_OnClosing(object? sender, CancelEventArgs e)
     {
-        // Jeśli użytkownik anulował operację (np. kliknął "Anuluj")
-        if (!IsRentConfirmed)
-        {
-            // Wyświetlamy pytanie, czy użytkownik chce anulować
-            if (MessageBox.Show("Czy na pewno chcesz anulować? Zmiany nie będą zapisane.", "Anuluj",
-                    MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                // Usuwamy wszystkie przedmioty z DataGrid (ale nie zmieniamy stanu magazynowego w bazie)
-                Items.Clear(); // Usuwamy przedmioty z DataGrid, ale nie z bazy danych
-            }
-            else
-            {
-                e.Cancel = true; // Zatrzymujemy zamknięcie okna, jeśli użytkownik nie chce anulować
-            }
-        }
-        else
-        {
-            // Zatwierdzenie operacji, więc aktualizujemy stan magazynowy
-            foreach (var rentedItem in Items) // Zakładamy, że Items to lista obiektów Item
-            {
-                var selectedWidthInfo = DBUtility.FetchShutteringInfo(rentedItem.Name);  // Pobieramy dane na podstawie nazwy przedmiotu
-
-                if (selectedWidthInfo != null)
-                {
-                    int newAmountInStock = rentedItem.Amount; // Ilość wypożyczona przez klienta, którą trzeba dodać do magazynu
-
-                    bool updateSuccessful = DBUtility.UpdateWidthStock(
-                        selectedWidthInfo.NameOfShutteringSystem,  // Nazwa systemu szalunkowego
-                        selectedWidthInfo.Length,                  // Długość
-                        selectedWidthInfo.Width,                   // Szerokość
-                        newAmountInStock                           // Nowa ilość w magazynie
-                    );
-
-                    if (updateSuccessful)
-                    {
-                        MessageBox.Show($"Stan magazynowy dla {rentedItem.Name} został przywrócony.");
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Błąd podczas przywracania stanu magazynowego dla {rentedItem.Name}.");
-                    }
-                }
-            }
-        }
-
+        
     }
 }

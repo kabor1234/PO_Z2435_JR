@@ -10,11 +10,12 @@ public partial class AddShutteringToRentWindow : Window
     private RentWindow _rentWindow;
     private WidthForLength _availableAmountItemInfo;
 
-    public AddShutteringToRentWindow(RentWindow rentWindow)
+    public AddShutteringToRentWindow(RentWindow rentWindow, WidthForLength availableAmountItemInfo)
     {
         InitializeComponent();
+        _rentWindow = rentWindow; // Przypisanie RentWindow
+        _availableAmountItemInfo = availableAmountItemInfo; // Przypisanie AvailableAmountItemInfo
         LoadShutteringSystems();
-        _rentWindow = rentWindow;
     }
 
     private void RentShutterings_onClick(object sender, RoutedEventArgs e)
@@ -154,7 +155,7 @@ public partial class AddShutteringToRentWindow : Window
                 }
                 else
                 {
-                    PriceOfShutteringTextBlock.Text = $"Cena: {pricePerUnit:F2}";
+                    PriceOfShutteringTextBlock.Text = $"{pricePerUnit:F2}";
                 }
             }
         }

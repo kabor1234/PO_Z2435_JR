@@ -142,7 +142,7 @@
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
                 <Button x:Name="AddToRentButton"
                         Content="Dodaj sprzęt"
-                        Click="AddItems_OnClick"
+                        Click="AddShutterings_OnClick"
                         Height="30"
                         Width="80"/>
             </StackPanel>
