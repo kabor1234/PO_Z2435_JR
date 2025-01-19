@@ -7,7 +7,8 @@
         Title="Wypożyczenia" Height="600" Width="1200"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        WindowStyle="None">
+        WindowStyle="None"
+        Loaded="RentingsWindow_OnLoaded">
     <Grid>
                     <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Top">
                 <Button x:Name="ExitFromRentalWindow"
@@ -36,14 +37,19 @@
                           -->
             </StackPanel>
             
-            <DataGrid x:Name="RentsDataGrid" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
+            <DataGrid x:Name="RentsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" >
                     <DataGrid.Columns>
-                            <DataGridTextColumn Header="Numer umowy" Binding="{Binding ContractNumber}" Width="*"/>
-                            <DataGridTextColumn Header="Kontrahent" Binding="{Binding TradePartner}" Width="*"/>
+                            <DataGridTextColumn Header="Numer umowy" Binding="{Binding NumberOfLend}" Width="*"/>
+                            <DataGridTextColumn Header="Kontrahent" Binding="{Binding NameOfCompany}" Width="*"/>
                             <DataGridTextColumn Header="Adres budowy" Binding="{Binding AddressOfBuilding}" Width="*"/>
-                            <DataGridTextColumn Header="Początek najmu" Binding="{Binding StartDateRent}" Width="*"/>
-                            <DataGridTextColumn Header="Koniec najmu" Binding="{Binding EndDateRent}" Width="*"/>
+                            <DataGridTextColumn Header="Początek najmu" Binding="{Binding StartLendDate}" Width="*"/>
+                            <DataGridTextColumn Header="Koniec najmu" Binding="{Binding EndLendDate}" Width="*"/>
                     </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                    <MenuItem Header="Szczegóły" Click="DetailsMenuItem_Click"/>
+                            </ContextMenu>
+                    </DataGrid.ContextMenu>
             </DataGrid>
     </Grid>
 </Window>

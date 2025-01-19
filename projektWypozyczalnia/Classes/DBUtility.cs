@@ -882,7 +882,60 @@ public static class DBUtility
             MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + ex.Message);
         }
     }
-    
+    public static List<RentalItems> GetAllLendings()
+    {
+        var results = new List<RentalItems>();
+
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+            SELECT 
+                Lending.LendID, 
+                Lending.NumberOfLend, 
+                Lending.ClientID, 
+                Clients.NameOfCompany, 
+                Lending.StartLendDate, 
+                Lending.EndLendDate, 
+                Lending.AddressOfBuilding
+            FROM 
+                Lending
+            INNER JOIN 
+                Clients ON Lending.ClientID = Clients.ClientID;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var rentalItem = new RentalItems
+                            {
+                                LendID = reader.GetInt32(reader.GetOrdinal("LendID")),
+                                NumberOfLend = reader["NumberOfLend"]?.ToString(),
+                                ClientID = reader.GetInt32(reader.GetOrdinal("ClientID")),
+                                NameOfCompany = reader["NameOfCompany"]?.ToString(),
+                                StartLendDate = reader["StartLendDate"]?.ToString(),
+                                EndLendDate = reader["EndLendDate"]?.ToString(),
+                                AddressOfBuilding = reader["AddressOfBuilding"]?.ToString()
+                            };
+
+                            results.Add(rentalItem);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd podczas pobierania danych z bazy: " + e.Message);
+            }
+        }
+
+        return results;
+    }
     public static List<LendingDetail> GetLendingDetails()
     {
         var results = new List<LendingDetail>();

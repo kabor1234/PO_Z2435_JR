@@ -153,7 +153,7 @@ public partial class RentShutteringsWindow : Window
             comments = null;
         
         
-        //Add ClientToDatabase
+            //Add ClientToDatabase
         
             DBUtility.AddClientToDatabase(nameOfCompany, numberOfCompany, addressOfCompany, postNumber,
                 nameOfEstablishment);

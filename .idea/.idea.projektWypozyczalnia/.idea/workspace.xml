@@ -8,16 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChooseClientForShutteringsWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChooseClientForShutteringsWindow.xaml.cs" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="skończona logika uzupełniania okna wynajmu szalunów">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendingDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendingDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +53,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e4205e8a6694baad6eda95cafda8ae55521aa77cd189e59cbe5b4f758bb3d/TypeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/ShowWindows/PriceListWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -178,15 +176,7 @@
       <workItem from="1737231974929" duration="7725000" />
       <workItem from="1737239847740" duration="7014000" />
       <workItem from="1737282364655" duration="19634000" />
-      <workItem from="1737307545052" duration="12944000" />
-    </task>
-    <task id="LOCAL-00012" summary="dodanie klientów">
-      <option name="closed" value="true" />
-      <created>1733860520445</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1733860520445</updated>
+      <workItem from="1737307545052" duration="14691000" />
     </task>
     <task id="LOCAL-00013" summary="dodanie klasy sale i saledetails">
       <option name="closed" value="true" />
@@ -572,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737310543592</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="skończona logika uzupełniania okna wynajmu szalunów">
+      <option name="closed" value="true" />
+      <created>1737321024511</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1737321024511</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +603,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="dodanie okienka z edycją cen" />
     <MESSAGE value="kosmetyka" />
     <MESSAGE value="dodanie okienka z cennikiem, brak edycji cen" />
     <MESSAGE value="edycja cen w cenniku" />
@@ -630,6 +627,7 @@
     <MESSAGE value="dodanie metody do pobierania listy wypożyczeń z bazy" />
     <MESSAGE value="dodanie metody do okienka wypożyczenia" />
     <MESSAGE value="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka" />
-    <option name="LAST_COMMIT_MESSAGE" value="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka" />
+    <MESSAGE value="skończona logika uzupełniania okna wynajmu szalunów" />
+    <option name="LAST_COMMIT_MESSAGE" value="skończona logika uzupełniania okna wynajmu szalunów" />
   </component>
 </project>

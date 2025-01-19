@@ -8,15 +8,26 @@ public partial class RentingsWindow : Window
     public RentingsWindow()
     {
         InitializeComponent();
-        LoadRentalItemsData();
-    }
+        Loaded += RentingsWindow_OnLoaded;
 
-    private void LoadRentalItemsData()
+    }
+    private void RentingsWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
-        //var data = DBUtility.GetRentalItems();
-       //RentsDataGrid.ItemsSource = data;
-    }
+        var lendings = DBUtility.GetAllLendings()
+            .Where(lending => !string.IsNullOrWhiteSpace(lending.NumberOfLend))
+            .ToList();
 
+        if (lendings.Any())
+        {
+            RentsDataGrid.ItemsSource = lendings;
+        }
+        else
+        {
+            MessageBox.Show("Brak wynajmów do wyświetlenia.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        
+    }
+    
     private void RentShutterings_OnClick(object sender, RoutedEventArgs e)
     {
         RentShutteringsWindow rentWindow = new RentShutteringsWindow();
@@ -31,6 +42,10 @@ public partial class RentingsWindow : Window
 
     private void RefreshWindow_OnClick(object sender, RoutedEventArgs e)
     {
+        Close();
+        
+        RentingsWindow rentingsWindow = new RentingsWindow();
+        rentingsWindow.Show();
     }
 
     
@@ -40,4 +55,7 @@ public partial class RentingsWindow : Window
     }
 
 
+    private void DetailsMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+    }
 }
