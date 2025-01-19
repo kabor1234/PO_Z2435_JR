@@ -2,14 +2,18 @@ namespace projektWypozyczalnia.Classes;
 
 public class Client
 {
-    private string NameOfCompany { get; set; }
-    private string NIP { get; set; }
-    private string Address { get; set; }
-    private string PostNumber { get; set; }
-    private string NameOfPostEstablishment { get; set; }
+    public int ClientID { get; set; }
+    public string NameOfCompany { get; set; }
+    public string NIP { get; set; }
+    public string Address { get; set; }
+    public string PostNumber { get; set; }
+    public string NameOfPostEstablishment { get; set; }
 
-    public Client(string nameOfCompany, string nip, string address, string postNumber, string nameOfPostEstablishment)
+    public string DisplayName => $"{NameOfCompany} - {NIP}";
+
+    public Client(int clientID, string nameOfCompany, string nip, string address, string postNumber, string nameOfPostEstablishment)
     {
+        ClientID = clientID;
         NameOfCompany = nameOfCompany;
         NIP = nip;
         Address = address;

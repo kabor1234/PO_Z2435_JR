@@ -8,24 +8,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentEquipmentWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentEquipmentWindow.xaml.cs" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChooseClientForShutteringsWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChooseClientForShutteringsWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemEquipmentRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemEquipmentRent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemShutteringRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemShutteringRent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendingDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendingDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,15 +178,7 @@
       <workItem from="1737231974929" duration="7725000" />
       <workItem from="1737239847740" duration="7014000" />
       <workItem from="1737282364655" duration="19634000" />
-      <workItem from="1737307545052" duration="2943000" />
-    </task>
-    <task id="LOCAL-00011" summary="baza danych">
-      <option name="closed" value="true" />
-      <created>1733857476663</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1733857476663</updated>
+      <workItem from="1737307545052" duration="12944000" />
     </task>
     <task id="LOCAL-00012" summary="dodanie klientów">
       <option name="closed" value="true" />
@@ -579,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737294624849</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka">
+      <option name="closed" value="true" />
+      <created>1737310543591</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1737310543592</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="odświeżanie po zamknięciu okienek" />
     <MESSAGE value="dodanie okienka z edycją cen" />
     <MESSAGE value="kosmetyka" />
     <MESSAGE value="dodanie okienka z cennikiem, brak edycji cen" />
@@ -637,6 +629,7 @@
     <MESSAGE value="nie działa:(" />
     <MESSAGE value="dodanie metody do pobierania listy wypożyczeń z bazy" />
     <MESSAGE value="dodanie metody do okienka wypożyczenia" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie metody do okienka wypożyczenia" />
+    <MESSAGE value="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka" />
+    <option name="LAST_COMMIT_MESSAGE" value="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka" />
   </component>
 </project>

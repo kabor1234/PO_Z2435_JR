@@ -56,7 +56,6 @@ public partial class AddEquipmentToRentWindow : Window
             int equipmentId = GetEquipmentIdByName(selectedEquipmentName);
             var equipment = GetEquipmentById(equipmentId);
             
-            AvaibleAmountOfShuttering.Text = $"{equipment.AmountInStock}";
         }
     }
 

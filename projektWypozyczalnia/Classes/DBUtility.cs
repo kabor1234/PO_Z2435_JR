@@ -709,7 +709,6 @@ public static class DBUtility
             
                     if (exists)
                     {
-                        MessageBox.Show("Klient o tym NIPie już istnieje.");
                         return;
                     }
                 }
@@ -735,31 +734,147 @@ public static class DBUtility
             }
         }
     }
-    public static void AddNewLending(string numberOfLend, int clientId, string startOfLendDate, string endOfLendDate, string? comments, string addressOfBuilding)
+    public static Client GetClientByNumber(string numberOfCompany)
+    {
+        Client client = null;
+
+        using var connection = new SqliteConnection($"Data Source={DataBaseName}");
+        try
+        {
+            connection.Open();
+
+            string query = @"SELECT ClientID, NameOfCompany, NIP, Address, PostNumber, NameOfPostEstablishment 
+                         FROM Clients WHERE NIP = @NIP;";
+
+            using var command = new SqliteCommand(query, connection);
+            command.Parameters.AddWithValue("@NIP", numberOfCompany);
+
+            using var reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                // Tworzymy obiekt Client na podstawie danych z bazy
+                client = new Client(
+                    reader.GetInt32(0),  // ClientID
+                    reader.GetString(1),  // NameOfCompany
+                    reader.GetString(2),  // NIP
+                    reader.GetString(3),  // Address
+                    reader.GetString(4),  // PostNumber
+                    reader.GetString(5)   // NameOfPostEstablishment
+                );
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Błąd podczas pobierania klienta: " + ex.Message);
+        }
+
+        return client;
+    }
+    public static List<Client> GetAllClients()
+    {
+        var results = new List<Client>();
+
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+            SELECT 
+                ClientID, 
+                NameOfCompany, 
+                NIP, 
+                Address, 
+                PostNumber, 
+                NameOfPostEstablishment 
+            FROM 
+                Clients;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            var client = new Client(
+                                reader.GetInt32(reader.GetOrdinal("ClientID")),
+                                reader["NameOfCompany"]?.ToString(),
+                                reader["NIP"]?.ToString(),
+                                reader["Address"]?.ToString(),
+                                reader["PostNumber"]?.ToString(),
+                                reader["NameOfPostEstablishment"]?.ToString()
+                            );
+
+                            
+                            results.Add(client);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + e.Message);
+            }
+        }
+
+        return results;
+    }
+    public static void AddNewLending(int clientId, string startOfLendDate, string endOfLendDate, string addressOfBuilding, string? comment)
     {
         try
         {
             using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
             {
                 connection.Open();
+                
+                string currentMonth = DateTime.Now.ToString("MM");
+                string currentYear = DateTime.Now.ToString("yyyy");
+                string getMaxNumberQuery = @"
+                    SELECT NumberOfLend
+                    FROM Lending
+                    WHERE substr(NumberOfLend, instr(NumberOfLend, '/') + 1) = @MonthYear
+                    ORDER BY CAST(substr(NumberOfLend, 1, instr(NumberOfLend, '/') - 1) AS INTEGER) DESC
+                    LIMIT 1;";
 
-                string query = @"
-                INSERT INTO Lending (NumberOfLend, IsFinished, ClientID, StartLendDate, EndLendDate, Comments, AddressOfBuilding)
-                VALUES (@NumberOfLend, 0, @ClientID, @StartLendDate, @EndLendDate, @Comments, @AddressOfBuilding);";
+                string monthYear = $"{currentMonth}/{currentYear}";
+                string newNumber = "001";
 
-                using (var command = new SqliteCommand(query, connection))
+                using (var command = new SqliteCommand(getMaxNumberQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@MonthYear", monthYear);
+
+                    var result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        string lastNumber = result.ToString()?.Split('/')[0];
+                        if (int.TryParse(lastNumber, out int lastNumberValue))
+                        {
+                            newNumber = (lastNumberValue + 1).ToString("D3"); // Zwiększamy i formatujemy do 3 cyfr
+                        }
+                    }
+                }
+                
+                string numberOfLend = $"{newNumber}/{monthYear}";
+                
+                string insertQuery = @"
+                    INSERT INTO Lending (NumberOfLend, ClientID, StartLendDate, EndLendDate, Comment, AddressOfBuilding)
+                    VALUES (@NumberOfLend, @ClientID, @StartLendDate, @EndLendDate, @Comments, @AddressOfBuilding);";
+
+                using (var command = new SqliteCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@NumberOfLend", numberOfLend);
                     command.Parameters.AddWithValue("@ClientID", clientId);
                     command.Parameters.AddWithValue("@StartLendDate", startOfLendDate);
                     command.Parameters.AddWithValue("@EndLendDate", endOfLendDate);
-                    command.Parameters.AddWithValue("@Comments", comments ?? string.Empty);
+                    command.Parameters.AddWithValue("@Comments", comment ?? string.Empty);
                     command.Parameters.AddWithValue("@AddressOfBuilding", addressOfBuilding);
 
                     command.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Wypożyczenie zostało dodane do bazy danych.");
+                MessageBox.Show($"Wypożyczenie o numerze {numberOfLend} zostało dodane do bazy danych.");
             }
         }
         catch (Exception ex)
@@ -767,89 +882,55 @@ public static class DBUtility
             MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + ex.Message);
         }
     }
-
+    
     public static List<LendingDetail> GetLendingDetails()
-{
-    var result = new List<LendingDetail>();
-
-    using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
     {
-        try
+        var results = new List<LendingDetail>();
+
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
-            connection.Open();
-            string query = @"
-                SELECT 
-                    ld.DetailsID,
-                    ld.ContactPersonID,
-                    ld.LendingID,
-                    ld.ProductID,
-                    ld.EquipmentID,
-                    ld.Amount,
-                    ld.SummaryCostOfObject,
-                    ld.ContactPersonName,
-                    ld.ContactPersonSurname,
-                    ld.ContactPersonPhoneNumber,
-                    ld.ContactPersonEmail,
-                    e.Name AS EquipmentName,
-                    l.LendDate AS LendingDate,
-                    ss.NameOfShuttering AS ProductName,
-                    lc.Length AS ProductLength,
-                    p.Width AS ProductWidth,
-                    p.AmountInStock AS ProductStock,
-                    p.PriceOfShuttering AS ProductPrice
-                FROM 
-                    LendingDetails ld
-                INNER JOIN 
-                    Equipment e ON ld.EquipmentID = e.EquipmentID
-                INNER JOIN 
-                    Lending l ON ld.LendingID = l.LendID
-                INNER JOIN 
-                    ShutteringProduct p ON ld.ProductID = p.ProductID
-                INNER JOIN 
-                    LengthCategory lc ON p.LengthID = lc.LengthID
-                INNER JOIN 
-                    SystemOfShuttering ss ON lc.SystemID = ss.SystemID;";
-
-            using (var cmd = new SqliteCommand(query, connection))
+            try
             {
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var lendingDetail = new LendingDetail
-                        {
-                            DetailsID = reader.GetInt32(reader.GetOrdinal("DetailsID")),
-                            ContactPersonID = reader.GetInt32(reader.GetOrdinal("ContactPersonID")),
-                            LendingID = reader.GetInt32(reader.GetOrdinal("LendingID")),
-                            ProductID = reader.GetInt32(reader.GetOrdinal("ProductID")),
-                            EquipmentID = reader.GetInt32(reader.GetOrdinal("EquipmentID")),
-                            Amount = reader.GetInt32(reader.GetOrdinal("Amount")),
-                            SummaryCostOfObject = reader.GetDecimal(reader.GetOrdinal("SummaryCostOfObject")),
-                            ContactPersonName = reader.GetString(reader.GetOrdinal("ContactPersonName")),
-                            ContactPersonSurname = reader.GetString(reader.GetOrdinal("ContactPersonSurname")),
-                            ContactPersonPhoneNumber = reader.GetString(reader.GetOrdinal("ContactPersonPhoneNumber")),
-                            ContactPersonEmail = reader.GetString(reader.GetOrdinal("ContactPersonEmail")),
-                            EquipmentName = reader.GetString(reader.GetOrdinal("EquipmentName")),
-                            ProductName = reader.GetString(reader.GetOrdinal("ProductName")),
-                            ProductLength = reader.GetInt32(reader.GetOrdinal("ProductLength")),
-                            ProductWidth = reader.GetInt32(reader.GetOrdinal("ProductWidth")),
-                            ProductStock = reader.GetInt32(reader.GetOrdinal("ProductStock")),
-                            ProductPrice = reader.GetDecimal(reader.GetOrdinal("ProductPrice"))
-                        };
+                connection.Open();
 
-                        result.Add(lendingDetail);
+                string query = @"
+                SELECT 
+                    l.NumberOfLend, 
+                    c.NameOfCompany AS ClientName, 
+                    l.StartLendDate, 
+                    l.EndLendDate, 
+                    l.AddressOfBuilding, 
+                    l.Comments
+                FROM Lending l
+                INNER JOIN Client c ON l.ClientID = c.ClientID;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            results.Add(new LendingDetail
+                            {
+                                NumberOfLend = reader["NumberOfLend"].ToString(),
+                                ClientName = reader["ClientName"].ToString(),
+                                StartLendDate = reader["StartLendDate"].ToString(),
+                                EndLendDate = reader["EndLendDate"].ToString(),
+                                AddressOfBuilding = reader["AddressOfBuilding"].ToString(),
+                                Comments = reader["Comments"]?.ToString() ?? string.Empty
+                            });
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas ładowania danych wypożyczeń: {ex.Message}");
+            }
         }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Error: {e.Message}");
-        }
-    }
 
-    return result;
-}
+        return results;
+    }
     
 }
 
