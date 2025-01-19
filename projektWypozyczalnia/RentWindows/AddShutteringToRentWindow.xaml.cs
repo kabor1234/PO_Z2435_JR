@@ -8,7 +8,7 @@ public partial class AddShutteringToRentWindow : Window
 {
     private List<WidthForLength> _widths = new();
     private RentWindow _rentWindow;
-    private WidthForLength _selectedWidthInfo;
+    private WidthForLength _availableAmountItemInfo;
 
     public AddShutteringToRentWindow(RentWindow rentWindow)
     {
@@ -18,23 +18,23 @@ public partial class AddShutteringToRentWindow : Window
     }
 
     private void RentShutterings_onClick(object sender, RoutedEventArgs e)
-    {    
+    {
         string system = ShutteringComboBox.Text;
         string length = LengthComboBox.Text;
         string width = WidthComboBox.Text;
-        
+
         if (!int.TryParse(AmountTextBox.Text, out int amount))
         {
             MessageBox.Show("Proszę wprowadzić poprawną ilość.");
             return;
         }
-        
+
         double pricePerUnit = 0;
         double cost = 0;
-        
+
         int selectedLength = int.Parse(length);
         int selectedWidth = int.Parse(width);
-        
+
         var widths = DBUtility.GetWidthsForLength(selectedLength);
         var selectedWidthInfo = widths.FirstOrDefault(w => w.Width == selectedWidth);
 
@@ -42,49 +42,48 @@ public partial class AddShutteringToRentWindow : Window
         {
             pricePerUnit = selectedWidthInfo.Price;
         }
-
         
         if (amount > selectedWidthInfo.AmountInStock)
         {
-            int remainingAmount = selectedWidthInfo.AmountInStock - amount;
-            AvaibleAmountOfShutteringTextBlock.Text = $"Pozostała ilość: {remainingAmount}";
             MessageBox.Show("Ilość nie może przekroczyć dostępnej ilości w magazynie.");
             return;
         }
-        
-        cost = amount * pricePerUnit;
-            
-        PriceOfShutteringTextBlock.Text = $"Cena: {pricePerUnit:F2}";
-        
-        
-        string name = $"Szalunek ścienny {system} - {length}x{width}";
-        var item = new Item
-        {
-            Name = name,
-            Amount = amount,
-            PricePerUnit = pricePerUnit,
-            TotalPrice = cost
-        };
-        
-        _rentWindow.AddItemToList(item);
-        Close();
-    }
 
-    private void Cancel_OnClick(object sender, RoutedEventArgs e)
-    {
-        if (_selectedWidthInfo != null)
+        cost = amount * pricePerUnit;
+
+        PriceOfShutteringTextBlock.Text = $"Cena: {pricePerUnit:F2}";
+
+        string name = $"Szalunek ścienny {system} - {length}x{width}";
+
+        var existingItem = _rentWindow.Items.FirstOrDefault(i => i.Name == name);
+
+        if (existingItem != null)
         {
-            if (int.TryParse(AmountTextBox.Text, out int amount))
+            existingItem.Amount += amount;
+            existingItem.TotalPrice = existingItem.Amount * existingItem.PricePerUnit;
+            _rentWindow.AddedObjectDataGrid.Items.Refresh();
+        }
+        else
+        {
+            var item = new Item
             {
-                _selectedWidthInfo.AmountInStock += amount;
-                DBUtility.UpdateWidthStock(_selectedWidthInfo);
-            }
-            else
-            {
-                MessageBox.Show("Wprowadź poprawną ilość.");
-            }
+                Name = name,
+                Amount = amount,
+                PricePerUnit = pricePerUnit,
+                TotalPrice = cost
+            };
+
+            _rentWindow.AddItemToList(item);
         }
         
+        _availableAmountItemInfo.AmountInStock -= amount;
+        
+        AvaibleAmountOfShutteringTextBlock.Text = $"Pozostała ilość: {_availableAmountItemInfo.AmountInStock}";
+        
+        Close();
+    }
+    private void Cancel_OnClick(object sender, RoutedEventArgs e)
+    {
         Close();
     }
     
@@ -134,18 +133,21 @@ public partial class AddShutteringToRentWindow : Window
     }
 
     private void WidthComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
+    {    
         if (WidthComboBox.SelectedItem != null)
         {
             int selectedWidth = (int)WidthComboBox.SelectedItem;
-            
-            var selectedWidthInfo = _widths.FirstOrDefault(w => w.Width == selectedWidth);
 
-            if (selectedWidthInfo != null)
+            // Znajdujemy informacje o szerokości
+            _availableAmountItemInfo = _widths.FirstOrDefault(w => w.Width == selectedWidth);
+
+            // Jeśli znaleźliśmy dane dla wybranej szerokości
+            if (_availableAmountItemInfo != null)
             {
-                double pricePerUnit = selectedWidthInfo.Price;
-                
-                AvaibleAmountOfShutteringTextBlock.Text = $"{selectedWidthInfo.AmountInStock}";
+                double pricePerUnit = _availableAmountItemInfo.Price;
+
+                // Wyświetlamy dostępne ilości i cenę
+                AvaibleAmountOfShutteringTextBlock.Text = $"{_availableAmountItemInfo.AmountInStock}";
                 if (pricePerUnit == 0)
                 {
                     PriceOfShutteringTextBlock.Text = "Brak ceny";

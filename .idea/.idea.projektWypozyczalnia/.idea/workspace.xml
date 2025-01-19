@@ -8,20 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodawanie szalunków ściennych do datagrid">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChoosingAddingItemWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/ChoosingAddingItemWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,14 +174,7 @@
       <workItem from="1737221777943" duration="15000" />
       <workItem from="1737221942441" duration="5138000" />
       <workItem from="1737231974929" duration="7725000" />
-    </task>
-    <task id="LOCAL-00006" summary="dodanie nuggetów">
-      <option name="closed" value="true" />
-      <created>1733242380056</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1733242380056</updated>
+      <workItem from="1737239847740" duration="6787000" />
     </task>
     <task id="LOCAL-00007" summary="okienko dodaj do magazynu">
       <option name="closed" value="true" />
@@ -575,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737226320168</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="dodawanie szalunków ściennych do datagrid">
+      <option name="closed" value="true" />
+      <created>1737239884779</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1737239884779</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +601,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="wyświetlanie dostępnego osprzętu oraz dostępnych rzeczy na magazynie" />
     <MESSAGE value="pozbycie klasy" />
     <MESSAGE value="dodanie nowej klasy pozwalającej zrobić cennik, rozbudowa bazy danych" />
     <MESSAGE value="drobne poprawki" />
@@ -633,6 +625,7 @@
     <MESSAGE value="awaryjny commit przed rewolucją" />
     <MESSAGE value="commit po wielkiej rewolucji bazy danych i edycji metod" />
     <MESSAGE value="lekkie zmiany w kodzie" />
-    <option name="LAST_COMMIT_MESSAGE" value="lekkie zmiany w kodzie" />
+    <MESSAGE value="dodawanie szalunków ściennych do datagrid" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodawanie szalunków ściennych do datagrid" />
   </component>
 </project>

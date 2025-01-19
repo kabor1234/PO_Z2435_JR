@@ -150,7 +150,7 @@
             <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Button x:Name="CancelButton"
                         Content="Anuluj"
-                        Click="Cancel_OnClick"
+                        Click="CancelButton_OnClick"
                         Margin="0,0,5,0"
                         Height="30"
                         Width="60"/>
