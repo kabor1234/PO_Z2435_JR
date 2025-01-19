@@ -8,8 +8,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie metody do pobierania listy wypożyczeń z bazy">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentEquipmentWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentEquipmentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddShutteringToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddShutteringToStockWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/Item.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemEquipmentRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemEquipmentRent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemShutteringRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemShutteringRent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddEquipmentToRentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/projektWypozyczalnia.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +61,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8d42d5f1712377031e2892d1c29db5c23b8c7d49b9dc632fbf463bd930a8/RuntimeHelpers.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6e4205e8a6694baad6eda95cafda8ae55521aa77cd189e59cbe5b4f758bb3d/TypeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/RentWindows/AddShutteringToRentingWindow.xaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/ShowWindows/StockConditionWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/RiderProjects/projektMagazyn/projektWypozyczalnia/ShowWindows/StockConditionWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Debug/net8.0-windows/MainWindow.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/projektWypozyczalnia/obj/Release/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -171,15 +184,8 @@
       <workItem from="1737221942441" duration="5138000" />
       <workItem from="1737231974929" duration="7725000" />
       <workItem from="1737239847740" duration="7014000" />
-      <workItem from="1737282364655" duration="11196000" />
-    </task>
-    <task id="LOCAL-00010" summary="okienko usuń z magazynu">
-      <option name="closed" value="true" />
-      <created>1733689356480</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1733689356480</updated>
+      <workItem from="1737282364655" duration="19634000" />
+      <workItem from="1737307545052" duration="2943000" />
     </task>
     <task id="LOCAL-00011" summary="baza danych">
       <option name="closed" value="true" />
@@ -565,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737294093435</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="dodanie metody do okienka wypożyczenia">
+      <option name="closed" value="true" />
+      <created>1737294624849</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1737294624849</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +612,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="odświeżanie okienek w stanie magazynu" />
     <MESSAGE value="odświeżanie po zamknięciu okienek" />
     <MESSAGE value="dodanie okienka z edycją cen" />
     <MESSAGE value="kosmetyka" />
@@ -623,6 +636,7 @@
     <MESSAGE value="poprawa zmiany stanu magazynu" />
     <MESSAGE value="nie działa:(" />
     <MESSAGE value="dodanie metody do pobierania listy wypożyczeń z bazy" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie metody do pobierania listy wypożyczeń z bazy" />
+    <MESSAGE value="dodanie metody do okienka wypożyczenia" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie metody do okienka wypożyczenia" />
   </component>
 </project>

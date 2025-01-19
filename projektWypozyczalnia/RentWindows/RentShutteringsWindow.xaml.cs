@@ -5,15 +5,15 @@ using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
-public partial class RentWindow : Window
+public partial class RentShutteringsWindow : Window
 {
-    public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
+    public ObservableCollection<ItemShutteringRent> Items { get; set; } = new ObservableCollection<ItemShutteringRent>();
     public WidthForLength AvailableAmountItemInfo { get; set; }
 
-    public RentWindow()
+    public RentShutteringsWindow()
     {
         InitializeComponent();
-        Items = new ObservableCollection<Item>();
+        Items = new ObservableCollection<ItemShutteringRent>();
         DataContext = this;
         Loaded += RentWindow_Loaded;
     }
@@ -23,15 +23,22 @@ public partial class RentWindow : Window
         AddedObjectDataGrid.ItemsSource = Items;
     }
 
-    public void AddItemToList(Item item)
+    public void AddItemToList(ItemShutteringRent item)
     {
         Items.Add(item);
         UpdateTotalValue();
     }
 
 
-    private void StartRent_OnClick(object sender, RoutedEventArgs e)
+    private void StartRentShutterings_OnClick(object sender, RoutedEventArgs e)
     {
+        string nameOfCompany = "";
+        string numberOfCompany = "";
+        string addressOfCompany = "";
+        string postNumber = "";
+        string nameOfEstablishment = "";
+        string startDateString = "";
+        string endDateString = "";
 
         //zrobić metodę, która będzie wyrzucała błąd jak będą złe wartości / puste pola
         //Checking null textboxes
@@ -41,12 +48,20 @@ public partial class RentWindow : Window
             MessageBox.Show("Pole \"nazwa firmy\" nie może być puste.");
         else
         {
-            string nameOfCompany = NameOfCompanyTextBox.Text;
+            nameOfCompany = NameOfCompanyTextBox.Text;
         }
         if (NumberOfCompanyTextBox.Text == "")
             MessageBox.Show("Pole \"NIP\" nie może być puste.");
+        else
+        {
+            numberOfCompany = NumberOfCompanyTextBox.Text;
+        }
         if (AddressOfCompanyTextBox.Text == "")
             MessageBox.Show("Pole \"Adres\" nie może być puste.");
+        else
+        {
+            addressOfCompany = AddressOfCompanyTextBox.Text;
+        }
         if (PostNumberTextBox.Text == "")
             MessageBox.Show("Pole \"Kod pocztowy\" nie może być puste.");
         if (NameOfPostEstablishmentTextBox.Text == "")
@@ -71,8 +86,8 @@ public partial class RentWindow : Window
             DateTime startDate = selectedDate.Min();
             DateTime endDate = selectedDate.Max();
             
-            string startDateString = startDate.ToString("dd/MM/yyyy");
-            string endDateString = endDate.ToString("dd/MM/yyyy");
+            startDateString = startDate.ToString("dd/MM/yyyy");
+            endDateString = endDate.ToString("dd/MM/yyyy");
         }
 
         //Checking information in textboxes are correct
@@ -82,7 +97,7 @@ public partial class RentWindow : Window
         }
         else
         {
-            string numberOfCompany = NumberOfCompanyTextBox.Text;
+            numberOfCompany = NumberOfCompanyTextBox.Text;
         }
         if (!(PostNumberTextBox.Text.Length == 6 && PostNumberTextBox.Text[2] == '-' &&
               PostNumberTextBox.Text.Substring(0, 2).All(Char.IsDigit) &&
@@ -90,20 +105,24 @@ public partial class RentWindow : Window
             MessageBox.Show("Błędny kod pocztowy");
         else
         {
-            string postNumber = PostNumberTextBox.Text;
+            postNumber = PostNumberTextBox.Text;
         }
         if (NameOfPostEstablishmentTextBox.Text.All(Char.IsDigit) && NameOfCompanyTextBox.Text != "")
             MessageBox.Show("Błąd w polu \"Poczta\" ");
         else
         {
-            string nameOfEstablishment = NameOfPostEstablishmentTextBox.Text;
+            nameOfEstablishment = NameOfPostEstablishmentTextBox.Text;
         }
         
+        //Add Lendings
+        
+        //Add ClientToDatabase
+       // DBUtility.AddClientToDatabase(nameOfCompany, numberOfCompany, addressOfCompany, postNumber, nameOfEstablishment);
         Close();
     }
 
 
-    private void CommentsTextBox_GotFocused(object sender, RoutedEventArgs e)
+    private void CommentsShutteringsTextBox_GotFocused(object sender, RoutedEventArgs e)
     {
 
         if (CommentsTextBox.Text == "Uwagi do wynajmu...")
@@ -113,7 +132,7 @@ public partial class RentWindow : Window
         }
     }
 
-    private void CommentsTexbox_LostFocused(object sender, RoutedEventArgs e)
+    private void CommentsShutteringsTexbox_LostFocused(object sender, RoutedEventArgs e)
     {
 
         if (string.IsNullOrWhiteSpace(CommentsTextBox.Text))
@@ -123,15 +142,15 @@ public partial class RentWindow : Window
         }
     }
 
-    private void UpdateTotalValue()
+    public void UpdateTotalValue()
     {
         double totalValue = 0;
 
         foreach (var item in AddedObjectDataGrid.Items)
         {
-            if (item is Item currentItem)
+            if (item is ItemShutteringRent currentItem)
             {
-                totalValue += currentItem.TotalPrice;
+                totalValue += currentItem.TotalPriceOfShuttering;
             }
         }
 
@@ -144,11 +163,7 @@ public partial class RentWindow : Window
         AddShutteringToRentWindow addShutterings = new AddShutteringToRentWindow(this, AvailableAmountItemInfo);
         addShutterings.ShowDialog();
     }
-
-    private void CancelButton_OnClick(object sender, RoutedEventArgs e)
-    {
-            Close();
-    }
+    
 
     private void ChooseContractorFromAvaible_OnClick(object sender, RoutedEventArgs e)
     {
@@ -158,5 +173,10 @@ public partial class RentWindow : Window
     private void RentWindow_OnClosing(object? sender, CancelEventArgs e)
     {
         
+    }
+    
+    private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Close();
     }
 }

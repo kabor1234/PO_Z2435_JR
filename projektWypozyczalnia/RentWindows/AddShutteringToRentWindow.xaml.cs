@@ -7,14 +7,13 @@ namespace projektWypozyczalnia.RentWindows;
 public partial class AddShutteringToRentWindow : Window
 {
     private List<WidthForLength> _widths = new();
-    private RentWindow _rentWindow;
+    private RentShutteringsWindow _rentWindow;
     private WidthForLength _availableAmountItemInfo;
 
-    public AddShutteringToRentWindow(RentWindow rentWindow, WidthForLength availableAmountItemInfo)
+    public AddShutteringToRentWindow(RentShutteringsWindow rentWindow, WidthForLength availableAmountItemInfo)
     {
         InitializeComponent();
         _rentWindow = rentWindow; // Przypisanie RentWindow
-        _availableAmountItemInfo = availableAmountItemInfo; // Przypisanie AvailableAmountItemInfo
         LoadShutteringSystems();
     }
 
@@ -31,7 +30,7 @@ public partial class AddShutteringToRentWindow : Window
         }
 
         double pricePerUnit = 0;
-        double cost = 0;
+        double totalCost = 0;
 
         int selectedLength = int.Parse(length);
         int selectedWidth = int.Parse(width);
@@ -50,35 +49,37 @@ public partial class AddShutteringToRentWindow : Window
             return;
         }
 
-        cost = amount * pricePerUnit;
+        totalCost = amount * pricePerUnit;
 
         PriceOfShutteringTextBlock.Text = $"Cena: {pricePerUnit:F2}";
 
-        string name = $"Szalunek ścienny {system} - {length}x{width}";
+        string nameOfShuttering = system;
+        string lengthOfShuttering = length;
+        string widthOfShuttering = width;
 
-        var existingItem = _rentWindow.Items.FirstOrDefault(i => i.Name == name);
+        var existingItem = _rentWindow.Items.FirstOrDefault(i => i.NameOfShuttering == nameOfShuttering && i.LengthOfShuttering == int.Parse(lengthOfShuttering) && i.WidthOfShuttering == int.Parse(widthOfShuttering));
 
         if (existingItem != null)
         {
-            existingItem.Amount += amount;
-            existingItem.TotalPrice = existingItem.Amount * existingItem.PricePerUnit;
+            existingItem.AmountOfShuttering += amount;
+            existingItem.TotalPriceOfShuttering = existingItem.AmountOfShuttering * existingItem.PriceOfShuttering;
             _rentWindow.AddedObjectDataGrid.Items.Refresh();
+            _rentWindow.UpdateTotalValue();
         }
         else
         {
-            var item = new Item
+            var item = new ItemShutteringRent()
             {
-                Name = name,
-                Amount = amount,
-                PricePerUnit = pricePerUnit,
-                TotalPrice = cost
+                NameOfShuttering = nameOfShuttering,
+                LengthOfShuttering = int.Parse(lengthOfShuttering),
+                WidthOfShuttering = int.Parse(widthOfShuttering),
+                AmountOfShuttering = amount,
+                PriceOfShuttering = pricePerUnit,
+                TotalPriceOfShuttering = totalCost
             };
 
             _rentWindow.AddItemToList(item);
         }
-        
-        _availableAmountItemInfo.AmountInStock -= amount;
-        
         AvaibleAmountOfShutteringTextBlock.Text = $"Pozostała ilość: {_availableAmountItemInfo.AmountInStock}";
         
         Close();

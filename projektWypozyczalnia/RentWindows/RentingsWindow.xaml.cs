@@ -13,14 +13,20 @@ public partial class RentingsWindow : Window
 
     private void LoadRentalItemsData()
     {
-        var data = DBUtility.GetRentalItems();
-        RentsDataGrid.ItemsSource = data;
+        //var data = DBUtility.GetRentalItems();
+       //RentsDataGrid.ItemsSource = data;
     }
 
-    private void Rent_OnClick(object sender, RoutedEventArgs e)
+    private void RentShutterings_OnClick(object sender, RoutedEventArgs e)
     {
-        RentWindow rentWindow = new RentWindow();
+        RentShutteringsWindow rentWindow = new RentShutteringsWindow();
         rentWindow.Show();
+    }
+    
+    private void RentEquipment_OnClick(object sender, RoutedEventArgs e)
+    {
+        RentEquipmentWindow rentEquipmentWindow = new RentEquipmentWindow(); 
+        rentEquipmentWindow.Show();
     }
 
     private void RefreshWindow_OnClick(object sender, RoutedEventArgs e)
@@ -32,4 +38,6 @@ public partial class RentingsWindow : Window
     {
         Close();
     }
+
+
 }

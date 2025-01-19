@@ -7,8 +7,8 @@ namespace projektWypozyczalnia.RentWindows;
 public partial class AddEquipmentToRentWindow : Window
 {
     private Dictionary<int, (string Name, int AmountInStock)> _equipmentDictionary = new();
-    private RentWindow _rentWindow;
-    public AddEquipmentToRentWindow(RentWindow rentWindow)
+    private RentShutteringsWindow _rentWindow;
+    public AddEquipmentToRentWindow(RentShutteringsWindow rentWindow)
     {
         InitializeComponent();
         LoadEquipment();

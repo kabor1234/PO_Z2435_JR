@@ -692,7 +692,7 @@ public static class DBUtility
             }
         }
     }
-    public static void AddClientToDatabase(string nameOfCompany, int nip, string address, string postNumber, string nameOfPostEstablishment)
+    public static void AddClientToDatabase(string nameOfCompany, string nip, string address, string postNumber, string nameOfPostEstablishment)
     {
         using (var connection = new SqliteConnection($"DataSource={DataBaseName}"))
         {
@@ -735,36 +735,6 @@ public static class DBUtility
             }
         }
     }
-
-    public static void AddContactPerson(string name, string surname, string phoneNumber ,string email)
-    {
-        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
-        {
-            try
-            {
-                connection.Open();
-                string insertQuery = @"INSERT INTO ContactPersons (Name, Surname, PhoneNumber, Email)
-                                      VALUES (@Name, @Surname, @PhoneNumber, @Email)";
-
-                using (var command = new SqliteCommand(insertQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@Name", name);
-                    command.Parameters.AddWithValue("@Surname", surname);
-                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                    command.Parameters.AddWithValue("@Email", email);
-                    
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Osoba do kontaktu została dodana.");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Błąd podczas dodawania klienta: " + e.Message);
-            }
-        }
-        return;
-    }
-
     public static void AddNewLending(string numberOfLend, int clientId, string startOfLendDate, string endOfLendDate, string? comments, string addressOfBuilding)
     {
         try
@@ -796,57 +766,6 @@ public static class DBUtility
         {
             MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + ex.Message);
         }
-    }
-    public static List<RentalItems> GetRentalItems()
-    {
-        var results = new List<RentalItems>();
-
-        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
-        {
-            try
-            {
-                connection.Open();
-                string query = @"
-                            SELECT 
-                                LendID, 
-                                NumberOfLend, 
-                                IsItFinished, 
-                                ClientID, 
-                                StartLendDate, 
-                                EndLendDate, 
-                                AddressOfBuilding, 
-                                Comment
-                            FROM 
-                                Lending;";
-
-                using (var command = new SqliteCommand(query, connection))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            results.Add(new RentalItems
-                            {
-                                LendID = (int)reader["LendID"],
-                                NumberOfLend = reader["NumberOfLend"].ToString(),
-                                IsItFinished = (int)reader["IsItFinished"] == 1,  // Konwertujemy 1/0 na bool
-                                ClientID = (int)reader["ClientID"],
-                                StartLendDate = reader["StartLendDate"].ToString(),
-                                EndLendDate = reader["EndLendDate"].ToString(),
-                                AddressOfBuilding = reader["AddressOfBuilding"].ToString(),
-                                Comment = reader.IsDBNull(reader.GetOrdinal("Comment")) ? null : reader["Comment"].ToString()
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Błąd podczas ładowania danych wypożyczeń: {e.Message}");
-            }
-        }
-
-        return results;
     }
 
     public static List<LendingDetail> GetLendingDetails()

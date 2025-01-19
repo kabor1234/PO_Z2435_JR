@@ -86,7 +86,7 @@ public partial class AddShutteringToStockWindow : Window
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
     {
-        this.Close();
+        Close();
     }
     
 }

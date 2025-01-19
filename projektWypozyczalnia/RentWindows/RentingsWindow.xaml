@@ -14,10 +14,14 @@
                         Content="Wyjdź" 
                         Margin="10,15,0,0"
                         Click="Close_OnClick"/>
-                <Button x:Name="AddEquipmentToStock" 
-                        Content="Wypożycz" 
+                <Button x:Name="RentShutterings" 
+                        Content="Wypożycz szalunki" 
                         Margin="10,15,0,0"
-                        Click="Rent_OnClick"/>
+                        Click="RentShutterings_OnClick"/>
+                <Button x:Name="RentEquipment" 
+                        Content="Wypożycz osprzęt" 
+                        Margin="10,15,0,0"
+                        Click="RentEquipment_OnClick"/>
                 <Button x:Name="Refresh" 
                         Content="Odśwież" 
                         Margin="10,15,0,0"
