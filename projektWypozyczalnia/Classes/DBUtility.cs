@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Documents;
 using Microsoft.Data.Sqlite;
 
 namespace projektWypozyczalnia.Classes;
@@ -796,6 +797,140 @@ public static class DBUtility
             MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + ex.Message);
         }
     }
+    public static List<RentalItems> GetRentalItems()
+    {
+        var results = new List<RentalItems>();
+
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+                string query = @"
+                            SELECT 
+                                LendID, 
+                                NumberOfLend, 
+                                IsItFinished, 
+                                ClientID, 
+                                StartLendDate, 
+                                EndLendDate, 
+                                AddressOfBuilding, 
+                                Comment
+                            FROM 
+                                Lending;";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            results.Add(new RentalItems
+                            {
+                                LendID = (int)reader["LendID"],
+                                NumberOfLend = reader["NumberOfLend"].ToString(),
+                                IsItFinished = (int)reader["IsItFinished"] == 1,  // Konwertujemy 1/0 na bool
+                                ClientID = (int)reader["ClientID"],
+                                StartLendDate = reader["StartLendDate"].ToString(),
+                                EndLendDate = reader["EndLendDate"].ToString(),
+                                AddressOfBuilding = reader["AddressOfBuilding"].ToString(),
+                                Comment = reader.IsDBNull(reader.GetOrdinal("Comment")) ? null : reader["Comment"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas ładowania danych wypożyczeń: {ex.Message}");
+            }
+        }
+
+        return results;
+    }
+
+    public static List<LendingDetail> GetLendingDetails()
+{
+    var result = new List<LendingDetail>();
+
+    using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+    {
+        try
+        {
+            connection.Open();
+            string query = @"
+                SELECT 
+                    ld.DetailsID,
+                    ld.ContactPersonID,
+                    ld.LendingID,
+                    ld.ProductID,
+                    ld.EquipmentID,
+                    ld.Amount,
+                    ld.SummaryCostOfObject,
+                    ld.ContactPersonName,
+                    ld.ContactPersonSurname,
+                    ld.ContactPersonPhoneNumber,
+                    ld.ContactPersonEmail,
+                    e.Name AS EquipmentName,
+                    l.LendDate AS LendingDate,
+                    ss.NameOfShuttering AS ProductName,
+                    lc.Length AS ProductLength,
+                    p.Width AS ProductWidth,
+                    p.AmountInStock AS ProductStock,
+                    p.PriceOfShuttering AS ProductPrice
+                FROM 
+                    LendingDetails ld
+                INNER JOIN 
+                    Equipment e ON ld.EquipmentID = e.EquipmentID
+                INNER JOIN 
+                    Lending l ON ld.LendingID = l.LendID
+                INNER JOIN 
+                    ShutteringProduct p ON ld.ProductID = p.ProductID
+                INNER JOIN 
+                    LengthCategory lc ON p.LengthID = lc.LengthID
+                INNER JOIN 
+                    SystemOfShuttering ss ON lc.SystemID = ss.SystemID;";
+
+            using (var cmd = new SqliteCommand(query, connection))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var lendingDetail = new LendingDetail
+                        {
+                            DetailsID = reader.GetInt32(reader.GetOrdinal("DetailsID")),
+                            ContactPersonID = reader.GetInt32(reader.GetOrdinal("ContactPersonID")),
+                            LendingID = reader.GetInt32(reader.GetOrdinal("LendingID")),
+                            ProductID = reader.GetInt32(reader.GetOrdinal("ProductID")),
+                            EquipmentID = reader.GetInt32(reader.GetOrdinal("EquipmentID")),
+                            Amount = reader.GetInt32(reader.GetOrdinal("Amount")),
+                            SummaryCostOfObject = reader.GetDecimal(reader.GetOrdinal("SummaryCostOfObject")),
+                            ContactPersonName = reader.GetString(reader.GetOrdinal("ContactPersonName")),
+                            ContactPersonSurname = reader.GetString(reader.GetOrdinal("ContactPersonSurname")),
+                            ContactPersonPhoneNumber = reader.GetString(reader.GetOrdinal("ContactPersonPhoneNumber")),
+                            ContactPersonEmail = reader.GetString(reader.GetOrdinal("ContactPersonEmail")),
+                            EquipmentName = reader.GetString(reader.GetOrdinal("EquipmentName")),
+                            ProductName = reader.GetString(reader.GetOrdinal("ProductName")),
+                            ProductLength = reader.GetInt32(reader.GetOrdinal("ProductLength")),
+                            ProductWidth = reader.GetInt32(reader.GetOrdinal("ProductWidth")),
+                            ProductStock = reader.GetInt32(reader.GetOrdinal("ProductStock")),
+                            ProductPrice = reader.GetDecimal(reader.GetOrdinal("ProductPrice"))
+                        };
+
+                        result.Add(lendingDetail);
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error: {e.Message}");
+        }
+    }
+
+    return result;
+}
     
 }
 
