@@ -1,4 +1,5 @@
 using System.Windows;
+using projektWypozyczalnia.Classes;
 
 namespace projektWypozyczalnia.RentWindows;
 
@@ -7,16 +8,13 @@ public partial class RentingsWindow : Window
     public RentingsWindow()
     {
         InitializeComponent();
+        LoadRentalItemsData();
     }
 
-    private void ShowExpiredRentalCheckBox_Checked(object sender, RoutedEventArgs e)
+    private void LoadRentalItemsData()
     {
-        
-    }
-
-    private void ShowExpiredRentalCheckBox_Unchecked(object sender, RoutedEventArgs e)
-    {
-        
+        var data = DBUtility.GetRentalItems();
+        RentsDataGrid.ItemsSource = data;
     }
 
     private void Rent_OnClick(object sender, RoutedEventArgs e)
@@ -29,10 +27,6 @@ public partial class RentingsWindow : Window
     {
     }
 
-    private void ShowEquipmentCheckBox_Unchecked(object sender, RoutedEventArgs e)
-    {
-        
-    }
     
     private void Close_OnClick(object sender, RoutedEventArgs e)
     {

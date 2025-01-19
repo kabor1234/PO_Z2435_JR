@@ -840,9 +840,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show($"Błąd podczas ładowania danych wypożyczeń: {ex.Message}");
+                MessageBox.Show($"Błąd podczas ładowania danych wypożyczeń: {e.Message}");
             }
         }
 

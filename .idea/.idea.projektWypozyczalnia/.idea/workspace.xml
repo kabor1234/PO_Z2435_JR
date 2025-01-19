@@ -8,13 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="nie działa:(">
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendingDetail.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/AvailableAmountInStock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/AvailableAmountInStock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="dodanie metody do pobierania listy wypożyczeń z bazy">
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,15 +171,7 @@
       <workItem from="1737221942441" duration="5138000" />
       <workItem from="1737231974929" duration="7725000" />
       <workItem from="1737239847740" duration="7014000" />
-      <workItem from="1737282364655" duration="10793000" />
-    </task>
-    <task id="LOCAL-00009" summary="okienko usuń z magazynu">
-      <option name="closed" value="true" />
-      <created>1733689244472</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1733689244472</updated>
+      <workItem from="1737282364655" duration="11196000" />
     </task>
     <task id="LOCAL-00010" summary="okienko usuń z magazynu">
       <option name="closed" value="true" />
@@ -570,7 +557,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737287405589</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="dodanie metody do pobierania listy wypożyczeń z bazy">
+      <option name="closed" value="true" />
+      <created>1737294093435</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1737294093435</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +598,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="drobne poprawki" />
     <MESSAGE value="odświeżanie okienek w stanie magazynu" />
     <MESSAGE value="odświeżanie po zamknięciu okienek" />
     <MESSAGE value="dodanie okienka z edycją cen" />
@@ -628,6 +622,7 @@
     <MESSAGE value="dodawanie szalunków ściennych do datagrid" />
     <MESSAGE value="poprawa zmiany stanu magazynu" />
     <MESSAGE value="nie działa:(" />
-    <option name="LAST_COMMIT_MESSAGE" value="nie działa:(" />
+    <MESSAGE value="dodanie metody do pobierania listy wypożyczeń z bazy" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie metody do pobierania listy wypożyczeń z bazy" />
   </component>
 </project>

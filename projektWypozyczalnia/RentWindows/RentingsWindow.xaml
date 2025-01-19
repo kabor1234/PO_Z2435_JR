@@ -7,8 +7,7 @@
         Title="Wypożyczenia" Height="600" Width="1200"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        WindowStyle="None"
-        Loaded="ShowEquipmentCheckBox_Unchecked">
+        WindowStyle="None">
     <Grid>
                     <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Top">
                 <Button x:Name="ExitFromRentalWindow"
@@ -23,15 +22,17 @@
                         Content="Odśwież" 
                         Margin="10,15,0,0"
                         Click="RefreshWindow_OnClick"/>
+                <!--
                 <CheckBox x:Name="ShowEquipmentCheckBox" 
                           Margin="10,17,0,0" 
                           Content="Do zatwierdzenia po terminie"
                           IsChecked="False"
                           Checked="ShowExpiredRentalCheckBox_Checked"
                           Unchecked="ShowExpiredRentalCheckBox_Unchecked"/>
+                          -->
             </StackPanel>
             
-            <DataGrid x:Name="StockDataGrid" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
+            <DataGrid x:Name="RentsDataGrid" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
                     <DataGrid.Columns>
                             <DataGridTextColumn Header="Numer umowy" Binding="{Binding ContractNumber}" Width="*"/>
                             <DataGridTextColumn Header="Kontrahent" Binding="{Binding TradePartner}" Width="*"/>
