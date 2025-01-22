@@ -32,8 +32,7 @@ public partial class RentingsWindow : Window
     
     private void RentEquipment_OnClick(object sender, RoutedEventArgs e)
     {
-        RentEquipmentWindow rentEquipmentWindow = new RentEquipmentWindow(); 
-        rentEquipmentWindow.Show();
+        MessageBox.Show("Prace nad tą funkcjonalnością nadal trwają");
     }
 
     private void RefreshWindow_OnClick(object sender, RoutedEventArgs e)

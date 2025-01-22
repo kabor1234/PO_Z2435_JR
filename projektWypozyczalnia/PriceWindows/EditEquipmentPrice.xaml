@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:projektWypozyczalnia"
         mc:Ignorable="d"
-        Title="EditEquipmentPrice" Height="200" Width="400"
+        Title="EditEquipmentPrice" Height="300" Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -18,14 +18,14 @@
         <TextBlock Margin="0,15,0,0">Cena (zł):</TextBlock>
         <TextBox x:Name="NewPriceEquipmentTextBox" Margin="0,5,0,0"></TextBox>
         
-        <StackPanel Orientation="Horizontal" Margin="0,25,0,20">
+        <StackPanel Orientation="Horizontal" Margin="0,25,0,20" HorizontalAlignment="Right">
             <Button x:Name="Cancel"
                     Content="Anuluj" 
                     Height="20"
                     Margin="0,0,8,0"
                     Click="Cancel_OnClick"/>
             <Button x:Name="EditEquipmentPriceButton" 
-                    Margin="0,0,10,0"
+                    Margin="0,0,0,0"
                     Content="Dodaj" 
                     Height="20"
                     Click="EditPriceOfEquipment_OnClick"/>

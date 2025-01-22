@@ -35,7 +35,7 @@ public partial class MainWindow : Window
 
     private void SettingsButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        MessageBox.Show("Prace nad tą funkcjonalnością nadal trwają");
     }
     
     private void ExitButton_OnClick(object sender, RoutedEventArgs e)

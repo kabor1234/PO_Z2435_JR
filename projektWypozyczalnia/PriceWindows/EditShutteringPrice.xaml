@@ -27,16 +27,16 @@
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
-                <Button x:Name="Cancel"
-                        Content = "Anuluj"
+                <Button x:Name="AddNewShutteringSystem"
+                        Content = "Zmień cenę"
                         Height="20"
                         Margin="0,0,15,0"
-                        Click = "Cancel_OnClick"/>
-                <Button x:Name="AddNewShutteringSystem"
-                        Content="Zmień cenę" 
+                        Click = "EditPriceOfShutteringProduct_OnClick"/>
+                <Button x:Name="Cancel"
+                        Content="Anuluj" 
                         Height="20"
                         Margin="0,0,8,0"
-                        Click="EditPriceOfShutteringProduct_OnClick"/>
+                        Click="Cancel_OnClick"/>
             </StackPanel>
         </Grid>
 </Window>
