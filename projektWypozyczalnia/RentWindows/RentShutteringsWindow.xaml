@@ -121,6 +121,13 @@
                 <DataGridTextColumn Header="Cena netto (szt)" Binding="{Binding PriceOfShuttering}" Width="*" />
                 <DataGridTextColumn Header="Całkowita cena netto" Binding="{Binding TotalPriceOfShuttering}" Width="*" />
             </DataGrid.Columns>
+            <!-- jak to się odkomentuje to jest crush :(
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Szczegóły" Click="RemoveShutterings_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu> 
+            -->
         </DataGrid>
         
         <Grid Grid.Row="3" Margin="0,10,0,0">

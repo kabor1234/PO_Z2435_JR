@@ -172,16 +172,15 @@ public partial class RentShutteringsWindow : Window
 
             if (lastLendingID > 0)
             {
-                MessageBox.Show("Pobrało lastLendID");
+                Console.WriteLine("Pobrało lastLendID");
                 
                 DBUtility.AddShutteringLendingDetails(lastLendingID, Items, 
                     contactPersonName, contactPersonSurname, contactPersonEmail, contactPersonPhoneNumber);
-        
-                MessageBox.Show("Za dodaniem do bazy danych do shutteringdetails");
+                
             }
             else
             {
-                MessageBox.Show("Brak ostatniego wynajmu do dodania szczegółów.");
+                Console.WriteLine("Brak ostatniego wynajmu do dodania szczegółów.");
             }
 
             Close();
@@ -248,6 +247,10 @@ public partial class RentShutteringsWindow : Window
     private void RentWindow_OnClosing(object? sender, CancelEventArgs e)
     {
         
+    }
+    private void RemoveShutterings_Click(object sender, RoutedEventArgs e)
+    {
+        //MessageBox.Show("Przepraszamy, prace nad tą funkcjonalnością trwają.");
     }
     private void CancelButton_OnClick(object sender, RoutedEventArgs e)
     {

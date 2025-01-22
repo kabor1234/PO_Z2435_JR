@@ -27,14 +27,6 @@
                         Content="Odśwież" 
                         Margin="10,15,0,0"
                         Click="RefreshWindow_OnClick"/>
-                <!--
-                <CheckBox x:Name="ShowEquipmentCheckBox" 
-                          Margin="10,17,0,0" 
-                          Content="Do zatwierdzenia po terminie"
-                          IsChecked="False"
-                          Checked="ShowExpiredRentalCheckBox_Checked"
-                          Unchecked="ShowExpiredRentalCheckBox_Unchecked"/>
-                          -->
             </StackPanel>
             
             <DataGrid x:Name="RentsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10,50,10,10" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" >

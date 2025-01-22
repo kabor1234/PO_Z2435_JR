@@ -51,5 +51,6 @@ public partial class RentingsWindow : Window
     
     private void DetailsMenuItem_Click(object sender, RoutedEventArgs e)
     {
+        MessageBox.Show("Przepraszamy, prace nad tą funkcjonalnością trwają.");
     }
 }

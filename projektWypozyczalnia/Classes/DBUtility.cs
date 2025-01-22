@@ -875,7 +875,7 @@ public static class DBUtility
                     command.ExecuteNonQuery();
                 }
 
-                MessageBox.Show($"Wypożyczenie o numerze {numberOfLend} zostało dodane do bazy danych.");
+                MessageBox.Show($"Wypożyczenie o numerze {numberOfLend} zostało dodane.");
             }
         }
         catch (Exception e)
@@ -933,7 +933,7 @@ public static class DBUtility
         }
         catch (Exception e)
         {
-            MessageBox.Show("Błąd podczas pobierania danych z bazy: " + e.Message);
+            Console.WriteLine("Błąd podczas pobierania danych z bazy: " + e.Message);
         }
     }
 
@@ -965,7 +965,7 @@ public static class DBUtility
                         var productExists = Convert.ToInt32(command.ExecuteScalar()) > 0;
                         if (!productExists)
                         {
-                            MessageBox.Show($"Produkt o ID {item.ProductID} nie istnieje w tabeli ShutteringProduct.");
+                            Console.WriteLine($"Produkt o ID {item.ProductID} nie istnieje w tabeli ShutteringProduct.");
                             return;
                         }
                     }
@@ -993,11 +993,11 @@ public static class DBUtility
                         
                         if (affectedRows > 0)
                         {
-                            MessageBox.Show($"Dane zostały dodane do LendingShutteringDetails.");
+                            Console.WriteLine($"Dane zostały dodane do LendingShutteringDetails.");
                         }
                         else
                         {
-                            MessageBox.Show("Nie udało się dodać danych do LendingShutteringDetails.");
+                            Console.WriteLine("Nie udało się dodać danych do LendingShutteringDetails.");
                         }
                     }
                     
@@ -1038,8 +1038,7 @@ public static class DBUtility
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
             connection.Open();
-
-            // Zapytanie, które pobiera wynajmy, które już się zakończyły
+            
             string query = @"SELECT 
                                 LendingShutteringDetails.ProductID,
                                 LendingShutteringDetails.Amount
@@ -1058,8 +1057,7 @@ public static class DBUtility
                     {
                         int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
                         int amount = reader.GetInt32(reader.GetOrdinal("Amount"));
-
-                        // Zaktualizowanie stanu magazynowego
+                        
                         var updateStockQuery = @"
                             UPDATE ShutteringProduct
                             SET AmountInStock = AmountInStock + @Amount
@@ -1075,15 +1073,13 @@ public static class DBUtility
                     }
                 }
             }
-
-            // Komunikat o pomyślnym zakończeniu operacji
-            MessageBox.Show("Przedmioty zostały zwrócone do magazynu.");
+            
+            Console.WriteLine("Przedmioty zostały zwrócone do magazynu.");
         }
     }
-    catch (Exception ex)
+    catch (Exception e)
     {
-        // Obsługa błędów
-        MessageBox.Show("Błąd podczas zwracania przedmiotów do magazynu: " + ex.Message);
+        Console.WriteLine("Błąd podczas zwracania przedmiotów do magazynu: " + e.Message);
     }
 }
     public static void SetShutteringAmountToZeroInLendingDetails()
@@ -1093,8 +1089,6 @@ public static class DBUtility
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
             connection.Open();
-
-            // Zapytanie, które pobiera wynajmy, które już się zakończyły
             string query = @"SELECT 
                                 LendingShutteringDetails.ProductID,
                                 LendingShutteringDetails.Amount
@@ -1112,8 +1106,7 @@ public static class DBUtility
                     while (reader.Read())
                     {
                         int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
-
-                        // Ustawienie ilości na 0 w LendingShutteringDetails po zakończeniu wypożyczenia
+                        
                         var updateLendingShutteringQuery = @"
                             UPDATE LendingShutteringDetails
                             SET Amount = 0
@@ -1129,12 +1122,12 @@ public static class DBUtility
                 }
             }
 
-            MessageBox.Show("Ilość w LendingShutteringDetails została ustawiona na 0.");
+            Console.WriteLine("Ilość w LendingShutteringDetails została ustawiona na 0.");
         }
     }
-    catch (Exception ex)
+    catch (Exception e)
     {
-        MessageBox.Show("Błąd podczas ustawiania ilości na 0 w LendingShutteringDetails: " + ex.Message);
+        Console.WriteLine("Błąd podczas ustawiania ilości na 0 w LendingShutteringDetails: " + e.Message);
     }
 }
 
