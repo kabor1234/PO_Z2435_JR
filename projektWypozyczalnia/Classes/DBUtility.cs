@@ -292,7 +292,7 @@ public static class DBUtility
                         {
                             results.Add(new WidthForLength
                             {
-                                ProductID = Convert.ToInt32(reader["ProductID"]), // Pobieramy ProductID
+                                ProductID = Convert.ToInt32(reader["ProductID"]),
                                 Width = Convert.ToInt32(reader["Width"]),
                                 AmountInStock = Convert.ToInt32(reader["AmountInStock"]),
                                 Price = (double)reader["PriceOfShuttering"]
@@ -753,14 +753,13 @@ public static class DBUtility
             using var reader = command.ExecuteReader();
             if (reader.Read())
             {
-                // Tworzymy obiekt Client na podstawie danych z bazy
                 client = new Client(
-                    reader.GetInt32(0),  // ClientID
-                    reader.GetString(1),  // NameOfCompany
-                    reader.GetString(2),  // NIP
-                    reader.GetString(3),  // Address
-                    reader.GetString(4),  // PostNumber
-                    reader.GetString(5)   // NameOfPostEstablishment
+                    reader.GetInt32(0),
+                    reader.GetString(1),
+                    reader.GetString(2),
+                    reader.GetString(3),
+                    reader.GetString(4),
+                    reader.GetString(5)
                 );
             }
         }
@@ -852,7 +851,7 @@ public static class DBUtility
                         string lastNumber = result.ToString()?.Split('/')[0];
                         if (int.TryParse(lastNumber, out int lastNumberValue))
                         {
-                            newNumber = (lastNumberValue + 1).ToString("D3"); // Zwiększamy i formatujemy do 3 cyfr
+                            newNumber = (lastNumberValue + 1).ToString("D3");
                         }
                     }
                 }
@@ -884,167 +883,214 @@ public static class DBUtility
         }
     }
     public static List<RentalItems> GetAllLendings()
-{
-    var results = new List<RentalItems>();
+    {
+        var results = new List<RentalItems>();
 
-    using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            try
+            {
+                connection.Open();
+
+                string query = @"
+                SELECT 
+                    Lending.LendID, 
+                    Lending.NumberOfLend, 
+                    Lending.ClientID, 
+                    Clients.NameOfCompany, 
+                    Lending.StartLendDate, 
+                    Lending.EndLendDate, 
+                    Lending.AddressOfBuilding
+                FROM 
+                    Lending
+                INNER JOIN 
+                    Clients ON Lending.ClientID = Clients.ClientID
+                WHERE 
+                    strftime('%Y-%m-%d', substr(Lending.EndLendDate, 7, 4) || '-' || substr(Lending.EndLendDate, 4, 2) || '-' || substr(Lending.EndLendDate, 1, 2)) >= DATE('now');";
+
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var rentalItem = new RentalItems
+                            {
+                                LendID = reader.GetInt32(reader.GetOrdinal("LendID")),
+                                NumberOfLend = reader["NumberOfLend"]?.ToString(),
+                                ClientID = reader.GetInt32(reader.GetOrdinal("ClientID")),
+                                NameOfCompany = reader["NameOfCompany"]?.ToString(),
+                                StartLendDate = reader["StartLendDate"]?.ToString(),
+                                EndLendDate = reader["EndLendDate"]?.ToString(),
+                                AddressOfBuilding = reader["AddressOfBuilding"]?.ToString()
+                            };
+
+                            results.Add(rentalItem);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd podczas pobierania danych z bazy: " + e.Message);
+            }
+        }
+
+        return results;
+    }
+    public static void AddShutteringLendingDetails(int lendingID, ObservableCollection<ItemShutteringRent> items, 
+            string ContactPersonName, string ContactPersonSurname, string ContactPersonEmail, 
+            string ContactPersonPhoneNumber)
+        {
+            using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+            {
+                connection.Open();
+
+                foreach (var item in items)
+                {
+                    try
+                    {
+                        double totalCost = item.AmountOfShuttering * item.PriceOfShuttering;
+                        
+                        var checkProductQuery = @"
+                            SELECT COUNT(1) 
+                            FROM ShutteringProduct 
+                            WHERE ProductID = @ProductID;
+                        ";
+                        
+                        using (var command = new SqliteCommand(checkProductQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@ProductID", item.ProductID);
+                            var productExists = Convert.ToInt32(command.ExecuteScalar()) > 0;
+                            if (!productExists)
+                            {
+                                MessageBox.Show($"Produkt o ID {item.ProductID} nie istnieje w tabeli ShutteringProduct.");
+                                return;
+                            }
+                        }
+                        
+                        var insertQuery = @"
+                            INSERT INTO LendingShutteringDetails 
+                            (LendingID, ProductID, Amount, TotalCost, ContactPersonName, 
+                             ContactPersonSurname, ContactPersonPhoneNumber, ContactPersonEmail)
+                            VALUES (@LendingID, @ProductID, @Amount, @TotalCost, @ContactPersonName, 
+                                    @ContactPersonSurname, @ContactPersonPhoneNumber, @ContactPersonEmail);
+                        ";
+
+                        using (var command = new SqliteCommand(insertQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@LendingID", lendingID);
+                            command.Parameters.AddWithValue("@ProductID", item.ProductID);
+                            command.Parameters.AddWithValue("@Amount", item.AmountOfShuttering);
+                            command.Parameters.AddWithValue("@TotalCost", totalCost);
+                            command.Parameters.AddWithValue("@ContactPersonName", ContactPersonName);
+                            command.Parameters.AddWithValue("@ContactPersonSurname", ContactPersonSurname);
+                            command.Parameters.AddWithValue("@ContactPersonPhoneNumber", ContactPersonPhoneNumber);
+                            command.Parameters.AddWithValue("@ContactPersonEmail", ContactPersonEmail);
+
+                            int affectedRows = command.ExecuteNonQuery();
+                            
+                            if (affectedRows > 0)
+                            {
+                                MessageBox.Show($"Dane zostały dodane do LendingShutteringDetails.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nie udało się dodać danych do LendingShutteringDetails.");
+                            }
+                        }
+                        
+                        var updateQuery = @"
+                            UPDATE ShutteringProduct
+                            SET AmountInStock = AmountInStock - @Amount
+                            WHERE ProductID = @ProductID;
+                        ";
+
+                        using (var command = new SqliteCommand(updateQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@Amount", item.AmountOfShuttering);
+                            command.Parameters.AddWithValue("@ProductID", item.ProductID);
+
+                            int affectedRows = command.ExecuteNonQuery();
+                            
+                            if (affectedRows > 0)
+                            {
+                                MessageBox.Show($"Stan magazynowy został zaktualizowany.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nie udało się zaktualizować stanu magazynowego.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Błąd przy dodawaniu szczegółów wypożyczenia: {ex.Message}");
+                    }
+                }
+            }
+        }
+    public static void ReturnShutteringItemsToStock()
     {
         try
         {
-            connection.Open();
-
-            string query = @"
-            SELECT 
-                Lending.LendID, 
-                Lending.NumberOfLend, 
-                Lending.ClientID, 
-                Clients.NameOfCompany, 
-                Lending.StartLendDate, 
-                Lending.EndLendDate, 
-                Lending.AddressOfBuilding
-            FROM 
-                Lending
-            INNER JOIN 
-                Clients ON Lending.ClientID = Clients.ClientID
-            WHERE 
-                strftime('%Y-%m-%d', substr(Lending.EndLendDate, 7, 4) || '-' || substr(Lending.EndLendDate, 4, 2) || '-' || substr(Lending.EndLendDate, 1, 2)) >= DATE('now');";
-
-            using (var command = new SqliteCommand(query, connection))
+            using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
             {
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var rentalItem = new RentalItems
-                        {
-                            LendID = reader.GetInt32(reader.GetOrdinal("LendID")),
-                            NumberOfLend = reader["NumberOfLend"]?.ToString(),
-                            ClientID = reader.GetInt32(reader.GetOrdinal("ClientID")),
-                            NameOfCompany = reader["NameOfCompany"]?.ToString(),
-                            StartLendDate = reader["StartLendDate"]?.ToString(),
-                            EndLendDate = reader["EndLendDate"]?.ToString(),
-                            AddressOfBuilding = reader["AddressOfBuilding"]?.ToString()
-                        };
+                connection.Open();
+                
+                string query = @"SELECT 
+                                    LendingShutteringDetails.ProductID,
+                                    LendingShutteringDetails.Amount
+                                FROM 
+                                    LendingShutteringDetails
+                                INNER JOIN 
+                                    Lending ON LendingShutteringDetails.LendingID = Lending.LendID
+                                WHERE 
+                                    strftime('%Y-%m-%d', substr(Lending.EndLendDate, 7, 4) || '-' || substr(Lending.EndLendDate, 4, 2) || '-' || substr(Lending.EndLendDate, 1, 2)) < DATE('now');";
 
-                        results.Add(rentalItem);
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CurrentDate", DateTime.UtcNow.ToString("yyyy-MM-dd"));
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
+                            int amount = reader.GetInt32(reader.GetOrdinal("Amount"));
+                            
+                            var updateQuery = @"
+                                UPDATE ShutteringProduct
+                                SET AmountInStock = AmountInStock + @Amount
+                                WHERE ProductID = @ProductID;
+                            ";
+
+                            using (var updateCommand = new SqliteCommand(updateQuery, connection))
+                            {
+                                updateCommand.Parameters.AddWithValue("@Amount", amount);
+                                updateCommand.Parameters.AddWithValue("@ProductID", productID);
+                                updateCommand.ExecuteNonQuery();
+                            }
+                        }
                     }
                 }
+                
+                MessageBox.Show("Przedmioty zostały zwrócone do magazynu.");
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            MessageBox.Show("Błąd podczas pobierania danych z bazy: " + e.Message);
+            MessageBox.Show("Błąd podczas zwracania przedmiotów do magazynu: " + ex.Message);
         }
     }
-
-    return results;
-}
-    public static void AddShutteringLendingDetails(int lendingID, ObservableCollection<ItemShutteringRent> items, 
-        string ContactPersonName, string ContactPersonSurname, string ContactPersonEmail, 
-        string ContactPersonPhoneNumber)
-    {
-        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
-        {
-            connection.Open();
-
-            foreach (var item in items)
-            {
-                try
-                {
-                    double totalCost = item.AmountOfShuttering * item.PriceOfShuttering;
-
-                    // Sprawdzenie, czy ProductID istnieje w tabeli ShutteringProduct
-                    var checkProductQuery = @"
-                        SELECT COUNT(1) 
-                        FROM ShutteringProduct 
-                        WHERE ProductID = @ProductID;
-                    ";
-                    
-                    using (var command = new SqliteCommand(checkProductQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@ProductID", item.ProductID);
-                        var productExists = Convert.ToInt32(command.ExecuteScalar()) > 0;
-                        if (!productExists)
-                        {
-                            MessageBox.Show($"Produkt o ID {item.ProductID} nie istnieje w tabeli ShutteringProduct.");
-                            return;
-                        }
-                    }
-
-                    // Debug: Zapytanie wstawiające dane do tabeli LendingShutteringDetails
-                    var insertQuery = @"
-                        INSERT INTO LendingShutteringDetails 
-                        (LendingID, ProductID, Amount, TotalCost, ContactPersonName, 
-                         ContactPersonSurname, ContactPersonPhoneNumber, ContactPersonEmail)
-                        VALUES (@LendingID, @ProductID, @Amount, @TotalCost, @ContactPersonName, 
-                                @ContactPersonSurname, @ContactPersonPhoneNumber, @ContactPersonEmail);
-                    ";
-
-                    using (var command = new SqliteCommand(insertQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@LendingID", lendingID);
-                        command.Parameters.AddWithValue("@ProductID", item.ProductID);
-                        command.Parameters.AddWithValue("@Amount", item.AmountOfShuttering);
-                        command.Parameters.AddWithValue("@TotalCost", totalCost);
-                        command.Parameters.AddWithValue("@ContactPersonName", ContactPersonName);
-                        command.Parameters.AddWithValue("@ContactPersonSurname", ContactPersonSurname);
-                        command.Parameters.AddWithValue("@ContactPersonPhoneNumber", ContactPersonPhoneNumber);
-                        command.Parameters.AddWithValue("@ContactPersonEmail", ContactPersonEmail);
-
-                        int affectedRows = command.ExecuteNonQuery();  // Zwróćmy liczbę zmienionych wierszy
-
-                        // Debug: Wypisanie liczby zmienionych wierszy
-                        if (affectedRows > 0)
-                        {
-                            MessageBox.Show($"Dane zostały dodane do LendingShutteringDetails.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Nie udało się dodać danych do LendingShutteringDetails.");
-                        }
-                    }
-
-                    // Zaktualizowanie stanu magazynowego
-                    var updateQuery = @"
-                        UPDATE ShutteringProduct
-                        SET AmountInStock = AmountInStock - @Amount
-                        WHERE ProductID = @ProductID;
-                    ";
-
-                    using (var command = new SqliteCommand(updateQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@Amount", item.AmountOfShuttering);
-                        command.Parameters.AddWithValue("@ProductID", item.ProductID);
-
-                        int affectedRows = command.ExecuteNonQuery();  // Zwróćmy liczbę zmienionych wierszy
-
-                        // Debug: Wypisanie liczby zmienionych wierszy
-                        if (affectedRows > 0)
-                        {
-                            MessageBox.Show($"Stan magazynowy został zaktualizowany.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Nie udało się zaktualizować stanu magazynowego.");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Błąd przy dodawaniu szczegółów wypożyczenia: {ex.Message}");
-                }
-            }
-        }
-    }
-    public static void ReturnShutteringItemsToStock()
+    public static void SetShutteringAmountToZeroInLendingDetails()
 {
     try
     {
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
             connection.Open();
-
-            // Zapytanie, które pobiera wynajmy, które już się zakończyły
+            
             string query = @"SELECT 
                                 LendingShutteringDetails.ProductID,
                                 LendingShutteringDetails.Amount
@@ -1062,44 +1108,28 @@ public static class DBUtility
                     while (reader.Read())
                     {
                         int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
-                        int amount = reader.GetInt32(reader.GetOrdinal("Amount"));
-
-                        // Zaktualizowanie stanu magazynowego
-                        var updateStockQuery = @"
-                            UPDATE ShutteringProduct
-                            SET AmountInStock = AmountInStock + @Amount
-                            WHERE ProductID = @ProductID;
-                        ";
-
-                        using (var updateStockCommand = new SqliteCommand(updateStockQuery, connection))
-                        {
-                            updateStockCommand.Parameters.AddWithValue("@Amount", amount);
-                            updateStockCommand.Parameters.AddWithValue("@ProductID", productID);
-                            updateStockCommand.ExecuteNonQuery();
-                        }
-
-                        // Ustawienie ilości na 0 w LendingShutteringDetails po zwróceniu przedmiotów
+                        
                         var updateLendingShutteringQuery = @"
                             UPDATE LendingShutteringDetails
                             SET Amount = 0
                             WHERE ProductID = @ProductID;
                         ";
 
-                        using (var updateLendingShutteringCommand = new SqliteCommand(updateLendingShutteringQuery, connection))
+                        using (var updateCommand = new SqliteCommand(updateLendingShutteringQuery, connection))
                         {
-                            updateLendingShutteringCommand.Parameters.AddWithValue("@ProductID", productID);
-                            updateLendingShutteringCommand.ExecuteNonQuery();
+                            updateCommand.Parameters.AddWithValue("@ProductID", productID);
+                            updateCommand.ExecuteNonQuery();
                         }
                     }
                 }
             }
 
-            MessageBox.Show("Przedmioty zostały zwrócone do magazynu.");
+            MessageBox.Show("Ilość w LendingShutteringDetails została ustawiona na 0.");
         }
     }
     catch (Exception ex)
     {
-        MessageBox.Show("Błąd podczas zwracania przedmiotów do magazynu: " + ex.Message);
+        MessageBox.Show("Błąd podczas ustawiania ilości na 0 w LendingShutteringDetails: " + ex.Message);
     }
 }
 
