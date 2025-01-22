@@ -8,11 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceWindows/EditEquipmentPrice.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceWindows/EditEquipmentPrice.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/PriceWindows/EditShutteringPrice.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/PriceWindows/EditShutteringPrice.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,9 +38,6 @@
     &quot;assignee&quot;: &quot;kabor1234&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="6c0d5a62-21b9-42b6-917c-426d944712a1" />
-  </component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/kabor1234/PO_Z2435_JR.git",
@@ -61,7 +58,7 @@
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="SWEA" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -181,15 +178,7 @@
       <workItem from="1737239847740" duration="7014000" />
       <workItem from="1737282364655" duration="19634000" />
       <workItem from="1737307545052" duration="23732000" />
-      <workItem from="1737531935331" duration="639000" />
-    </task>
-    <task id="LOCAL-00016" summary="dodawanie systemów i rodzajów szalunków do bazy danych">
-      <option name="closed" value="true" />
-      <created>1733923460259</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1733923460259</updated>
+      <workItem from="1737531935331" duration="2948000" />
     </task>
     <task id="LOCAL-00017" summary="refactor dodania systemów">
       <option name="closed" value="true" />
@@ -575,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737531906330</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(">
+      <option name="closed" value="true" />
+      <created>1737532920347</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1737532920347</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="lekki refactor i uporządkowanie kodu" />
     <MESSAGE value="sortowanie combobox" />
     <MESSAGE value="okienko pokazujące wynajem" />
     <MESSAGE value="dodanie i edycja tabel w bazie danych" />
@@ -633,6 +629,7 @@
     <MESSAGE value="wyświetlanie wypożyczeń na ekranie - brak zmiany stanu" />
     <MESSAGE value="szalunki zmiana stanu po wypożyczeniu" />
     <MESSAGE value="poprawki okienek" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawki okienek" />
+    <MESSAGE value="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(" />
+    <option name="LAST_COMMIT_MESSAGE" value="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(" />
   </component>
 </project>

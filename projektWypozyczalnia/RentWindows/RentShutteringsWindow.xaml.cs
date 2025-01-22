@@ -45,10 +45,6 @@ public partial class RentShutteringsWindow : Window
         string contactPersonEmail = "";
         
         
-        //zrobić metodę, która będzie wyrzucała błąd jak będą złe wartości / puste pola
-        //Checking null textboxes
-
-        //Client column is null?
         if (NameOfCompanyTextBox.Text == "")
         {
             MessageBox.Show("Pole \"nazwa firmy\" nie może być puste.");
@@ -144,7 +140,6 @@ public partial class RentShutteringsWindow : Window
         contactPersonPhoneNumber = ContactPersonPhoneNumberTextBox.Text;
         contactPersonEmail = ContactPersonEmailTextBox.Text;
         
-        // Sprawdzenie kalendarza
         var selectedDate = DateSelectionsCalendar.SelectedDates;
         if (selectedDate.Count <= 0)
         {
@@ -164,14 +159,12 @@ public partial class RentShutteringsWindow : Window
             comments = null;
         
         
-            //Add ClientToDatabase
         
             DBUtility.AddClientToDatabase(nameOfCompany, numberOfCompany, addressOfCompany, postNumber,
                 nameOfEstablishment);
             Client currentClient = DBUtility.GetClientByNumber(numberOfCompany);
             int clientID = currentClient.ClientID;
             
-            //Add Lendings
             DBUtility.AddNewLending(clientID, startDateString, endDateString, addressOfBuilding, comments);
             
             List<RentalItems> allLendings = DBUtility.GetAllLendings();
@@ -180,8 +173,7 @@ public partial class RentShutteringsWindow : Window
             if (lastLendingID > 0)
             {
                 MessageBox.Show("Pobrało lastLendID");
-
-                // Dodaj szczegóły wypożyczenia szalunków
+                
                 DBUtility.AddShutteringLendingDetails(lastLendingID, Items, 
                     contactPersonName, contactPersonSurname, contactPersonEmail, contactPersonPhoneNumber);
         
@@ -223,8 +215,11 @@ public partial class RentShutteringsWindow : Window
                 totalValue += currentItem.TotalPriceOfShuttering;
             }
         }
+        double dailyPriceOfRent = totalValue * 0.03 / 30;
 
         TotalValueOfEquipmentTextBlock.Text = $"{totalValue:F2} zł";
+        DailyPriceOfRent.Text = $"{dailyPriceOfRent:F2} zł";
+        
     }
     private void AddShutterings_OnClick(object sender, RoutedEventArgs e)
     {
@@ -258,4 +253,5 @@ public partial class RentShutteringsWindow : Window
     {
         Close();
     }
+    
 }
