@@ -11,12 +11,6 @@ public partial class AddNewShutteringSystem : Window
     {
         InitializeComponent();
     }
-
-    private void Cancel_OnClick(object sender, RoutedEventArgs e)
-    {
-        Close();
-    }
-
     private void AddShutteringSystemButton_OnClick(object sender, RoutedEventArgs e)
     {
         
@@ -95,5 +89,10 @@ public partial class AddNewShutteringSystem : Window
         AddShutteringToStockWindow newWindow = new AddShutteringToStockWindow();
         newWindow.Show();
 
+    }
+    
+    private void Cancel_OnClick(object sender, RoutedEventArgs e)
+    {
+        Close();
     }
 }

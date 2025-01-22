@@ -109,16 +109,16 @@ public static class DBUtility
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    MessageBox.Show("Błąd podczas dodawania produktu: " + ex.Message);
+                    MessageBox.Show("Błąd podczas dodawania produktu: " + e.Message);
                 }
             }
         }
     }
-    catch (Exception ex)
+    catch (Exception e)
     {
-        MessageBox.Show("Błąd: " + ex.Message);
+        MessageBox.Show("Błąd: " + e.Message);
     }
 }
     public static void AddEquipmentToDatabase(string nameOfEquipment)
@@ -143,9 +143,9 @@ public static class DBUtility
                     MessageBox.Show("Osprzęt został dodany.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas dodawania osprzętu: " + ex.Message);
+                MessageBox.Show("Błąd podczas dodawania osprzętu: " + e.Message);
             }
         }
     }
@@ -190,9 +190,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + ex.Message);
+                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + e.Message);
             }
         }
 
@@ -219,9 +219,9 @@ public static class DBUtility
                 });
             }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            MessageBox.Show("Błąd podczas ładowania systemów: " + ex.Message);
+            MessageBox.Show("Błąd podczas ładowania systemów: " + e.Message);
         }
 
         return results;
@@ -258,9 +258,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas ładowania długości: " + ex.Message);
+                MessageBox.Show("Błąd podczas ładowania długości: " + e.Message);
             }
         }
 
@@ -292,7 +292,7 @@ public static class DBUtility
                         {
                             results.Add(new WidthForLength
                             {
-                                ProductID = Convert.ToInt32(reader["ProductID"]), // Pobieramy ProductID
+                                ProductID = Convert.ToInt32(reader["ProductID"]),
                                 Width = Convert.ToInt32(reader["Width"]),
                                 AmountInStock = Convert.ToInt32(reader["AmountInStock"]),
                                 Price = (double)reader["PriceOfShuttering"]
@@ -301,9 +301,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas ładowania szerokości i ilości: " + ex.Message);
+                MessageBox.Show("Błąd podczas ładowania szerokości i ilości: " + e.Message);
             }
         }
 
@@ -337,9 +337,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + ex.Message);
+                MessageBox.Show("Błąd podczas ładowania listy osprzętu: " + e.Message);
             }
         }
         return equipmentList;
@@ -376,9 +376,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + ex.Message);
+                MessageBox.Show("Błąd podczas łączenia się z bazą danych: " + e.Message);
             }
         }
 
@@ -414,9 +414,9 @@ public static class DBUtility
                     MessageBox.Show("Ilość została zaktualizowana.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas dodawania do magazynu: " + ex.Message);
+                MessageBox.Show("Błąd podczas dodawania do magazynu: " + e.Message);
             }
         }
     }
@@ -442,9 +442,9 @@ public static class DBUtility
                     MessageBox.Show("Ilość została zaktualizowana.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas dodawania ilości: " + ex.Message);
+                MessageBox.Show("Błąd podczas dodawania ilości: " + e.Message);
             }
         }
     }
@@ -483,9 +483,9 @@ public static class DBUtility
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    MessageBox.Show($"Błąd podczas ładowania danych szalunków: {ex.Message}");
+                    MessageBox.Show($"Błąd podczas ładowania danych szalunków: {e.Message}");
                 }
             }
             return results;
@@ -520,9 +520,9 @@ public static class DBUtility
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {ex.Message}");
+                    MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {e.Message}");
                 }
             }
             return results;
@@ -571,10 +571,10 @@ public static class DBUtility
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
                     
-                    MessageBox.Show($"Błąd podczas ładowania danych szalunków: {ex.Message}");
+                    MessageBox.Show($"Błąd podczas ładowania danych szalunków: {e.Message}");
                 }
             }
             
@@ -617,9 +617,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas aktualizacji ceny: " + ex.Message);
+                MessageBox.Show("Błąd podczas aktualizacji ceny: " + e.Message);
             }
         }
     }
@@ -657,9 +657,9 @@ public static class DBUtility
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {ex.Message}");
+                MessageBox.Show($"Błąd podczas ładowania danych osprzętu: {e.Message}");
             }
         }
 
@@ -687,9 +687,9 @@ public static class DBUtility
                     MessageBox.Show("Cena została zaktualizowana.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Błąd podczas aktualizacji ceny: " + ex.Message);
+                MessageBox.Show("Błąd podczas aktualizacji ceny: " + e.Message);
             }
         }
     }
@@ -706,9 +706,9 @@ public static class DBUtility
                 using (var checkCommand = new SqliteCommand(checkQuery, connection))
                 {
                     checkCommand.Parameters.AddWithValue("@NIP", nip);
-                    var exists = Convert.ToInt32(checkCommand.ExecuteScalar()) > 0;
+                    var eists = Convert.ToInt32(checkCommand.ExecuteScalar()) > 0;
             
-                    if (exists)
+                    if (eists)
                     {
                         return;
                     }
@@ -753,20 +753,20 @@ public static class DBUtility
             using var reader = command.ExecuteReader();
             if (reader.Read())
             {
-                // Tworzymy obiekt Client na podstawie danych z bazy
+                
                 client = new Client(
-                    reader.GetInt32(0),  // ClientID
-                    reader.GetString(1),  // NameOfCompany
-                    reader.GetString(2),  // NIP
-                    reader.GetString(3),  // Address
-                    reader.GetString(4),  // PostNumber
-                    reader.GetString(5)   // NameOfPostEstablishment
+                    reader.GetInt32(0),  
+                    reader.GetString(1),  
+                    reader.GetString(2),
+                    reader.GetString(3),
+                    reader.GetString(4),
+                    reader.GetString(5)
                 );
             }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            MessageBox.Show("Błąd podczas pobierania klienta: " + ex.Message);
+            MessageBox.Show("Błąd podczas pobierania klienta: " + e.Message);
         }
 
         return client;
@@ -852,7 +852,7 @@ public static class DBUtility
                         string lastNumber = result.ToString()?.Split('/')[0];
                         if (int.TryParse(lastNumber, out int lastNumberValue))
                         {
-                            newNumber = (lastNumberValue + 1).ToString("D3"); // Zwiększamy i formatujemy do 3 cyfr
+                            newNumber = (lastNumberValue + 1).ToString("D3");
                         }
                     }
                 }
@@ -878,9 +878,9 @@ public static class DBUtility
                 MessageBox.Show($"Wypożyczenie o numerze {numberOfLend} zostało dodane do bazy danych.");
             }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + ex.Message);
+            MessageBox.Show("Błąd podczas dodawania wypożyczenia: " + e.Message);
         }
     }
     public static List<RentalItems> GetAllLendings()
@@ -952,8 +952,7 @@ public static class DBUtility
                 try
                 {
                     double totalCost = item.AmountOfShuttering * item.PriceOfShuttering;
-
-                    // Sprawdzenie, czy ProductID istnieje w tabeli ShutteringProduct
+                    
                     var checkProductQuery = @"
                         SELECT COUNT(1) 
                         FROM ShutteringProduct 
@@ -970,8 +969,7 @@ public static class DBUtility
                             return;
                         }
                     }
-
-                    // Debug: Zapytanie wstawiające dane do tabeli LendingShutteringDetails
+                    
                     var insertQuery = @"
                         INSERT INTO LendingShutteringDetails 
                         (LendingID, ProductID, Amount, TotalCost, ContactPersonName, 
@@ -991,9 +989,8 @@ public static class DBUtility
                         command.Parameters.AddWithValue("@ContactPersonPhoneNumber", ContactPersonPhoneNumber);
                         command.Parameters.AddWithValue("@ContactPersonEmail", ContactPersonEmail);
 
-                        int affectedRows = command.ExecuteNonQuery();  // Zwróćmy liczbę zmienionych wierszy
-
-                        // Debug: Wypisanie liczby zmienionych wierszy
+                        int affectedRows = command.ExecuteNonQuery();
+                        
                         if (affectedRows > 0)
                         {
                             MessageBox.Show($"Dane zostały dodane do LendingShutteringDetails.");
@@ -1003,8 +1000,7 @@ public static class DBUtility
                             MessageBox.Show("Nie udało się dodać danych do LendingShutteringDetails.");
                         }
                     }
-
-                    // Zaktualizowanie stanu magazynowego
+                    
                     var updateQuery = @"
                         UPDATE ShutteringProduct
                         SET AmountInStock = AmountInStock - @Amount
@@ -1016,22 +1012,21 @@ public static class DBUtility
                         command.Parameters.AddWithValue("@Amount", item.AmountOfShuttering);
                         command.Parameters.AddWithValue("@ProductID", item.ProductID);
 
-                        int affectedRows = command.ExecuteNonQuery();  // Zwróćmy liczbę zmienionych wierszy
-
-                        // Debug: Wypisanie liczby zmienionych wierszy
+                        int affectedRows = command.ExecuteNonQuery();
+                        
                         if (affectedRows > 0)
                         {
-                            MessageBox.Show($"Stan magazynowy został zaktualizowany.");
+                            Console.WriteLine("Stan magazynowy został zaktualizowany.");
                         }
                         else
                         {
-                            MessageBox.Show("Nie udało się zaktualizować stanu magazynowego.");
+                            Console.WriteLine("Nie udało się zaktualizować stanu magazynowego.");
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    MessageBox.Show($"Błąd przy dodawaniu szczegółów wypożyczenia: {ex.Message}");
+                    Console.WriteLine($"Błąd przy dodawaniu szczegółów wypożyczenia: {e.Message}");
                 }
             }
         }
@@ -1043,8 +1038,7 @@ public static class DBUtility
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
             connection.Open();
-
-            // Zapytanie, które pobiera wynajmy, które już się zakończyły
+            
             string query = @"SELECT 
                                 LendingShutteringDetails.ProductID,
                                 LendingShutteringDetails.Amount
@@ -1063,8 +1057,7 @@ public static class DBUtility
                     {
                         int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
                         int amount = reader.GetInt32(reader.GetOrdinal("Amount"));
-
-                        // Zaktualizowanie stanu magazynowego
+                        
                         var updateStockQuery = @"
                             UPDATE ShutteringProduct
                             SET AmountInStock = AmountInStock + @Amount
@@ -1077,8 +1070,7 @@ public static class DBUtility
                             updateStockCommand.Parameters.AddWithValue("@ProductID", productID);
                             updateStockCommand.ExecuteNonQuery();
                         }
-
-                        // Ustawienie ilości na 0 w LendingShutteringDetails po zwróceniu przedmiotów
+                        
                         var updateLendingShutteringQuery = @"
                             UPDATE LendingShutteringDetails
                             SET Amount = 0
@@ -1094,12 +1086,12 @@ public static class DBUtility
                 }
             }
 
-            MessageBox.Show("Przedmioty zostały zwrócone do magazynu.");
+            Console.WriteLine("Przedmioty zostały zwrócone do magazynu.");
         }
     }
-    catch (Exception ex)
+    catch (Exception e)
     {
-        MessageBox.Show("Błąd podczas zwracania przedmiotów do magazynu: " + ex.Message);
+        Console.WriteLine("Błąd podczas zwracania przedmiotów do magazynu: " + e.Message);
     }
 }
 

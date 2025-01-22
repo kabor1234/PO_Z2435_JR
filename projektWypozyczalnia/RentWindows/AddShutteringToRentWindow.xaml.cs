@@ -13,7 +13,7 @@ public partial class AddShutteringToRentWindow : Window
     public AddShutteringToRentWindow(RentShutteringsWindow rentWindow, WidthForLength availableAmountItemInfo)
     {
         InitializeComponent();
-        _rentWindow = rentWindow; // Przypisanie RentWindow
+        _rentWindow = rentWindow;
         _availableAmountItemInfo = availableAmountItemInfo;
         LoadShutteringSystems();
     }
@@ -142,16 +142,13 @@ public partial class AddShutteringToRentWindow : Window
         if (WidthComboBox.SelectedItem != null)
         {
             int selectedWidth = (int)WidthComboBox.SelectedItem;
-
-            // Znajdujemy informacje o szerokości
+            
             _availableAmountItemInfo = _widths.FirstOrDefault(w => w.Width == selectedWidth);
-
-            // Jeśli znaleźliśmy dane dla wybranej szerokości
+            
             if (_availableAmountItemInfo != null)
             {
                 double pricePerUnit = _availableAmountItemInfo.Price;
-
-                // Wyświetlamy dostępne ilości i cenę
+                
                 AvaibleAmountOfShutteringTextBlock.Text = $"{_availableAmountItemInfo.AmountInStock}";
                 if (pricePerUnit == 0)
                 {

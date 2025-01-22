@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using projektWypozyczalnia.Classes;
 
@@ -31,6 +32,8 @@ public partial class AddEquipmentToStockWindow : Window
                 DBUtility.AddEquipmentToStock(selectedEquipmentId, amount);
             
                 Close();
+                AddEquipmentToStockWindow addEquipmentToStockWindow = new AddEquipmentToStockWindow();
+                addEquipmentToStockWindow.Show();
             }
             else 
                 MessageBox.Show("Wprowadź poprawną wartość liczbową");
@@ -78,5 +81,4 @@ public partial class AddEquipmentToStockWindow : Window
         {
             Close();
         }
-        
 }

@@ -70,6 +70,8 @@ public partial class AddShutteringToStockWindow : Window
         {
             DBUtility.AddShutteringToStock(selectedSystem, selectedLength, selectedWidth, amount);
             Close();
+            AddShutteringToStockWindow window = new AddShutteringToStockWindow();
+            window.Show();
         }
         else
             MessageBox.Show("Wprowadź poprawną wartość liczbową");
@@ -80,7 +82,6 @@ public partial class AddShutteringToStockWindow : Window
         
         AddNewShutteringSystem addNewShutteringSystem = new AddNewShutteringSystem();
         addNewShutteringSystem.Show();
-        
         Close();
     }
 

@@ -9,7 +9,6 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None">
-        
     
     <StackPanel Margin="10">
         <TextBlock TextAlignment="Center">Dodawanie osprzętu</TextBlock>
