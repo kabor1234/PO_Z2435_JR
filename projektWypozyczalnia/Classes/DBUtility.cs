@@ -1038,7 +1038,8 @@ public static class DBUtility
         using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
         {
             connection.Open();
-            
+
+            // Zapytanie, które pobiera wynajmy, które już się zakończyły
             string query = @"SELECT 
                                 LendingShutteringDetails.ProductID,
                                 LendingShutteringDetails.Amount
@@ -1057,7 +1058,8 @@ public static class DBUtility
                     {
                         int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
                         int amount = reader.GetInt32(reader.GetOrdinal("Amount"));
-                        
+
+                        // Zaktualizowanie stanu magazynowego
                         var updateStockQuery = @"
                             UPDATE ShutteringProduct
                             SET AmountInStock = AmountInStock + @Amount
@@ -1070,28 +1072,69 @@ public static class DBUtility
                             updateStockCommand.Parameters.AddWithValue("@ProductID", productID);
                             updateStockCommand.ExecuteNonQuery();
                         }
-                        
+                    }
+                }
+            }
+
+            // Komunikat o pomyślnym zakończeniu operacji
+            MessageBox.Show("Przedmioty zostały zwrócone do magazynu.");
+        }
+    }
+    catch (Exception ex)
+    {
+        // Obsługa błędów
+        MessageBox.Show("Błąd podczas zwracania przedmiotów do magazynu: " + ex.Message);
+    }
+}
+    public static void SetShutteringAmountToZeroInLendingDetails()
+{
+    try
+    {
+        using (var connection = new SqliteConnection($"Data Source={DataBaseName}"))
+        {
+            connection.Open();
+
+            // Zapytanie, które pobiera wynajmy, które już się zakończyły
+            string query = @"SELECT 
+                                LendingShutteringDetails.ProductID,
+                                LendingShutteringDetails.Amount
+                            FROM 
+                                LendingShutteringDetails
+                            INNER JOIN 
+                                Lending ON LendingShutteringDetails.LendingID = Lending.LendID
+                            WHERE 
+                                strftime('%Y-%m-%d', substr(Lending.EndLendDate, 7, 4) || '-' || substr(Lending.EndLendDate, 4, 2) || '-' || substr(Lending.EndLendDate, 1, 2)) < DATE('now');";
+
+            using (var command = new SqliteCommand(query, connection))
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int productID = reader.GetInt32(reader.GetOrdinal("ProductID"));
+
+                        // Ustawienie ilości na 0 w LendingShutteringDetails po zakończeniu wypożyczenia
                         var updateLendingShutteringQuery = @"
                             UPDATE LendingShutteringDetails
                             SET Amount = 0
                             WHERE ProductID = @ProductID;
                         ";
 
-                        using (var updateLendingShutteringCommand = new SqliteCommand(updateLendingShutteringQuery, connection))
+                        using (var updateCommand = new SqliteCommand(updateLendingShutteringQuery, connection))
                         {
-                            updateLendingShutteringCommand.Parameters.AddWithValue("@ProductID", productID);
-                            updateLendingShutteringCommand.ExecuteNonQuery();
+                            updateCommand.Parameters.AddWithValue("@ProductID", productID);
+                            updateCommand.ExecuteNonQuery();
                         }
                     }
                 }
             }
 
-            Console.WriteLine("Przedmioty zostały zwrócone do magazynu.");
+            MessageBox.Show("Ilość w LendingShutteringDetails została ustawiona na 0.");
         }
     }
-    catch (Exception e)
+    catch (Exception ex)
     {
-        Console.WriteLine("Błąd podczas zwracania przedmiotów do magazynu: " + e.Message);
+        MessageBox.Show("Błąd podczas ustawiania ilości na 0 w LendingShutteringDetails: " + ex.Message);
     }
 }
 

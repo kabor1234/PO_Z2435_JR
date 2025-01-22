@@ -8,12 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="ostateczny ostateczny commit">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddEquipmentToStockWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/AddingToStock/AddEquipmentToStockWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,15 +175,7 @@
       <workItem from="1737239847740" duration="7014000" />
       <workItem from="1737282364655" duration="19634000" />
       <workItem from="1737307545052" duration="23732000" />
-      <workItem from="1737531935331" duration="2948000" />
-    </task>
-    <task id="LOCAL-00017" summary="refactor dodania systemów">
-      <option name="closed" value="true" />
-      <created>1733924327228</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1733924327228</updated>
+      <workItem from="1737531935331" duration="4698000" />
     </task>
     <task id="LOCAL-00018" summary="dodanie guzika pokaż systemy szalunkowe">
       <option name="closed" value="true" />
@@ -572,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737532920347</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="ostateczny ostateczny commit">
+      <option name="closed" value="true" />
+      <created>1737534935423</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1737534935423</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +602,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="sortowanie combobox" />
     <MESSAGE value="okienko pokazujące wynajem" />
     <MESSAGE value="dodanie i edycja tabel w bazie danych" />
     <MESSAGE value="Przygotowanie okienka wypożyczania do dodania logiki" />
@@ -630,6 +626,7 @@
     <MESSAGE value="szalunki zmiana stanu po wypożyczeniu" />
     <MESSAGE value="poprawki okienek" />
     <MESSAGE value="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(" />
-    <option name="LAST_COMMIT_MESSAGE" value="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(" />
+    <MESSAGE value="ostateczny ostateczny commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="ostateczny ostateczny commit" />
   </component>
 </project>

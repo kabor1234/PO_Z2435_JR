@@ -16,6 +16,7 @@ public partial class MainWindow : Window
     private void RentalButton_OnClick(object sender, RoutedEventArgs e)
     {
         DBUtility.ReturnShutteringItemsToStock();
+        DBUtility.SetShutteringAmountToZeroInLendingDetails();
         RentingsWindow rentingsWindow = new RentingsWindow();
         rentingsWindow.Show();
     }
