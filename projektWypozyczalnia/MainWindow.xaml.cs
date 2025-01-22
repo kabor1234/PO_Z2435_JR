@@ -11,12 +11,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DBUtility.ReturnShutteringItemsToStock();
+        DBUtility.SetShutteringAmountToZeroInLendingDetails();
     }
     
     private void RentalButton_OnClick(object sender, RoutedEventArgs e)
     {
-        DBUtility.ReturnShutteringItemsToStock();
-        DBUtility.SetShutteringAmountToZeroInLendingDetails();
         RentingsWindow rentingsWindow = new RentingsWindow();
         rentingsWindow.Show();
     }
