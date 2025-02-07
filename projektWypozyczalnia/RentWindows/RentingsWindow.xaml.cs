@@ -8,6 +8,7 @@ public partial class RentingsWindow : Window
     public RentingsWindow()
     {
         InitializeComponent();
+        DBUtility.ReturnShutteringItemsToStock();
         Loaded += RentingsWindow_OnLoaded;
 
     }
@@ -18,13 +19,9 @@ public partial class RentingsWindow : Window
             .ToList();
 
         if (lendings.Any())
-        {
             RentsDataGrid.ItemsSource = lendings;
-        }
-        else
-        {
-            MessageBox.Show("Brak wynajmów do wyświetlenia.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+        
+
         
     }
     

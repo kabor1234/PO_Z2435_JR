@@ -39,6 +39,12 @@ public partial class RentShutteringsWindow : Window
         string addressOfBuilding = "";
         string comments = "";
         
+        string contactPersonName = "";
+        string contactPersonSurname = "";
+        string contactPersonPhoneNumber = "";
+        string contactPersonEmail = "";
+        
+        
         //zrobić metodę, która będzie wyrzucała błąd jak będą złe wartości / puste pola
         //Checking null textboxes
 
@@ -133,6 +139,11 @@ public partial class RentShutteringsWindow : Window
         nameOfEstablishment = NameOfPostEstablishmentTextBox.Text;
         addressOfBuilding = AddressOfBuildingTextBox.Text;
         
+        contactPersonName = ContactPersonNameTextBox.Text;
+        contactPersonSurname = ContactPersonSurnameTextBox.Text;
+        contactPersonPhoneNumber = ContactPersonPhoneNumberTextBox.Text;
+        contactPersonEmail = ContactPersonEmailTextBox.Text;
+        
         // Sprawdzenie kalendarza
         var selectedDate = DateSelectionsCalendar.SelectedDates;
         if (selectedDate.Count <= 0)
@@ -163,6 +174,24 @@ public partial class RentShutteringsWindow : Window
             //Add Lendings
             DBUtility.AddNewLending(clientID, startDateString, endDateString, addressOfBuilding, comments);
             
+            List<RentalItems> allLendings = DBUtility.GetAllLendings();
+            int lastLendingID = allLendings.LastOrDefault()?.LendID ?? 0;
+
+            if (lastLendingID > 0)
+            {
+                MessageBox.Show("Pobrało lastLendID");
+
+                // Dodaj szczegóły wypożyczenia szalunków
+                DBUtility.AddShutteringLendingDetails(lastLendingID, Items, 
+                    contactPersonName, contactPersonSurname, contactPersonEmail, contactPersonPhoneNumber);
+        
+                MessageBox.Show("Za dodaniem do bazy danych do shutteringdetails");
+            }
+            else
+            {
+                MessageBox.Show("Brak ostatniego wynajmu do dodania szczegółów.");
+            }
+
             Close();
     }
     private void CommentsShutteringsTextBox_GotFocused(object sender, RoutedEventArgs e)
@@ -197,15 +226,11 @@ public partial class RentShutteringsWindow : Window
 
         TotalValueOfEquipmentTextBlock.Text = $"{totalValue:F2} zł";
     }
-
-
     private void AddShutterings_OnClick(object sender, RoutedEventArgs e)
     {
         AddShutteringToRentWindow addShutterings = new AddShutteringToRentWindow(this, AvailableAmountItemInfo);
         addShutterings.ShowDialog();
     }
-    
-
     private void ChooseContractorFromAvaible_OnClick(object sender, RoutedEventArgs e)
     {
         ChooseClientForShutteringsWindow chooseClientForShutteringsWindow = new ChooseClientForShutteringsWindow();
@@ -225,12 +250,10 @@ public partial class RentShutteringsWindow : Window
             }
         }
     }
-
     private void RentWindow_OnClosing(object? sender, CancelEventArgs e)
     {
         
     }
-    
     private void CancelButton_OnClick(object sender, RoutedEventArgs e)
     {
         Close();

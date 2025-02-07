@@ -14,6 +14,7 @@ public partial class AddShutteringToRentWindow : Window
     {
         InitializeComponent();
         _rentWindow = rentWindow; // Przypisanie RentWindow
+        _availableAmountItemInfo = availableAmountItemInfo;
         LoadShutteringSystems();
     }
 
@@ -52,6 +53,7 @@ public partial class AddShutteringToRentWindow : Window
         totalCost = amount * pricePerUnit;
 
         PriceOfShutteringTextBlock.Text = $"Cena: {pricePerUnit:F2}";
+        
 
         string nameOfShuttering = system;
         string lengthOfShuttering = length;
@@ -73,6 +75,7 @@ public partial class AddShutteringToRentWindow : Window
                 NameOfShuttering = nameOfShuttering,
                 LengthOfShuttering = int.Parse(lengthOfShuttering),
                 WidthOfShuttering = int.Parse(widthOfShuttering),
+                ProductID = _availableAmountItemInfo.ProductID,
                 AmountOfShuttering = amount,
                 PriceOfShuttering = pricePerUnit,
                 TotalPriceOfShuttering = totalCost

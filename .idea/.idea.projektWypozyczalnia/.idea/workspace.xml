@@ -8,14 +8,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="skończona logika uzupełniania okna wynajmu szalunów">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="wyświetlanie wypożyczeń na ekranie - brak zmiany stanu">
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendEquipmentDetailS.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendShutteringDetails.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/RentalItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemShutteringRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/ItemShutteringRent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/LendingDetail.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/WidthForLength.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/WidthForLength.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentShutteringsWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/RentingsWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Shutterings.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,15 +179,7 @@
       <workItem from="1737231974929" duration="7725000" />
       <workItem from="1737239847740" duration="7014000" />
       <workItem from="1737282364655" duration="19634000" />
-      <workItem from="1737307545052" duration="14691000" />
-    </task>
-    <task id="LOCAL-00013" summary="dodanie klasy sale i saledetails">
-      <option name="closed" value="true" />
-      <created>1733864590843</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1733864590843</updated>
+      <workItem from="1737307545052" duration="22805000" />
     </task>
     <task id="LOCAL-00014" summary="dodanie wszystkich klas powiązanych z bazą danych">
       <option name="closed" value="true" />
@@ -570,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737321024511</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="wyświetlanie wypożyczeń na ekranie - brak zmiany stanu">
+      <option name="closed" value="true" />
+      <created>1737322592030</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1737322592030</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +606,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="kosmetyka" />
     <MESSAGE value="dodanie okienka z cennikiem, brak edycji cen" />
     <MESSAGE value="edycja cen w cenniku" />
     <MESSAGE value="lekki refactor i uporządkowanie kodu" />
@@ -628,6 +630,7 @@
     <MESSAGE value="dodanie metody do okienka wypożyczenia" />
     <MESSAGE value="rozdzielenie wypozyczeń szalunków i przedmiotów na osobne okienka" />
     <MESSAGE value="skończona logika uzupełniania okna wynajmu szalunów" />
-    <option name="LAST_COMMIT_MESSAGE" value="skończona logika uzupełniania okna wynajmu szalunów" />
+    <MESSAGE value="wyświetlanie wypożyczeń na ekranie - brak zmiany stanu" />
+    <option name="LAST_COMMIT_MESSAGE" value="wyświetlanie wypożyczeń na ekranie - brak zmiany stanu" />
   </component>
 </project>
