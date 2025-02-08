@@ -8,7 +8,6 @@ public partial class RentingsWindow : Window
     public RentingsWindow()
     {
         InitializeComponent();
-        DBUtility.ReturnShutteringItemsToStock();
         Loaded += RentingsWindow_OnLoaded;
 
     }
@@ -50,8 +49,7 @@ public partial class RentingsWindow : Window
     {
         Close();
     }
-
-
+    
     private void DetailsMenuItem_Click(object sender, RoutedEventArgs e)
     {
     }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using projektWypozyczalnia.Classes;
 using projektWypozyczalnia.RentWindows;
 using projektWypozyczalnia.ShowWindows;
 
@@ -14,6 +15,7 @@ public partial class MainWindow : Window
     
     private void RentalButton_OnClick(object sender, RoutedEventArgs e)
     {
+        DBUtility.ReturnShutteringItemsToStock();
         RentingsWindow rentingsWindow = new RentingsWindow();
         rentingsWindow.Show();
     }
