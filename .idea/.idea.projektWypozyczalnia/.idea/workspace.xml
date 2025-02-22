@@ -8,9 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="ostateczny ostateczny commit">
+    <list default="true" id="082a18ab-831d-4c90-b46f-37a86d317fc9" name="Changes" comment="koniec cz.2">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.projektWypozyczalnia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/Classes/DBUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/projektWypozyczalnia/RentWindows/AddShutteringToRentWindow.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,31 +177,7 @@
       <workItem from="1737239847740" duration="7014000" />
       <workItem from="1737282364655" duration="19634000" />
       <workItem from="1737307545052" duration="23732000" />
-      <workItem from="1737531935331" duration="4698000" />
-    </task>
-    <task id="LOCAL-00018" summary="dodanie guzika pokaż systemy szalunkowe">
-      <option name="closed" value="true" />
-      <created>1733925480714</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1733925480714</updated>
-    </task>
-    <task id="LOCAL-00019" summary="zmiana w bazie danych aby nie mogło być 2 takich samych nazw standardów deskowania oraz zmiana w kodzie do dopisywania do standardu jeśli nazwa się powtórzy">
-      <option name="closed" value="true" />
-      <created>1734109041292</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1734109041292</updated>
-    </task>
-    <task id="LOCAL-00020" summary="listowanie aktywnych systemów szalunkowych, zabezpieczenie przed nie wpisaniem nazwy szalunku i producenta przy dodawaniu nowego systemu">
-      <option name="closed" value="true" />
-      <created>1734119117175</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1734119117175</updated>
+      <workItem from="1737531935331" duration="11587000" />
     </task>
     <task id="LOCAL-00021" summary="kosmetyka warunków przy dodawaniu nowego systemu">
       <option name="closed" value="true" />
@@ -569,7 +547,31 @@
       <option name="project" value="LOCAL" />
       <updated>1737534935423</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="naprawa wynajmu i zwrotu">
+      <option name="closed" value="true" />
+      <created>1737537406172</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1737537406173</updated>
+    </task>
+    <task id="LOCAL-00068" summary="koniec">
+      <option name="closed" value="true" />
+      <created>1737538654883</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1737538654883</updated>
+    </task>
+    <task id="LOCAL-00069" summary="koniec cz.2">
+      <option name="closed" value="true" />
+      <created>1737538797328</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1737538797329</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,9 +604,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="okienko pokazujące wynajem" />
-    <MESSAGE value="dodanie i edycja tabel w bazie danych" />
-    <MESSAGE value="Przygotowanie okienka wypożyczania do dodania logiki" />
     <MESSAGE value="Sprawdzanie czy textboxy w okienku wypożycz nie są puste i sprawdzają czy wpisane dane są ok - brak regexa dla email" />
     <MESSAGE value="dodawanie do wypożyczenia - szalunki, surowe okienko" />
     <MESSAGE value="dodanie osprzętu do wypożyczenia - okienko na surowo" />
@@ -627,6 +626,9 @@
     <MESSAGE value="poprawki okienek" />
     <MESSAGE value="ostatni commit - nie wiem co się dzieje, ale jak chce zmienić położenie guzika to mi sie nie zmienia :(" />
     <MESSAGE value="ostateczny ostateczny commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="ostateczny ostateczny commit" />
+    <MESSAGE value="naprawa wynajmu i zwrotu" />
+    <MESSAGE value="koniec" />
+    <MESSAGE value="koniec cz.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="koniec cz.2" />
   </component>
 </project>
